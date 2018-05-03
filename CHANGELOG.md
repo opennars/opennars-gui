@@ -1,4 +1,4 @@
 # OpenNARS GUI Changelog
 
-## 1.7
+## 1.0.0
 
