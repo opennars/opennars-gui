@@ -1,33 +1,16 @@
-/*
- * Copyright (c) 2004-2013 Universidade do Porto - Faculdade de Engenharia
- * Laboratório de Sistemas e Tecnologia Subaquática (LSTS)
- * All rights reserved.
- * Rua Dr. Roberto Frias s/n, sala I203, 4200-465 Porto, Portugal
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * This file is part of Neptus, Command and Control Framework.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- * Commercial Licence Usage
- * Licencees holding valid commercial Neptus licences may use this file
- * in accordance with the commercial licence agreement provided with the
- * Software or, alternatively, in accordance with the terms contained in a
- * written agreement between you and Universidade do Porto. For licensing
- * terms, conditions, and further information contact lsts@fe.up.pt.
- *
- * European Union Public Licence - EUPL v.1.1 Usage
- * Alternatively, this file may be used under the terms of the EUPL,
- * Version 1.1 only (the "Licence"), appearing in the file LICENCE.md
- * included in the packaging of this file. You may not use this work
- * except in compliance with the Licence. Unless required by applicable
- * law or agreed to in writing, software distributed under the Licence is
- * distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF
- * ANY KIND, either express or implied. See the Licence for the specific
- * language governing permissions and limitations at
- * https://www.lsts.pt/neptus/licence.
- *
- * For more information please see <http://lsts.fe.up.pt/neptus>.
- *
- * Author: José Pinto
- * Nov 16, 2012
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package automenta.vivisect.swing.property.sheet.editor;
 

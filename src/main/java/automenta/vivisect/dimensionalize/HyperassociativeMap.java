@@ -1,16 +1,16 @@
 /**
- * ****************************************************************************
- *                                                                             *
- * Copyright: (c) Syncleus, Inc. * * You may redistribute and modify this source
- * code under the terms and * conditions of the Open Source Community License -
- * Type C version 1.0 * or any later version as published by Syncleus, Inc. at
- * www.syncleus.com. * There should be a copy of the license included with this
- * file. If a copy * of the license is not included you are granted no right to
- * distribute or * otherwise use this file except through a legal and valid
- * license. You * should also contact Syncleus, Inc. at the information below if
- * you cannot * find a license: * * Syncleus, Inc. * 2604 South 12th Street *
- * Philadelphia, PA 19148 * *
- *****************************************************************************
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package automenta.vivisect.dimensionalize;
 
