@@ -14,7 +14,7 @@
  */
 package automenta.vivisect.face;
 
-//package nars.gui.output.face;
+//package org.opennars.gui.output.face;
 //
 ///* General Notes:  Chris Poultney, 2/1/2000
 //   This applet is designed to work with Ken Perlin's responsive face applet, currently called
