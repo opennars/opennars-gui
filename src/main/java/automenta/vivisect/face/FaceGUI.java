@@ -737,7 +737,7 @@ public class FaceGUI extends BaseClass {
     }
 }
 
-//package nars.gui.output.face;
+//package org.opennars.gui.output.face;
 //
 //import java.awt.Color;
 //import java.awt.Event;

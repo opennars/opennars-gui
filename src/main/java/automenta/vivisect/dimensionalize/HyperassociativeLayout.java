@@ -23,8 +23,8 @@ import automenta.vivisect.graph.EdgeVis;
 import automenta.vivisect.graph.GraphDisplay;
 import automenta.vivisect.graph.VertexVis;
 import java.util.concurrent.atomic.AtomicBoolean;
-import nars.entity.Concept;
-import nars.entity.TaskLink;
+import org.opennars.entity.Concept;
+import org.opennars.entity.TaskLink;
 
 import org.apache.commons.math3.linear.ArrayRealVector;
 
