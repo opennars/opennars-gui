@@ -2,3 +2,4 @@
 *.bat eol=crlf
 *.sh eol=lf
 .git* export-ignore
+*.ttf binary
