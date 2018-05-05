@@ -19,8 +19,8 @@
  */
 package automenta.vivisect;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
+import java.io.IOException;
 
 /**
  *
@@ -52,12 +52,13 @@ public class Video {
     }
         
     
-    static {        
+    static {
         try {
-            Video.FontAwesome = Font.createFont(Font.TRUETYPE_FONT, Video.class.getResourceAsStream("FontAwesome.ttf")).deriveFont(Font.PLAIN, 14);
-        } catch (Exception ex) {    
-            System.err.println("FontAwesome.ttf not found");
-            //ex.printStackTrace();
+            Video.FontAwesome = Font.createFont(Font.TRUETYPE_FONT, Video.class.getResourceAsStream("/FontAwesome.ttf")).deriveFont(Font.PLAIN, 14);
+        } catch (FontFormatException e) {
+            throw new IllegalStateException("Font format invalid", e);
+        } catch (IOException e) {
+            throw new IllegalStateException("Unexpected IOException", e);
         }
 
     }
