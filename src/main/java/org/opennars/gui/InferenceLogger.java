@@ -21,7 +21,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.opennars.io.events.Events.ConceptNew;
 import org.opennars.io.events.Events.TaskAdd;
 import org.opennars.io.events.Events.TaskRemove;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Task;
 import org.opennars.gui.util.MemoryObserver;
@@ -39,16 +39,16 @@ public class InferenceLogger extends MemoryObserver {
     
     private final List<LogOutput> outputs = new CopyOnWriteArrayList<>();
 
-    public InferenceLogger(NAR n) {
+    public InferenceLogger(Nar n) {
         super(n, true);
     }
     
-    public InferenceLogger(NAR n, PrintStream p) {
+    public InferenceLogger(Nar n, PrintStream p) {
         super(n, true);
         addOutput(p);
     }
     
-    public InferenceLogger(NAR n, LogOutput l) {
+    public InferenceLogger(Nar n, LogOutput l) {
         super(n, true);
         addOutput(l);        
     }

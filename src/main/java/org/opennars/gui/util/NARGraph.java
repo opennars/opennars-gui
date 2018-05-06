@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import javax.xml.transform.TransformerConfigurationException;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.BudgetValue;
 import org.opennars.entity.Concept;
 import org.opennars.entity.TaskLink;
@@ -41,7 +41,7 @@ import org.jgrapht.graph.DirectedMultigraph;
 import org.xml.sax.SAXException;
 
 /**
- * Stores the contents of some, all, or of multiple NAR memory snapshots.
+ * Stores the contents of some, all, or of multiple Nar memory snapshots.
  *
  * @author me
  */
@@ -321,7 +321,7 @@ public class NARGraph extends DirectedMultigraph {
     public List<Concept> currentLevel = new ArrayList();
 
 
-    public NARGraph add(NAR n, Filter filter, Graphize graphize) {
+    public NARGraph add(Nar n, Filter filter, Graphize graphize) {
         graphize.onTime(this, n.time());
 
         //TODO support AbstractBag

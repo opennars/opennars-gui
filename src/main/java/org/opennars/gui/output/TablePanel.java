@@ -22,18 +22,18 @@ import java.util.List;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.io.events.OutputHandler;
 
 
 public abstract class TablePanel extends NPanel  {
 
-    protected final NAR nar;
+    protected final Nar nar;
     protected DefaultTableModel data;
     protected final JTable table;
     private final OutputHandler out;
 
-    public TablePanel(NAR nar) {
+    public TablePanel(Nar nar) {
         super(new BorderLayout());
         this.nar = nar;
         table = new JTable();   

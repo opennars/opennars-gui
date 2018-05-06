@@ -26,7 +26,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.gui.WrapLayout;
 
 /**
@@ -41,7 +41,7 @@ public class NARGraphPanel extends NPanel {
     private final JPanel graphControl;
 
     
-    public NARGraphPanel(NAR n) {
+    public NARGraphPanel(Nar n) {
         super(new BorderLayout());
         
     

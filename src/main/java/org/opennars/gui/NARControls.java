@@ -40,8 +40,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
+import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
-import org.opennars.main.NAR;
 import org.opennars.main.Parameters;
 import org.opennars.gui.input.TextInputPanel;
 import org.opennars.gui.output.PluginPanel;
@@ -51,7 +51,7 @@ import org.opennars.gui.output.TaskTree;
 import org.opennars.gui.output.graph.NARGraphPanel;
 import org.opennars.io.events.OutputHandler;
 import org.opennars.io.events.TextOutputHandler;
-import org.opennars.main.NAR.PortableInteger;
+import org.opennars.main.Nar.PortableInteger;
 import org.opennars.io.events.Events.CyclesEnd;
 
 public class NARControls extends JPanel implements ActionListener, EventObserver {
@@ -61,7 +61,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
     /**
      * Reference to the reasoner
      */
-    public final NAR nar;
+    public final Nar nar;
 
     /**
      * Reference to the memory
@@ -111,7 +111,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
      * @param title
      */
     public NARSwing parent;
-    public NARControls(final NAR nar, NARSwing parent) {
+    public NARControls(final Nar nar, NARSwing parent) {
         super(new BorderLayout());
         
         this.nar = nar;
@@ -497,7 +497,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                         String directoryName = dialog.getDirectory();
                         String fileName = dialog.getFile();
                         String filePath = directoryName + fileName;
-                        NAR loadedNAR = NAR.LoadFromFile(filePath);
+                        Nar loadedNAR = Nar.LoadFromFile(filePath);
                         new NARSwing(loadedNAR);
                         loadedNAR.memory.emit(OutputHandler.ECHO.class, "Memory file " + fileName + " loaded successfully.");
                         //new javax.swing.JOptionPane.showInputDialog(new javax.swing.JFrame(), "Memory loaded");
@@ -534,11 +534,11 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                     break;
                 case "Related Information":
 //                MessageDialog web =
-                    new MessageDialog(NAR.WEBSITE); 
+                    new MessageDialog(Nar.WEBSITE);
                     break;
                 case "About NARS":
 //                MessageDialog info =
-                    new MessageDialog(NAR.VERSION+"\n\n"+NAR.WEBSITE);
+                    new MessageDialog(Nar.VERSION+"\n\n"+ Nar.WEBSITE);
                     break;
             }
         }
@@ -790,7 +790,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         return s;
     }
 
-    /** if true, then the speed control allows NAR to run() each iteration with 0 delay.  
+    /** if true, then the speed control allows Nar to run() each iteration with 0 delay.
      *  otherwise, the minimum delay is 1ms */
     public void setAllowFullSpeed(boolean allowFullSpeed) {
         this.allowFullSpeed = allowFullSpeed;

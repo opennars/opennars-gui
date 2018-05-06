@@ -24,7 +24,7 @@ import org.opennars.entity.Task;
 import org.opennars.entity.TaskLink;
 import org.opennars.entity.TermLink;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.NAR.PortableDouble;
+import org.opennars.main.Nar.PortableDouble;
 import org.opennars.language.Term;
 
 

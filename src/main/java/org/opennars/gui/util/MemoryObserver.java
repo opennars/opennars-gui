@@ -18,8 +18,8 @@ import org.opennars.io.events.EventHandler;
 import org.opennars.io.events.Events;
 import org.opennars.io.events.Events.CycleEnd;
 import org.opennars.io.events.Events.CycleStart;
+import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
-import org.opennars.main.NAR;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Task;
 import org.opennars.io.events.OutputHandler;
@@ -28,7 +28,7 @@ public abstract class MemoryObserver extends EventHandler {
 
     private final Memory memory;
 
-    public MemoryObserver(NAR n, boolean active) {
+    public MemoryObserver(Nar n, boolean active) {
         this(n.memory, active);
     }
 

@@ -41,7 +41,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.gui.FileTreeModel;
 
 import static org.opennars.gui.output.SwingLogPanel.setConsoleFont;
@@ -78,7 +78,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
      */
     public interface TextInputMode /* extends AbstractInputMode */ {
         
-        void setInputState(NAR nar, String input  /* int cursorPosition */);
+        void setInputState(Nar nar, String input  /* int cursorPosition */);
         
         /** null if none available */
         String getInterpretation();
@@ -91,7 +91,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
     public class NullInput implements TextInputMode {
 
         private String input;
-        private NAR nar;
+        private Nar nar;
 
         public final InputAction clear = new InputAction() {
             @Override public String getLabel() {
@@ -165,7 +165,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
 
         
         @Override
-        public void setInputState(NAR nar, String input) {
+        public void setInputState(Nar nar, String input) {
             this.input = input;
             this.nar = nar;
         }
@@ -190,10 +190,10 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
     public class NarseseInput implements TextInputMode {
         
         private String input;
-        private NAR nar;
+        private Nar nar;
 
         @Override
-        public void setInputState(NAR nar, String input) {
+        public void setInputState(Nar nar, String input) {
             this.input = input;
             this.nar = nar;
         }
@@ -212,7 +212,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
 
             @Override
             public String getDescription() {
-                return "Direct input into NAR";
+                return "Direct input into Nar";
             }
 
             @Override
@@ -280,7 +280,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
         
     }
     
-    private final NAR nar;
+    private final Nar nar;
 
     /**
      * Input area
@@ -305,7 +305,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
      * @param nar The reasoner
      * @param title The title of the window
      */
-    public TextInputPanel(final NAR nar) {
+    public TextInputPanel(final Nar nar) {
         super(new BorderLayout());
 
         this.nar = nar;

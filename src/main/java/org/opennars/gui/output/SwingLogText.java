@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import javax.swing.AbstractAction;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
@@ -32,7 +32,7 @@ import org.opennars.io.events.OutputHandler.OUT;
 
 
 public class SwingLogText extends SwingText  {
-    private final NAR nar;
+    private final Nar nar;
     public boolean showStamp = false;
     final Deque<LogLine> pendingDisplay = new ConcurrentLinkedDeque<>();
     private JScrollPane scroller;
@@ -52,7 +52,7 @@ public class SwingLogText extends SwingText  {
     
     
 
-    public SwingLogText(NAR n) {        
+    public SwingLogText(Nar n) {
         super();
         
         this.nar = n;

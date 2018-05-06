@@ -23,7 +23,7 @@ import automenta.vivisect.graph.AbstractGraphVis;
 import automenta.vivisect.graph.EdgeVis;
 import automenta.vivisect.graph.GraphDisplay;
 import automenta.vivisect.graph.VertexVis;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Item;
 import org.opennars.entity.Task;
@@ -33,9 +33,9 @@ import org.opennars.entity.Task;
  */
 public class SpiralLayout implements GraphDisplay<Item, Object> {
     float spacing;
-    NAR nar;
+    Nar nar;
 
-    public SpiralLayout(NAR nar, float spacing) {
+    public SpiralLayout(Nar nar, float spacing) {
         this.spacing = spacing;
         this.nar = nar;
     }

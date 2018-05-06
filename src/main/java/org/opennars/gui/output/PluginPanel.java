@@ -38,21 +38,21 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
-import org.opennars.main.NAR;
-import org.opennars.main.NAR.PluginState;
+import org.opennars.main.Nar;
+import org.opennars.main.Nar.PluginState;
 import org.opennars.plugin.Plugin;
 import org.opennars.gui.util.PackageUtility;
 
 /**
- * Manages the activated set of plugins in a NAR, and a menu for adding additional ones
+ * Manages the activated set of plugins in a Nar, and a menu for adding additional ones
  * and presets of them.
  */
 public class PluginPanel extends VerticalPanel {
-    private final NAR nar;
+    private final Nar nar;
     private final JMenuBar menu;
     
 
-    public PluginPanel(NAR nar) {
+    public PluginPanel(Nar nar) {
         super();
         
         this.nar = nar;

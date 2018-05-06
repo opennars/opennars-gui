@@ -27,7 +27,7 @@ import processing.core.PGraphicsJava2D;
 /**
  * Timeline view of an inference trace. Focuses on a specific window and certain
  * features which can be adjusted dynamically. Can either analyze a trace while
- * a NAR runs, or after it finishes.
+ * a Nar runs, or after it finishes.
  */
 public class TimelineVis implements Vis {
 

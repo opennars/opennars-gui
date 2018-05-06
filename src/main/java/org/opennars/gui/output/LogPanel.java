@@ -31,7 +31,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
 import automenta.vivisect.swing.AwesomeToggleButton;
@@ -54,11 +54,11 @@ import org.opennars.io.events.TextOutputHandler;
 
 abstract public class LogPanel extends NPanel implements LogOutput {
 
-    static CharSequence getText(Class c, Object o, boolean showStamp, NAR nar) {
+    static CharSequence getText(Class c, Object o, boolean showStamp, Nar nar) {
         return TextOutputHandler.getOutputString(c, o, showStamp, nar);
     }
 
-    protected final NAR nar;
+    protected final Nar nar;
 
     private EventHandler out;
     

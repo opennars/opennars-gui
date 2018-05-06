@@ -15,15 +15,15 @@
 package org.opennars.gui.output;
 
 import automenta.vivisect.face.HumanoidFacePanel;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.main.Parameters;
 
 
 
 public class NARFacePanel extends HumanoidFacePanel  {
-    private final NAR nar;
+    private final Nar nar;
 
-    public NARFacePanel(NAR n) {
+    public NARFacePanel(Nar n) {
         super();
         this.nar = n;
     }

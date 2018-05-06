@@ -14,12 +14,12 @@
  */
 package org.opennars.gui.graph;
 
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Item;
 import org.opennars.entity.Sentence;
 import org.opennars.io.Symbols;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.NAR.PortableDouble;
+import org.opennars.main.Nar.PortableDouble;
 import org.opennars.language.Statement;
 import org.opennars.language.Term;
 
@@ -30,7 +30,7 @@ public class InheritanceGraph extends SentenceGraph {
     private final boolean includeInheritance;
     private final boolean includeSimilarity;
 
-    public InheritanceGraph(NAR nar, boolean includeInheritance, boolean includeSimilarity, PortableDouble minConceptPri) {
+    public InheritanceGraph(Nar nar, boolean includeInheritance, boolean includeSimilarity, PortableDouble minConceptPri) {
         super(nar.memory, minConceptPri);
         this.includeInheritance = includeInheritance;
         this.includeSimilarity = includeSimilarity;

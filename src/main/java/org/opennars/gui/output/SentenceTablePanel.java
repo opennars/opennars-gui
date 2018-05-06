@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
 import org.opennars.entity.TruthValue;
@@ -38,7 +38,7 @@ public class SentenceTablePanel extends TablePanel {
     private final JButton syntaxGraphButton;
     private PCanvas syntaxPanel=null;
 
-    public SentenceTablePanel(NAR nar) {
+    public SentenceTablePanel(Nar nar) {
         super(nar);
 
         data = newModel();

@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.language.Term;
 
@@ -33,16 +33,16 @@ public class ConceptButton extends JButton implements ActionListener {
 
     private Concept concept;
     private final Term term;
-    private NAR nar;
+    private Nar nar;
 
-    public ConceptButton(NAR n, Term t) {
+    public ConceptButton(Nar n, Term t) {
         super(t.toString());
         this.term = t;
         this.nar = n;
         addActionListener(this);
     }
 
-    public ConceptButton(NAR n, Concept c) {
+    public ConceptButton(Nar n, Concept c) {
         this(n, c.term);
         this.concept = c;
     }
@@ -59,7 +59,7 @@ public class ConceptButton extends JButton implements ActionListener {
         popup(nar, concept);
     }
 
-    public static void popup(NAR nar, Concept concept) {
+    public static void popup(Nar nar, Concept concept) {
         ConceptsPanel cp;
         NWindow w = new NWindow(concept.term.toString(), new JScrollPane(cp = new ConceptsPanel(nar, concept)));
         cp.onShowing(true);

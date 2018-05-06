@@ -20,7 +20,7 @@ import com.mxgraph.util.mxConstants;
 import java.awt.BorderLayout;
 import java.util.Map;
 import javax.swing.JPanel;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.gui.util.DefaultGraphizer;
 import org.opennars.gui.util.NARGraph;
 import static org.opennars.gui.util.NARGraph.IncludeEverything;
@@ -127,12 +127,12 @@ public class JGraphXGraphPanel extends JPanel {
         
     }
     
-    public JGraphXGraphPanel(NAR n) {
+    public JGraphXGraphPanel(Nar n) {
         this(new NARGraph().add(n, IncludeEverything, new DefaultGraphizer(true,true,true,true,3,false, false, null, null, null, null)));
     }
     
 //    public static void main(String[] args) {
-//        NAR n = new NAR();
+//        Nar n = new Nar();
 //        
 //        /*
 //        new TextInput(n, "<a --> b>.");

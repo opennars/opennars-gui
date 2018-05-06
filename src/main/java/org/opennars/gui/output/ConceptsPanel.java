@@ -45,7 +45,7 @@ import javax.swing.JTextField;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
 import org.opennars.io.events.Events.CyclesEnd;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
@@ -58,10 +58,10 @@ import org.opennars.inference.TruthFunctions;
  */
 public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
 
-    private final NAR nar;
+    private final Nar nar;
     private final LinkedHashMap<Concept, ConceptPanel> concept;
 
-    public ConceptsPanel(NAR n, Concept... c) {
+    public ConceptsPanel(Nar n, Concept... c) {
         super();
 
         this.nar = n;

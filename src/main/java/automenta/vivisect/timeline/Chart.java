@@ -62,7 +62,7 @@ public abstract class Chart {
         this.overlayEnable = overlayEnable;
     }
     
-    //called during NAR thread
+    //called during Nar thread
     public void update(TimelineVis l, float timeScale, float yScale) {
     }
 
