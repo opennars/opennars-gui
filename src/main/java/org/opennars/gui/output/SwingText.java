@@ -123,7 +123,7 @@ public class SwingText extends JTextPane {
         }
     }
 
-    //    public void print(Class c, Object o, boolean showStamp, NAR n) {
+    //    public void print(Class c, Object o, boolean showStamp, Nar n) {
     //        //limitBuffer(nextOutput.baseLength());
     //        out(c, o);
     //    }

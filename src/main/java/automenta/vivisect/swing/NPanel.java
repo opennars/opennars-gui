@@ -20,7 +20,7 @@ import java.awt.event.HierarchyListener;
 import javax.swing.JPanel;
 
 /**
- * JPanel subclass that is aware of when it is shown. This allows event handlers to attach and reattach to NAR's
+ * JPanel subclass that is aware of when it is shown. This allows event handlers to attach and reattach to Nar's
  * @author SeH
  */
 abstract public class NPanel extends JPanel implements HierarchyListener {

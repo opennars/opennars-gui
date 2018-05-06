@@ -23,7 +23,7 @@ import automenta.vivisect.graph.AbstractGraphVis;
 import automenta.vivisect.graph.EdgeVis;
 import automenta.vivisect.graph.GraphDisplay;
 import automenta.vivisect.graph.VertexVis;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Item;
 import org.opennars.entity.Task;
@@ -36,9 +36,9 @@ public class CircleLayout implements GraphDisplay<Item, Object> {
     //# of radians to cover
     float arcStart, arcStop;
     float spacing;
-    NAR nar;
+    Nar nar;
 
-    public CircleLayout(NAR nar, float arcStart, float arcStop, float spacing) {
+    public CircleLayout(Nar nar, float arcStart, float arcStop, float spacing) {
         this.arcStart = arcStart;
         this.arcStop = arcStop;
         this.spacing = spacing;

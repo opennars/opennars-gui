@@ -129,7 +129,7 @@ abstract public class AbstractGraphVis<V, E> implements Vis {
     abstract protected boolean hasUpdate();
     
     /**
-     * called from NAR update thread, not swing thread
+     * called from Nar update thread, not swing thread
      */
     public void updateGraph() {
         

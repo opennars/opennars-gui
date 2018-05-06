@@ -41,14 +41,14 @@ import javax.swing.JTextField;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events.CyclesEnd;
 import org.opennars.io.events.Events.ResetEnd;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.gui.output.graph.layout.CircleLayout;
 import org.opennars.gui.util.DefaultGraphizer;
 import org.opennars.gui.util.NARGraph;
 import org.opennars.gui.graph.InheritanceGraph;
 import org.opennars.gui.graph.ImplicationGraph;
 import org.opennars.gui.output.graph.layout.SpiralLayout;
-import org.opennars.main.NAR.PortableDouble;
+import org.opennars.main.Nar.PortableDouble;
 import org.jgrapht.Graph;
 
 /**
@@ -58,7 +58,7 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         
     
     final AtomicReference<Graph> displayedGraph = new AtomicReference();
-    private final NAR nar;
+    private final Nar nar;
     
     private final GraphDisplays displays;
     private NARGraphDisplay style;
@@ -214,7 +214,7 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
     
     boolean updateNextGraph = false;
             
-    public NARGraphVis(NAR n) {
+    public NARGraphVis(Nar n) {
         super(null, new GraphDisplays());
         this.nar = n;
         this.displays = (GraphDisplays)getDisplay();
@@ -273,7 +273,7 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
             updateNextGraph = false;
 
             if (!nar.isRunning()) {
-                //only update from here if NAR isnt running; otherwise a concurrency exception can occurr
+                //only update from here if Nar isnt running; otherwise a concurrency exception can occurr
 
                 Graph ng = nextGraph();
                 if (ng!=null)

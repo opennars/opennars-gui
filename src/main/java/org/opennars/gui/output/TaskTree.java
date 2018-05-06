@@ -45,7 +45,7 @@ import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events.CyclesEnd;
 import org.opennars.io.events.Events.TaskAdd;
 import org.opennars.io.events.Events.TaskRemove;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Task;
 import org.opennars.entity.TaskLink;
@@ -64,7 +64,7 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
     private DefaultTreeModel model;
     Map<Task, DefaultMutableTreeNode> nodes = new ConcurrentHashMap();
     private final JTree tree;
-    private final NAR nar;
+    private final Nar nar;
     final WeakHashMap<Task, TaskLabel> components = new WeakHashMap<>();
     float priorityThreshold = 0.01f;
     final Set<TreeNode> needRefresh = Collections.synchronizedSet(new HashSet());
@@ -77,7 +77,7 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
     boolean showingQuestions = true;
     boolean showingGoals = true;
     
-    public TaskTree(NAR nar) {
+    public TaskTree(Nar nar) {
         super(new BorderLayout());
 
         tree = new JTree();

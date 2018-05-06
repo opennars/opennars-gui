@@ -25,7 +25,7 @@
 //import javax.swing.JTextPane;
 //import org.opennars.core.EventEmitter.Observer;
 //import org.opennars.core.Events.CycleEnd;
-//import org.opennars.core.NAR;
+//import org.opennars.core.Nar;
 //import org.opennars.core.build.DefaultNARBuilder;
 //import org.opennars.entity.Task;
 //import org.opennars.gui.NPanel;
@@ -40,11 +40,11 @@
 //
 //public class TimePanel extends NPanel implements Observer {
 //    
-//    private final NAR nar;
+//    private final Nar nar;
 //    int cyclesShown = 60;
 //    Map<Long,String> cycleSummary = new TreeMap();
 //    
-//    public TimePanel(NAR n) {
+//    public TimePanel(Nar n) {
 //        super();
 //        setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 //        this.nar = n;
@@ -108,7 +108,7 @@
 //    
 //    public static void main(String[] args) {
 //        
-//        NAR n = new DefaultNARBuilder().build();
+//        Nar n = new DefaultNARBuilder().build();
 //        
 //        Window w = new Window("TimePanel", new JScrollPane(new TimePanel(n), JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
 //        w.setSize(800, 200);

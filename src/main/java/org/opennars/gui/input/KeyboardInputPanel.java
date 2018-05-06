@@ -27,7 +27,7 @@ import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
 import java.awt.event.KeyListener;
 import javax.swing.JTextArea;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.io.Texts;
 import static org.opennars.io.Texts.n2;
 
@@ -36,10 +36,10 @@ import static org.opennars.io.Texts.n2;
  * @author me
  */
 public class KeyboardInputPanel extends NPanel implements KeyListener, FocusListener {
-    private final NAR nar;
+    private final Nar nar;
     private final JTextArea text;
 
-    public KeyboardInputPanel(NAR n) {
+    public KeyboardInputPanel(Nar n) {
         super(new BorderLayout());
         
         text = new JTextArea();

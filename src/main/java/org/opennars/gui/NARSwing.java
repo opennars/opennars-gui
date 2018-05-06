@@ -23,12 +23,12 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.io.events.TextOutputHandler;
 
 /**
  * The main Swing GUI class of the open-org.opennars project.
- * Creates default Swing GUI windows to operate a NAR.
+ * Creates default Swing GUI windows to operate a Nar.
  */
 public class NARSwing  {
 
@@ -133,22 +133,22 @@ public class NARSwing  {
         UIManager.put("TableHeader.foreground", Color.ORANGE);
     }
 
-    public final NAR nar;
+    public final Nar nar;
     public final NWindow mainWindow;
     public final NARControls controls;
 
-    public NARSwing(NAR nar) {
+    public NARSwing(Nar nar) {
         this(nar, true);
     }
 
-    public NARSwing(NAR nar, boolean logPanel) {
+    public NARSwing(Nar nar, boolean logPanel) {
         super();
                 
         this.nar = nar;                
         
         controls = new NARControls(nar, this);    
         controls.setPreferredSize(new Dimension(200,10));
-        mainWindow = new NWindow(NAR.VERSION);
+        mainWindow = new NWindow(Nar.VERSION);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setBounds(10, 10, 870, 650);
        
@@ -192,7 +192,7 @@ public class NARSwing  {
     public static void main(String args[]) {
         themeInvert();
           
-        NAR nar = new NAR();
+        Nar nar = new Nar();
         NARSwing swing = new NARSwing(nar);
 
         if (args.length > 0) {

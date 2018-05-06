@@ -14,12 +14,12 @@
  */
 package org.opennars.gui.graph;
 
-import org.opennars.main.NAR;
+import org.opennars.main.Nar;
 import org.opennars.entity.Item;
 import org.opennars.entity.Sentence;
 import org.opennars.io.Symbols;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.NAR.PortableDouble;
+import org.opennars.main.Nar.PortableDouble;
 import org.opennars.language.Statement;
 import org.opennars.language.Term;
 
@@ -30,7 +30,7 @@ public class ImplicationGraph extends SentenceGraph {
     private final boolean includeImplication;
     private final boolean includeEquivalence;
 
-    public ImplicationGraph(NAR nar, boolean includeImplication, boolean includeEquivalence, PortableDouble minConceptPri) {
+    public ImplicationGraph(Nar nar, boolean includeImplication, boolean includeEquivalence, PortableDouble minConceptPri) {
         super(nar.memory, minConceptPri);
         this.includeImplication = includeImplication;
         this.includeEquivalence = includeEquivalence;
