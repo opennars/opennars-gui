@@ -33,7 +33,7 @@ public abstract class Chart {
     boolean drawOverlapped = false;
 
     public interface MultiChart {
-        public List<TreeMLData> getData();
+        List<TreeMLData> getData();
     }
     
     public Chart() {

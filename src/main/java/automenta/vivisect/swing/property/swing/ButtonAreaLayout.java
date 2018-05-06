@@ -45,31 +45,31 @@ public final class ButtonAreaLayout implements LayoutManager {
     int visibleCount = 0;
     Dimension componentPreferredSize;
 
-    for (int i = 0, c = children.length; i < c; i++) {
-      if (children[i].isVisible()) {
-        componentPreferredSize = children[i].getPreferredSize();
-        maxWidth = Math.max(maxWidth, componentPreferredSize.width);
-        maxHeight = Math.max(maxHeight, componentPreferredSize.height);
-        visibleCount++;
+      for (Component aChildren1 : children) {
+          if (aChildren1.isVisible()) {
+              componentPreferredSize = aChildren1.getPreferredSize();
+              maxWidth = Math.max(maxWidth, componentPreferredSize.width);
+              maxHeight = Math.max(maxHeight, componentPreferredSize.height);
+              visibleCount++;
+          }
       }
-    }
 
     int usedWidth = maxWidth * visibleCount + gap * (visibleCount - 1);
     
     visibleCount = 0;
-    for (int i = 0, c = children.length; i < c; i++) {
-      if (children[i].isVisible()) {
-        children[i].setBounds(
-          container.getWidth()
-            - insets.right
-            - usedWidth
-            + (maxWidth + gap) * visibleCount,
-          insets.top,
-          maxWidth,
-          maxHeight);
-        visibleCount++;
+      for (Component aChildren : children) {
+          if (aChildren.isVisible()) {
+              aChildren.setBounds(
+                  container.getWidth()
+                      - insets.right
+                      - usedWidth
+                      + (maxWidth + gap) * visibleCount,
+                  insets.top,
+                  maxWidth,
+                  maxHeight);
+              visibleCount++;
+          }
       }
-    }
   }
 
   public Dimension minimumLayoutSize(Container c) {
@@ -86,14 +86,14 @@ public final class ButtonAreaLayout implements LayoutManager {
     int visibleCount = 0;
     Dimension componentPreferredSize;
 
-    for (int i = 0, c = children.length; i < c; i++) {
-      if (children[i].isVisible()) {
-        componentPreferredSize = children[i].getPreferredSize();
-        maxWidth = Math.max(maxWidth, componentPreferredSize.width);
-        maxHeight = Math.max(maxHeight, componentPreferredSize.height);
-        visibleCount++;
+      for (Component aChildren : children) {
+          if (aChildren.isVisible()) {
+              componentPreferredSize = aChildren.getPreferredSize();
+              maxWidth = Math.max(maxWidth, componentPreferredSize.width);
+              maxHeight = Math.max(maxHeight, componentPreferredSize.height);
+              visibleCount++;
+          }
       }
-    }
 
     int usedWidth = maxWidth * visibleCount + gap * (visibleCount - 1);
 

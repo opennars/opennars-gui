@@ -463,9 +463,9 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
         if (hotspots == null) {
             return -1;
         }
-        for (int i = 0; i < hotspots.length; i++) {
-            if (hotspots[i].contains(px, py)) {
-                return hotspots[i].id;
+        for (HotSpot hotspot : hotspots) {
+            if (hotspot.contains(px, py)) {
+                return hotspot.id;
             }
         }
         return -1;
@@ -655,7 +655,7 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
         try {
             eventHandlerObject = obj;
             eventHandlerMethodName = methodName;
-            eventHandlerMethod = obj.getClass().getMethod(methodName, new Class<?>[]{this.getClass(), GEvent.class});
+            eventHandlerMethod = obj.getClass().getMethod(methodName, this.getClass(), GEvent.class);
         } catch (Exception e) {
             GMessenger.message(NONEXISTANT, new Object[]{this, methodName, new Class<?>[]{this.getClass(), GEvent.class}});
             eventHandlerObject = null;

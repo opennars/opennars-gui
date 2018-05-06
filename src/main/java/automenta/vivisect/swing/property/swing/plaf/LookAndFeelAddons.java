@@ -91,17 +91,17 @@ public class LookAndFeelAddons {
   private static LookAndFeelAddons currentAddon;
 
   public void initialize() {
-    for (Iterator iter = contributedComponents.iterator(); iter.hasNext();) {
-      ComponentAddon addon = (ComponentAddon)iter.next();
-      addon.initialize(this);
-    }
+      for (Object contributedComponent : contributedComponents) {
+          ComponentAddon addon = (ComponentAddon) contributedComponent;
+          addon.initialize(this);
+      }
   }
 
   public void uninitialize() {
-    for (Iterator iter = contributedComponents.iterator(); iter.hasNext();) {
-      ComponentAddon addon = (ComponentAddon)iter.next();
-      addon.uninitialize(this);
-    }
+      for (Object contributedComponent : contributedComponents) {
+          ComponentAddon addon = (ComponentAddon) contributedComponent;
+          addon.uninitialize(this);
+      }
   }
 
   /**
@@ -279,7 +279,7 @@ public class LookAndFeelAddons {
       }
       Method createUIMethod = null;
       try {
-        createUIMethod = realUIClass.getMethod("createUI", new Class[]{JComponent.class});
+        createUIMethod = realUIClass.getMethod("createUI", JComponent.class);
       } catch (NoSuchMethodException e1) {
         throw new RuntimeException("Class " + realUI + " has no method createUI(JComponent)");
       }

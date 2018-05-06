@@ -290,7 +290,7 @@ public class GCustomSlider extends GLinearTrackControl {
 	 * @param style
 	 */
 	private String loadStyle_FromG4P(String style) {
-		boolean found = (SLIDER_STYLES.indexOf("|"+style+"|") >= 0);
+		boolean found = (SLIDER_STYLES.contains("|" + style + "|"));
 		// If not found use the default grey_blue
 		if(!found)
 			style = DEFAULT_SLIDER_STYLE;

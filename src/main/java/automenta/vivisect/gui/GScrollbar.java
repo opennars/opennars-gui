@@ -121,10 +121,7 @@ class GScrollbar extends GControl {
 		if(value + filler > 1)
 			filler = 1 - value;
 		this.value = value;
-		if(autoHide && filler > 0.99999f)
-			visible = false;
-		else
-			visible = true;
+        visible = !autoHide || !(filler > 0.99999f);
 		bufferInvalid = true;
 	}
 
@@ -139,10 +136,7 @@ class GScrollbar extends GControl {
 			value = 1 - filler;
 		this.value = value;
 		this.filler = filler;
-		if(autoHide && this.filler > 0.99999f)
-			visible = false;
-		else
-			visible = true;
+        visible = !autoHide || !(this.filler > 0.99999f);
 		bufferInvalid = true;
 	}
 

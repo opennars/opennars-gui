@@ -247,28 +247,28 @@ public class PercentLayout implements LayoutManager2 {
     int height = 0;
     Dimension componentPreferredSize;
     boolean firstVisibleComponent = true;
-    for (int i = 0, c = components.length; i < c; i++) {
-      if (components[i].isVisible()) {
-        componentPreferredSize = components[i].getPreferredSize();
-        if (orientation == HORIZONTAL) {
-          height = Math.max(height, componentPreferredSize.height);
-          width += componentPreferredSize.width;
-          if (firstVisibleComponent) {
-            firstVisibleComponent = false;
-          } else {
-            width += gap;
+      for (Component component : components) {
+          if (component.isVisible()) {
+              componentPreferredSize = component.getPreferredSize();
+              if (orientation == HORIZONTAL) {
+                  height = Math.max(height, componentPreferredSize.height);
+                  width += componentPreferredSize.width;
+                  if (firstVisibleComponent) {
+                      firstVisibleComponent = false;
+                  } else {
+                      width += gap;
+                  }
+              } else {
+                  height += componentPreferredSize.height;
+                  width = Math.max(width, componentPreferredSize.width);
+                  if (firstVisibleComponent) {
+                      firstVisibleComponent = false;
+                  } else {
+                      height += gap;
+                  }
+              }
           }
-        } else {
-          height += componentPreferredSize.height;
-          width = Math.max(width, componentPreferredSize.width);
-          if (firstVisibleComponent) {
-            firstVisibleComponent = false;
-          } else {
-            height += gap;
-          }
-        }
       }
-    }
     return new Dimension(
       width + insets.right + insets.left,
       height + insets.top + insets.bottom);
@@ -344,9 +344,9 @@ public class PercentLayout implements LayoutManager2 {
 
     if (remaining.size() > 0) {
       int rest = availableSize / remaining.size();
-      for (Iterator iter = remaining.iterator(); iter.hasNext();) {
-        sizes[((Integer)iter.next()).intValue()] = rest;
-      }
+        for (Object aRemaining : remaining) {
+            sizes[((Integer) aRemaining).intValue()] = rest;
+        }
     }
 
     // all calculations are done, apply the sizes

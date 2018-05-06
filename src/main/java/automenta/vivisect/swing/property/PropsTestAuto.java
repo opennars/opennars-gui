@@ -54,7 +54,7 @@ public class PropsTestAuto implements PropertyChangeListener {
     }
 
     
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         PropsTestAuto pt = new PropsTestAuto();
         PropertyUtils.editProperties(null, pt, true);
     }

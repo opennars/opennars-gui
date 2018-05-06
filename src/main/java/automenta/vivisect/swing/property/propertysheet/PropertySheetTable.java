@@ -666,7 +666,7 @@ public class PropertySheetTable extends JTable {
       showToggle = item.hasToggle();
       
       indentWidth = getIndent(table, item);      
-      insets.left = indentWidth + (showToggle?HOTSPOT_SIZE:0) + 2;;
+      insets.left = indentWidth + (showToggle?HOTSPOT_SIZE:0) + 2;
     }
     
     public Insets getBorderInsets(Component c) {
@@ -765,7 +765,7 @@ public class PropertySheetTable extends JTable {
       setBackground(getBackground(item.isProperty(), isSelected));
       setForeground(getForeground(item.isProperty(), isSelected));
       
-      setEnabled(isSelected || !item.isProperty() ? true : item.getProperty().isEditable());
+      setEnabled((isSelected || !item.isProperty()) || item.getProperty().isEditable());
       setText(item.getName());
 
       return this;

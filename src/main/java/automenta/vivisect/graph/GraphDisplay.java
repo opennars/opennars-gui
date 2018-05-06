@@ -25,18 +25,18 @@ package automenta.vivisect.graph;
  */
 public interface GraphDisplay<V,E> {
 
-    default public boolean preUpdate(AbstractGraphVis<V,E> g) {
+    default boolean preUpdate(AbstractGraphVis<V, E> g) {
         return true;
     }
 
-    public void vertex(AbstractGraphVis<V,E> g, VertexVis<V,E> v);
-    public void edge(AbstractGraphVis<V,E> g, EdgeVis<V,E> e);
+    void vertex(AbstractGraphVis<V, E> g, VertexVis<V, E> v);
+    void edge(AbstractGraphVis<V, E> g, EdgeVis<V, E> e);
 
-    default public boolean postUpdate(AbstractGraphVis<V,E> g) {
+    default boolean postUpdate(AbstractGraphVis<V, E> g) {
         return true;
     }
     
-    public static enum Shape { Rectangle, Ellipse };
+    enum Shape { Rectangle, Ellipse }
 
 //    
 //    public Shape getVertexShape(V v);

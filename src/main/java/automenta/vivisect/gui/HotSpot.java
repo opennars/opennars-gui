@@ -141,8 +141,7 @@ abstract class HotSpot implements GConstants, Comparable<HotSpot> {
                     dx*=dx;
                     if (dx <= r2) {
                         dy*=dy;
-                        if (dy+dx <= r2)
-                            return true;
+                        return dy + dx <= r2;
                     }
                     return false;
 		}
@@ -196,9 +195,7 @@ abstract class HotSpot implements GConstants, Comparable<HotSpot> {
 				int pixel = mask.get((int)px, (int)py);
 				float alpha = (pixel >> 24) & 0xff;
 				// A > 0 and RGB = 0 is transparent
-				if(alpha > 0 && (pixel & 0x00ffffff) == 0){
-					return true;
-				}
+                return alpha > 0 && (pixel & 0x00ffffff) == 0;
 			}
 			return false;
 		}
@@ -254,8 +251,7 @@ abstract class HotSpot implements GConstants, Comparable<HotSpot> {
 				int imgX = Math.round(px - x) - offX;
 				int imgY = Math.round(py - y) - offY;
 				float alpha = (image.get(imgX, imgY) >> 24) & 0xff;
-				if(alpha >  ALPHA_PICK)
-					return true;
+                return alpha > ALPHA_PICK;
 			}
 			return false;
 		}

@@ -102,10 +102,9 @@ public class DefaultProperty extends AbstractProperty {
 				initializeValue(value); // avoid updating parent or firing
 										// property change
 				if (value != null) {
-					for (Iterator iter = subProperties.iterator(); iter.hasNext();) {
-						Property subProperty = (Property) iter.next();
-						subProperty.readFromObject(value);
-					}
+                    for (Property subProperty : subProperties) {
+                        subProperty.readFromObject(value);
+                    }
 				}
 			}
 		} catch (Exception e) {
@@ -123,7 +122,7 @@ public class DefaultProperty extends AbstractProperty {
 			Method method =
 			BeanUtils.getWriteMethod(object.getClass(), getName(), getType());
 			if (method != null) {
-				method.invoke(object, new Object[] { getValue() });
+				method.invoke(object, getValue());
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -145,10 +144,9 @@ public class DefaultProperty extends AbstractProperty {
 			}
 		}
 		if (value != null) {
-			for (Iterator iter = subProperties.iterator(); iter.hasNext();) {
-				Property subProperty = (Property) iter.next();
-				subProperty.readFromObject(value);
-			}
+            for (Property subProperty : subProperties) {
+                subProperty.readFromObject(value);
+            }
 		}
 	}
 
@@ -214,21 +212,19 @@ public class DefaultProperty extends AbstractProperty {
 	}
 
 	public void clearSubProperties() {
-		for (Iterator iter = this.subProperties.iterator(); iter.hasNext();) {
-			Property subProp = (Property) iter.next();
-			if (subProp instanceof DefaultProperty)
-				((DefaultProperty) subProp).setParentProperty(null);
-		}
+        for (Property subProp : this.subProperties) {
+            if (subProp instanceof DefaultProperty)
+                ((DefaultProperty) subProp).setParentProperty(null);
+        }
 		this.subProperties.clear();
 	}
 
 	public void addSubProperties(Collection subProperties) {
 		this.subProperties.addAll(subProperties);
-		for (Iterator iter = this.subProperties.iterator(); iter.hasNext();) {
-			Property subProp = (Property) iter.next();
-			if (subProp instanceof DefaultProperty)
-				((DefaultProperty) subProp).setParentProperty(this);
-		}
+        for (Property subProp : this.subProperties) {
+            if (subProp instanceof DefaultProperty)
+                ((DefaultProperty) subProp).setParentProperty(this);
+        }
 	}
 
 	public void addSubProperties(Property[] subProperties) {

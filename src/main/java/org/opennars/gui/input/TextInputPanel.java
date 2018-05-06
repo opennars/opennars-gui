@@ -55,18 +55,18 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
     private JButton defaultButton;
 
     public interface InputAction {
-        public String getLabel();
+        String getLabel();
         
         /** may be null */
-        public String getDescription();
+        String getDescription();
         
         /** perform the action; the returned String, if not null, replaces the current
          * input allowing for actions to transform the input
          */
-        public String run();
+        String run();
     
         /** between 0..1 used for sorting and affecting displayed prominence of menu option */
-        public double getStrength();
+        double getStrength();
 
     }
     
@@ -78,12 +78,12 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
      */
     public interface TextInputMode /* extends AbstractInputMode */ {
         
-        public void setInputState(NAR nar, String input  /* int cursorPosition */);
+        void setInputState(NAR nar, String input  /* int cursorPosition */);
         
-        /** null if none available */        
-        public String getInterpretation();
+        /** null if none available */
+        String getInterpretation();
         
-        public void getActions(List<InputAction> actionsCollected);
+        void getActions(List<InputAction> actionsCollected);
         
     }
     

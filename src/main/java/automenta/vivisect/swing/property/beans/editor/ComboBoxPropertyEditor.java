@@ -168,10 +168,8 @@ public class ComboBoxPropertyEditor extends AbstractPropertyEditor {
 		public boolean equals(Object o) {
 			if (o == this)
 				return true;
-			if (value == o || (value != null && value.equals(o)))
-				return true;
-			return false;
-		}
+            return value == o || (value != null && value.equals(o));
+        }
 
 		@Override
 		public int hashCode() {

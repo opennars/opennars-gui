@@ -133,7 +133,7 @@ public class PropertyRendererRegistry implements PropertyRendererFactory {
 		Constructor<?> ctor = null;
 
 		try {
-			ctor = clazz.getConstructor(new Class[] { Object.class });
+			ctor = clazz.getConstructor(Object.class);
 		} catch (Exception ex) {
 			// fall through
 		}
@@ -180,7 +180,7 @@ public class PropertyRendererRegistry implements PropertyRendererFactory {
 			Constructor<?> ctor = null;
 
 			try {
-				ctor = clazz.getConstructor(new Class[] { Object.class });
+				ctor = clazz.getConstructor(Object.class);
 			} catch (Exception ex) {
 				// fall through
 			}

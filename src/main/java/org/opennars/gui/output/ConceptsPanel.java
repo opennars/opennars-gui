@@ -389,7 +389,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
 
         public PriorityColumn(int width, int height) {
             super(width, height);
-            update(Collections.EMPTY_LIST);
+            update(Collections.<Task>emptyList());
         }
 
         public void update(Iterable<Task> i) {
@@ -428,7 +428,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
         }
 
         public int getX(long when) {
-            return (int)Math.round((when - minTime) / timeFactor);    
+            return Math.round((when - minTime) / timeFactor);
         }
         
         public boolean update(long time, Collection<Sentence> i) {
@@ -453,7 +453,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             if (g == null) return false;
             
             int thick = 4;                
-            timeFactor = ((float)maxTime - minTime) / ((float)w-thick);
+            timeFactor = (maxTime - minTime) / ((float)w-thick);
             
             g.setColor(new Color(0.1f, 0.1f, 0.1f));
             g.fillRect(0, 0, getWidth(), getHeight());
@@ -507,14 +507,14 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             if (g == null) return;
             
             g.setColor(new Color(0.1f, 0.1f, 0.1f));
-            g.fillRect(0, 0, (int) getWidth(), (int) getHeight());
+            g.fillRect(0, 0, getWidth(), getHeight());
             for (Sentence s : i) {
                 float freq = s.getTruth().getFrequency();
                 float conf = s.getTruth().getConfidence();
 
                 float factor = 1.0f;
                 if (s instanceof Sentence) {
-                    Sentence ss = (Sentence)s;
+                    Sentence ss = s;
                     if (!ss.isEternal()) {
                         //float factor = TruthFunctions.temporalProjection(now, ss.getOccurenceTime(), now);
                         factor = 1.0f / (1f + Math.abs(ss.getOccurenceTime() - now)  );                        

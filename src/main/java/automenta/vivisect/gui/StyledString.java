@@ -1021,7 +1021,7 @@ public final class StyledString implements GConstantsInternal, Serializable {
 	 * 
 	 */
 	private String removeDoubleSpacingFromPlainText(String chars){
-		while(chars.indexOf("\n\n") >= 0){
+		while(chars.contains("\n\n")){
 			invalidText = true;
 			chars = chars.replaceAll("\n\n", "\n");
 		}
@@ -1035,7 +1035,7 @@ public final class StyledString implements GConstantsInternal, Serializable {
 	 * @return the string with all EOLs removed
 	 */
 	private String removeSingleSpacingFromPlainText(String chars){
-		while(chars.indexOf("\n") >= 0){
+		while(chars.contains("\n")){
 			invalidText = true;
 			chars = chars.replaceAll("\n", "");
 		}

@@ -208,7 +208,7 @@ public class TreeMLData implements MLData {
 
     @Override
     public int size() {
-        return (int) (getEnd() - getStart());
+        return getEnd() - getStart();
     }
 
     

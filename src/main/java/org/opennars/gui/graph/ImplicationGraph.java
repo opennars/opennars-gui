@@ -39,9 +39,7 @@ public class ImplicationGraph extends SentenceGraph {
     @Override
     public boolean allow(final Sentence s) {        
         float conf = s.truth.getConfidence();
-        if (conf > minConfidence)
-            return true;
-        return false;
+        return conf > minConfidence;
     }
 
     @Override
@@ -55,13 +53,10 @@ public class ImplicationGraph extends SentenceGraph {
              o == Symbols.NativeOperator.IMPLICATION_AFTER ||
              o == Symbols.NativeOperator.IMPLICATION_WHEN) && includeImplication)
             return true;
-        if ((o == Symbols.NativeOperator.EQUIVALENCE ||
-             o == Symbols.NativeOperator.EQUIVALENCE_AFTER ||
-             o == Symbols.NativeOperator.EQUIVALENCE_WHEN) && includeEquivalence) {
-            return true;
-        }
+        return (o == Symbols.NativeOperator.EQUIVALENCE ||
+            o == Symbols.NativeOperator.EQUIVALENCE_AFTER ||
+            o == Symbols.NativeOperator.EQUIVALENCE_WHEN) && includeEquivalence;
 
-        return false;
     }
 
     @Override

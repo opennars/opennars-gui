@@ -128,9 +128,8 @@ public class VertexVis<V, E> {
             p.pushMatrix();
             p.translate(x*scale, y*scale);
             p.scale(radius/32f, radius/32f);
-            
-            for (int i = 0; i < children.size(); i++) {
-                final Vis child = children.get(i);
+
+            for (final Vis child : children) {
                 child.draw(p);
             }
             p.popMatrix();
@@ -147,11 +146,7 @@ public class VertexVis<V, E> {
         }
         x = (x * (1.0f - speed) + tx * (speed));
         y = (y * (1.0f - speed) + ty * (speed));
-        if ((Math.abs(tx - x) + Math.abs(ty - y)) > AbstractGraphVis.vertexTargetThreshold) {
-            //keep animating if any vertex hasnt reached its target
-            return false;
-        }
-        return true;
+        return !((Math.abs(tx - x) + Math.abs(ty - y)) > AbstractGraphVis.vertexTargetThreshold);
     }
 
     public Set<E> getEdges() {

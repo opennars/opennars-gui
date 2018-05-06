@@ -172,11 +172,8 @@ public class SpinnerEditor extends AbstractPropertyEditor {
 			if (o == this) {
 				return true;
 			}
-			if (value == o || (value != null && value.equals(o))) {
-				return true;
-			}
-			return false;
-		}
+            return value == o || (value != null && value.equals(o));
+        }
 
 		@Override
 		public int hashCode() {

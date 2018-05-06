@@ -65,7 +65,7 @@ public class SpectrumChart extends LineChart {
         TreeMLData chart = data.get(0);
         
         
-        float length = chart.getEnd() - chart.getStart();;
+        float length = chart.getEnd() - chart.getStart();
         int numWindows = (int)Math.ceil(length / windowSize);
         
         //TODO dont remove existing windows
