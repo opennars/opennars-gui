@@ -777,7 +777,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
             @Override
             public void setValue(float v) {
-                int i = (int) Math.round(v);
+                int i = Math.round(v);
                 super.setValue(i);
                 x.set(i);
             }

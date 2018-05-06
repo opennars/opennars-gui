@@ -47,7 +47,7 @@ public class PropsTest implements PropertyChangeListener {
 	@Property
 	Line2D.Double line = new Line2D.Double(10, 10, 11, 11);
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		PropsTest pt = new PropsTest();
 		/*if (new File("/home/zp/Desktop/pt.props").canRead())
 			PropertyUtils.loadProperties(pt, new File("/home/zp/Desktop/pt.props"), false);*/

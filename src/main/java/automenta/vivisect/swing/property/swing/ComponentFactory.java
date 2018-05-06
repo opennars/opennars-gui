@@ -25,7 +25,7 @@ public interface ComponentFactory {
 
   JComboBox createComboBox();
 
-  public static class Helper {
+  class Helper {
 
     static ComponentFactory factory = new DefaultComponentFactory();
 
@@ -38,7 +38,7 @@ public interface ComponentFactory {
     }
   }
 
-  public static class DefaultComponentFactory implements ComponentFactory {
+  class DefaultComponentFactory implements ComponentFactory {
     public JButton createMiniButton() {
       return new FixedButton();
     }

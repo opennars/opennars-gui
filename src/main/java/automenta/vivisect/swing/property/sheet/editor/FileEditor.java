@@ -149,11 +149,11 @@ public class FileEditor extends AbstractPropertyEditor {
 
 		@Override
 		public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
-			for (int i = 0, c = transferFlavors.length; i < c; i++) {
-				if (transferFlavors[i].equals(DataFlavor.javaFileListFlavor)) {
-					return true;
-				}
-			}
+            for (DataFlavor transferFlavor : transferFlavors) {
+                if (transferFlavor.equals(DataFlavor.javaFileListFlavor)) {
+                    return true;
+                }
+            }
 			return false;
 		}
 

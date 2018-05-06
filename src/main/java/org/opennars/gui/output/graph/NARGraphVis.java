@@ -65,12 +65,12 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
     private GraphDisplay layout;
     private JPanel modePanelHolder;
     
-    public static interface GraphMode {
-        public Graph nextGraph();
-        default public void stop() {
+    public interface GraphMode {
+        Graph nextGraph();
+        default void stop() {
         }
         
-        public JPanel newControlPanel();        
+        JPanel newControlPanel();
     }
 
     public abstract class MinPriorityGraphMode implements GraphMode {

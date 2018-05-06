@@ -141,7 +141,7 @@ public final class GGroup extends GControl {
 	 * @param duration time to fade over (milli-seconds)
 	 */
 	public void fadeOut(int delay, int duration){
-		actions.add(new Action(ALPHA_TO, delay, new Object[] { 0, duration }));
+		actions.add(new Action(ALPHA_TO, delay, 0, duration));
 	}
 
 	/**
@@ -151,7 +151,7 @@ public final class GGroup extends GControl {
 	 * @param duration time to fade over (milli-seconds)
 	 */
 	public void fadeIn(int delay, int duration){
-		actions.add(new Action(ALPHA_TO, delay, new Object[] { 255, duration }));
+		actions.add(new Action(ALPHA_TO, delay, 255, duration));
 	}
 
 	/**
@@ -163,7 +163,7 @@ public final class GGroup extends GControl {
 	 */
 	public void fadeTo(int delay, int duration, int alpha){
 		alpha &= 0xFF;
-		actions.add(new Action(ALPHA_TO, delay, new Object[] { alpha, duration }));
+		actions.add(new Action(ALPHA_TO, delay, alpha, duration));
 	}
 
 	/**
@@ -171,7 +171,7 @@ public final class GGroup extends GControl {
 	 * @param delay delay time before action is performed (milli-seconds)
 	 */
 	public void setEnabled(int delay, boolean enable){
-		actions.add(new Action(ENABLE, delay, new Object[] { enable }));		
+		actions.add(new Action(ENABLE, delay, enable));
 	}
 
 	public boolean isFading(){
@@ -199,7 +199,7 @@ public final class GGroup extends GControl {
 	 * @param delay delay time before action is performed (milli-seconds)
 	 */
 	public void setVisible(int delay, boolean visible){
-		actions.add(new Action(VISIBLE, delay, new Object[] { visible }));		
+		actions.add(new Action(VISIBLE, delay, visible));
 	}
 
 	/**
@@ -230,7 +230,7 @@ public final class GGroup extends GControl {
 	 */
 	public void setLocalColorScheme(int delay, int colScheme){
 		colScheme &= 0xf; // constrain to 0-15
-		actions.add(new Action(COLOR_SCHEME, delay, new Object[] { colScheme }));
+		actions.add(new Action(COLOR_SCHEME, delay, colScheme));
 	}
 	
 	public void pre(){

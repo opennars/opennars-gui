@@ -39,9 +39,7 @@ public class InheritanceGraph extends SentenceGraph {
     @Override
     public boolean allow(final Sentence s) {        
         float conf = s.truth.getConfidence();
-        if (conf > minConfidence)
-            return true;
-        return false;
+        return conf > minConfidence;
     }
 
     @Override
@@ -52,12 +50,8 @@ public class InheritanceGraph extends SentenceGraph {
         
         if ((o == Symbols.NativeOperator.INHERITANCE) && includeInheritance)
             return true;
-        if ((o == Symbols.NativeOperator.SIMILARITY) && includeSimilarity) {
-            
-            return true;
-        }
+        return (o == Symbols.NativeOperator.SIMILARITY) && includeSimilarity;
 
-        return false;
     }
 
     @Override

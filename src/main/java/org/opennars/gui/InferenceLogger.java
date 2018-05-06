@@ -33,8 +33,8 @@ import org.opennars.gui.util.MemoryObserver;
 public class InferenceLogger extends MemoryObserver {
 
 
-    public static interface LogOutput {
-        public void traceAppend(Class channel, String msg);
+    public interface LogOutput {
+        void traceAppend(Class channel, String msg);
     }
     
     private final List<LogOutput> outputs = new CopyOnWriteArrayList<>();

@@ -45,7 +45,7 @@ public class BarChart extends LineChart {
                 continue;
             }
             
-            float p = (max == min) ? 0 : (float) ((v - min) / (max - min));
+            float p = (max == min) ? 0 : (v - min) / (max - min);
             float px = width * x;
             float h = p * yScale1;
             float py = y + yScale1 - h;

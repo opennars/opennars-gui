@@ -125,8 +125,7 @@ public class GWindowInfo implements PConstants, GConstants, GConstantsInternal {
         }
         
         int numControls = windowControls.size();
-        for (int i = 0; i < numControls; i++) {
-            final GControl control = windowControls.get(i);
+        for (final GControl control : windowControls) {
             if ((control.registeredMethods & DRAW_METHOD) == DRAW_METHOD) {
                 control.draw();
             }

@@ -122,7 +122,7 @@ public enum GAlign {
 	 * @param text
 	 * @param desc
 	 */
-	private GAlign(int id, String text, String desc ){
+    GAlign(int id, String text, String desc){
 		alignID = id;
 		alignText = text;
 		description = desc;

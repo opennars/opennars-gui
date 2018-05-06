@@ -59,7 +59,7 @@ public class NARGraph extends DirectedMultigraph {
     /**
      * determines which NARS term can result in added graph features
      */
-    public static interface Filter {
+    public interface Filter {
 
         boolean includePriority(float l);
 
@@ -100,7 +100,7 @@ public class NARGraph extends DirectedMultigraph {
     /**
      * creates graph features from NARS term
      */
-    public static interface Graphize {
+    public interface Graphize {
 
         /**
          * called at beginning of operation

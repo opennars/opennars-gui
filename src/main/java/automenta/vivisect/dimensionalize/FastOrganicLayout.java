@@ -516,10 +516,9 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             dx += initialBounds.getX();
             dy += initialBounds.getY();
         }
-        
-        for (int i = 0; i < vertexArray.size(); i++) { 
-            VertexVis vd = vertexArray.get(i);          
-            vd.movePosition((float)dx, (float)dy);
+
+        for (VertexVis vd : vertexArray) {
+            vd.movePosition((float) dx, (float) dy);
         }
 
         return true;

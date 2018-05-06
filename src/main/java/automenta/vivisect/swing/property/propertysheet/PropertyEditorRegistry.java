@@ -161,7 +161,7 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 
 			Constructor<?> ctor = null;
 			try {
-				ctor = cls.getConstructor(new Class[] { Object.class });
+				ctor = cls.getConstructor(Object.class);
 			} catch (Exception ex) {
 				// fall through
 			}

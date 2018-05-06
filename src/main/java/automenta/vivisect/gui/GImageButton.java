@@ -148,10 +148,10 @@ public class GImageButton extends GControl {
 		//========================================================================
 		// Now decide whether to resize either the images or the button
 		if(width > 0 && height > 0){		// Resize images
-			for(int i = 0; i < bimage.length; i++){
-				if(bimage[i].width != width || bimage[i].height != height)
-					bimage[i].resize((int)width, (int)height);					
-			}
+            for (PImage aBimage : bimage) {
+                if (aBimage.width != width || aBimage.height != height)
+                    aBimage.resize((int) width, (int) height);
+            }
 			if(mask != null && (mask.width != width || mask.height != height))
 				mask.resize((int)width, (int)height);
 		}
@@ -241,10 +241,10 @@ public class GImageButton extends GControl {
 		//========================================================================
 		// Now decide whether to resize either the images or the button
 		if(width > 0 && height > 0){		// Resize images
-			for(int i = 0; i < bimage.length; i++){
-				if(bimage[i].width != width || bimage[i].height != height)
-					bimage[i].resize((int)width, (int)height);					
-			}
+            for (PImage aBimage : bimage) {
+                if (aBimage.width != width || aBimage.height != height)
+                    aBimage.resize((int) width, (int) height);
+            }
 			if(mask != null && (mask.width != width || mask.height != height))
 				mask.resize((int)width, (int)height);
 		}

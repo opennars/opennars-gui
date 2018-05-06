@@ -101,7 +101,7 @@ public enum GEvent {
 	private String type;
 	private String description;
 	
-	private GEvent(String type, String desc ){
+	GEvent(String type, String desc){
 		this.type = type;
 		description = desc;
 	}

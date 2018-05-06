@@ -47,7 +47,7 @@ public class DockingTransferType implements Transferable {
     }
 
     @Override
-    public Object getTransferData(final DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+    public Object getTransferData(final DataFlavor flavor) {
         return this;
     }
 

@@ -326,7 +326,7 @@ public class HyperassociativeMap<N, E> {
         return 1.0;
     }
     
-    public static enum EdgeWeightToDistanceFunction {
+    public enum EdgeWeightToDistanceFunction {
         Min, Max, Sum, SumOneDiv, OneDivSum, OneDivSumOneDiv
     }
     
@@ -581,13 +581,13 @@ public class HyperassociativeMap<N, E> {
     public interface DistanceMetric {
         
         /** version which can be overridden to eliminate max distance test in inner loop */
-        default public double getDistance(double[] a, double[] b) {
+        default double getDistance(double[] a, double[] b) {
             return getDistance(a, b, Double.POSITIVE_INFINITY);
         }
         
-        public double getDistance(double[] a, double[] b, double max);        
+        double getDistance(double[] a, double[] b, double max);
 
-        public double subtractIfLessThan(ArrayRealVector a, ArrayRealVector b, ArrayRealVector result, double maxDistance);
+        double subtractIfLessThan(ArrayRealVector a, ArrayRealVector b, ArrayRealVector result, double maxDistance);
     }
     
     public final static DistanceMetric Euclidean = new DistanceMetric() {

@@ -50,7 +50,7 @@ public enum GControlMode implements PConstants{
 	public final String ps_name;
 	public final int mode;
 	
-	private GControlMode(String desc, String name, int ctrl_mode ){
+	GControlMode(String desc, String name, int ctrl_mode){
 		description = desc;
 		ps_name = name;
 		mode = ctrl_mode;
