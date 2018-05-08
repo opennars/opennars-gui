@@ -17,6 +17,9 @@ package org.opennars.gui.util;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTextField;
+
+import org.opennars.main.Nar;
+import org.opennars.main.NarParameters;
 import org.opennars.main.Parameters;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Sentence;
@@ -41,7 +44,8 @@ public class DefaultGraphizer implements NARGraph.Graphize {
     public final Map<Sentence, Concept> sentenceTerms = new HashMap();
     private final boolean includeTermContent;
     private final boolean includeDerivations;
-    
+    private final NarParameters narParameters;
+
     @Deprecated protected int includeSyntax; //how many recursive levels to decompose per Term
 
     //g.addVertex(c);
@@ -60,7 +64,7 @@ public class DefaultGraphizer implements NARGraph.Graphize {
     //avoid loops
 
     public DefaultGraphizer() {
-        this(false, false, false, false,0,false,false, null, null, null, null);
+        this(false, false, false, false,0,false,false, null, null, null, null, null);
     }
     
     JTextField filterBox;
@@ -69,7 +73,7 @@ public class DefaultGraphizer implements NARGraph.Graphize {
     PortableDouble nConcepts;
     public DefaultGraphizer(boolean includeBeliefs, boolean includeDerivations, boolean includeQuestions, boolean includeTermContent, 
             int includeSyntax, boolean includeTermLinks, boolean includeTaskLinks, JTextField filterBox,
-             PortableDouble conceptPriorityThreshold, PortableDouble taskPriorityThreshold, PortableDouble nConcepts) {
+             PortableDouble conceptPriorityThreshold, PortableDouble taskPriorityThreshold, PortableDouble nConcepts, NarParameters narParameters) {
         this.includeBeliefs = includeBeliefs;
         this.includeQuestions = includeQuestions;
         this.includeTermContent = includeTermContent;
@@ -81,6 +85,7 @@ public class DefaultGraphizer implements NARGraph.Graphize {
         this.conceptPriorityThreshold = conceptPriorityThreshold;
         this.taskPriorityThreshold = taskPriorityThreshold;
         this.nConcepts = nConcepts;
+        this.narParameters = narParameters;
     }
     //if (terms.put(t)) {
     //}
@@ -112,8 +117,8 @@ public class DefaultGraphizer implements NARGraph.Graphize {
        
         
         Term t = c.term;
-        
-        if(this.filterBox != null && terms.size() < nConcepts.get()*((double) Parameters.CONCEPT_BAG_SIZE) &&
+
+        if(this.filterBox != null && terms.size() < nConcepts.get()*((double)narParameters.CONCEPT_BAG_SIZE) &&
                 c.getPriority() > this.conceptPriorityThreshold.get() &&
                 ("".equals(this.filterBox.getText()) || t.toString().contains(this.filterBox.getText()))){
             g.addVertex(c);

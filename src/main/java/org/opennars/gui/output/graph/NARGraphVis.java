@@ -116,7 +116,7 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         public Graph nextGraph() {
             return new NARGraph().add(nar, new NARGraph.ExcludeBelowPriority(minPriority), 
                     new DefaultGraphizer(showBeliefs, showBeliefs, showQuestions, showTermContent, 
-                            0, showTermLinks, showTaskLinks, filterBox, conceptPriorityThreshold, taskPriorityThreshold, nConcepts));
+                            0, showTermLinks, showTaskLinks, filterBox, conceptPriorityThreshold, taskPriorityThreshold, nConcepts, nar.narParameters));
         }
 
         @Override
