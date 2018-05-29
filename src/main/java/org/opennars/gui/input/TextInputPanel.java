@@ -46,6 +46,7 @@ import org.opennars.gui.FileTreeModel;
 
 import static org.opennars.gui.output.SwingLogPanel.setConsoleFont;
 import org.opennars.io.events.OutputHandler.OUT;
+import org.opennars.main.Parameters;
 
 
 public class TextInputPanel extends NPanel /*implements ActionListener*/ {
@@ -217,8 +218,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
 
             @Override
             public String run() {
-                evaluateSeq(input);
-                return "";
+                return evaluateSeq(input);
             }
 
             @Override
@@ -271,15 +271,21 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
             */
         }
         
-        public void evaluateSeq(String input) {
+        public String evaluateSeq(String input) {
             //TODO make sequential evaluation
-            nar.addInput(input);
+            try{
+                nar.addInput(input);
+            }
+            catch(Exception ex) {
+                if(Parameters.DEBUG) {
+                    throw new IllegalStateException("error parsing:" + input, ex);
+                }
+                return input;
+            }
             nar.cycles(1);
+            return "";
         }
-
-        
     }
-    
     private final Nar nar;
 
     /**
