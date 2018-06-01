@@ -101,6 +101,8 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
     private boolean allowFullSpeed = true;
     public final InferenceLogger logger;
+    
+    private NSlider threadSlider;
 
     int chartHistoryLength = 128;
     
@@ -584,6 +586,43 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         return s;
     }
 
+    private NSlider newThreadsSlider() {
+        final NSlider s = this.threadSlider = new NSlider(1f, 1f, 16f) {
+
+            @Override
+            public String getText() {
+                if (value == null) {
+                    return "";
+                }
+
+                float v = value();
+                String s = "Threads:" + super.getText();
+                return s;
+            }
+
+            @Override
+            public void setValue(float v) {
+                super.setValue(Math.round(v));
+                repaint(); //needed to update when called from outside, as the 'focus' button does
+            }
+
+            @Override
+            public void onChange(float v) {
+                int level = (int) v;
+                long speed = nar.getMinCyclePeriodMS();
+                boolean wasRunning = nar.isRunning();
+                nar.stop();
+                (nar.param).threadsAmount.set(level);
+                if(wasRunning) {
+                    nar.start(speed);
+                }
+            }
+
+        };
+
+        return s;
+    }
+    
     private NSlider newVolumeSlider() {
         final NSlider s = this.volumeSlider = new NSlider(100f, 0, 100f) {
 
@@ -701,6 +740,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
             public void actionPerformed(ActionEvent e) {
                 setSpeed(1.0f);
                 volumeSlider.setValue(0.0f);
+                volumeSlider.repaint();
             }
 
         });
@@ -736,6 +776,9 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         ss.setFont(vs.getFont());
         p.add(ss, c);
 
+        NSlider vs2 = newThreadsSlider();
+        vs.setFont(vs.getFont());
+        p.add(vs2, c);
 
         c.ipady = 4;
 
