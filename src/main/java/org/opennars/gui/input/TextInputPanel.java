@@ -41,6 +41,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+
+import org.opennars.io.events.OutputHandler;
 import org.opennars.main.Nar;
 import org.opennars.gui.FileTreeModel;
 
@@ -280,6 +282,9 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
                 if(Parameters.DEBUG) {
                     throw new IllegalStateException("error parsing:" + input, ex);
                 }
+
+                nar.memory.emit(OutputHandler.ECHO.class, "Parsing failed!");
+
                 return input;
             }
             nar.cycles(1);
