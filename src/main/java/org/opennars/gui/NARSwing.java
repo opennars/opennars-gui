@@ -189,7 +189,7 @@ public class NARSwing  {
      * @param args optional argument used : one addInput file, possibly followed by
  --silence <integer>
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         themeInvert();
           
         Nar nar = new Nar();

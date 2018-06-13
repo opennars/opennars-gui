@@ -29,6 +29,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -38,6 +40,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.xml.parsers.ParserConfigurationException;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
 import org.opennars.main.Nar;
@@ -53,6 +56,7 @@ import org.opennars.io.events.OutputHandler;
 import org.opennars.io.events.TextOutputHandler;
 import org.opennars.main.Nar.PortableInteger;
 import org.opennars.io.events.Events.CyclesEnd;
+import org.xml.sax.SAXException;
 
 public class NARControls extends JPanel implements ActionListener, EventObserver {
 
@@ -509,7 +513,21 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                         Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    } catch (IllegalAccessException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParserConfigurationException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SAXException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NoSuchMethodException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InvocationTargetException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     break;
                 } 
                 case "Load Experience":
