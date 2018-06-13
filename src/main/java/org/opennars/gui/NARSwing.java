@@ -145,7 +145,7 @@ public class NARSwing  {
         super();
                 
         this.nar = nar;                
-        
+        this.nar.addPlugin(new RuntimeNarSettings());
         controls = new NARControls(nar, this);    
         controls.setPreferredSize(new Dimension(200,10));
         mainWindow = new NWindow(Nar.VERSION);
