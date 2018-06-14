@@ -25,6 +25,7 @@ import org.opennars.language.Term;
 import org.opennars.gui.util.NARGraph;
 import org.opennars.gui.util.NARGraph.UniqueEdge;
 import org.jgrapht.Graph;
+import org.opennars.main.Nar;
 
 /**
  *
@@ -33,8 +34,8 @@ import org.jgrapht.Graph;
 public class TermSyntaxVis extends AnimatingGraphVis {
     private NARGraph syntaxGraph;
 
-    public TermSyntaxVis(Term... t) {
-        super(new NARGraph(), new NARGraphDisplay().setTextSize(0.25f,64)
+    public TermSyntaxVis(Nar nar, Term... t) {
+        super(new NARGraph(), new NARGraphDisplay(nar).setTextSize(0.25f,64)
                 , new AbegoTreeLayout());
         
         update(t);

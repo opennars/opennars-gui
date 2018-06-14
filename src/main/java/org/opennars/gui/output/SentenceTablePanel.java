@@ -109,7 +109,7 @@ public class SentenceTablePanel extends TablePanel {
             sel[k]=w.term;
             k++;
         }
-        TermSyntaxVis tt = new TermSyntaxVis(sel);
+        TermSyntaxVis tt = new TermSyntaxVis(this.nar, sel);
         syntaxPanel = new PCanvas(tt);
         syntaxPanel.setZoom(10f);
         NWindow w = new NWindow("", syntaxPanel);

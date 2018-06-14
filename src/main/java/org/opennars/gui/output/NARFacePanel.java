@@ -16,7 +16,7 @@ package org.opennars.gui.output;
 
 import automenta.vivisect.face.HumanoidFacePanel;
 import org.opennars.main.Nar;
-import org.opennars.main.Parameters;
+import org.opennars.main.MiscFlags;
 
 
 
@@ -43,8 +43,8 @@ public class NARFacePanel extends HumanoidFacePanel  {
 
     @Override
     public void update(double t) {
-        happy = nar.memory.emotion.happy() > Parameters.HAPPY_EVENT_HIGHER_THRESHOLD;
-        unhappy = nar.memory.emotion.happy() < Parameters.HAPPY_EVENT_LOWER_THRESHOLD;
+        happy = nar.memory.emotion.happy() > this.nar.narParameters.HAPPY_EVENT_HIGHER_THRESHOLD;
+        unhappy = nar.memory.emotion.happy() < this.nar.narParameters.HAPPY_EVENT_LOWER_THRESHOLD;
         float conceptPriority = 0.5f; //((Number)nar.memory.logic.get("concept.priority.mean")).floatValue();
         float taskNewPriority = 0.5f; //((Number)nar.memory.logic.get("task.new.priority.mean")).floatValue();        
         

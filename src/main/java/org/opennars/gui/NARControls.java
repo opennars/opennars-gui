@@ -45,7 +45,7 @@ import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
 import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
-import org.opennars.main.Parameters;
+import org.opennars.main.MiscFlags;
 import org.opennars.gui.input.TextInputPanel;
 import org.opennars.gui.output.PluginPanel;
 import org.opennars.gui.output.SentenceTablePanel;
@@ -802,7 +802,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
         // FIXME< we need to have a slider which uses the float value >
         //p.add(new NSlider(nar.narParameters.DECISION_THRESHOLD, "Decision Threshold", 0.0f, 1.0f), c);
-        p.add(new NSlider(Parameters.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
+        p.add(new NSlider(memory.param.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
         p.add(new NSlider(memory.param.taskLinkForgetDurations, "Task Duration", 0.0f, 20), c);
         p.add(new NSlider(memory.param.termLinkForgetDurations, "Belief Duration", 0.0f, 20), c);
         p.add(new NSlider(memory.param.conceptForgetDurations, "Concept Duration", 0.0f, 20), c);
