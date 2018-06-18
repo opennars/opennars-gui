@@ -36,6 +36,7 @@ import org.opennars.entity.TermLink;
 import org.opennars.language.Term;
 import org.opennars.gui.util.NARGraph;
 import org.opennars.inference.TruthFunctions;
+import org.opennars.main.Nar;
 /**
  *
  * @author me
@@ -52,6 +53,11 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
     
     int defaultEdgeColor = Video.color(127,127,127,200);
     int defaultTextColor = Video.color(255,255,255,255);
+    private Nar nar;
+    
+    public NARGraphDisplay(Nar nar) {
+        this.nar = nar;
+    }
 
     public NARGraphDisplay setTextSize(float textSize, int maxLabelLen) {
         this.textSize = textSize;
@@ -127,9 +133,9 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
                     float conf = t.sentence.truth.getConfidence();
                     float freq = t.sentence.truth.getFrequency();
                     aa = 0.25f + conf * 0.75f;
-                    float evidence = TruthFunctions.c2w(conf);
-                    float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq);
-                    float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq));
+                    float evidence = TruthFunctions.c2w(conf, this.nar.narParameters);
+                    float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
+                    float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
                     rr = positive_evidence_in_0_1;
                     bb = negative_evidence_in_0_1;
                     gg = 0.0f;
@@ -151,9 +157,9 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
                 float conf = sent.truth.getConfidence();
                 float freq = sent.truth.getFrequency();
                 aa = 0.25f + conf * 0.75f;
-                float evidence = TruthFunctions.c2w(conf);
-                float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq);
-                float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq));
+                float evidence = TruthFunctions.c2w(conf, this.nar.narParameters);
+                float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
+                float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
                 rr = positive_evidence_in_0_1;
                 bb = negative_evidence_in_0_1;
                 gg = 0.0f;

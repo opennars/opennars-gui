@@ -145,7 +145,7 @@ public class NARSwing  {
         super();
                 
         this.nar = nar;                
-        
+        this.nar.addPlugin(new RuntimeNarSettings());
         controls = new NARControls(nar, this);    
         controls.setPreferredSize(new Dimension(200,10));
         mainWindow = new NWindow(Nar.VERSION);
@@ -171,13 +171,6 @@ public class NARSwing  {
             //new Log4JOutput(nar, false);            
         }
         
-                
-//        Window outputWindow = new Window("Activity", new MultiOutputPanel(swing.narControls));
-//        outputWindow.setLocation(swing.mainWindow.getLocation().x + swing.mainWindow.getWidth(), swing.mainWindow.getLocation().y);        outputWindow.setSize(800, 400);
-//        outputWindow.setVisible(true);
-
-                
-        
     }
 
     
@@ -189,7 +182,7 @@ public class NARSwing  {
      * @param args optional argument used : one addInput file, possibly followed by
  --silence <integer>
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         themeInvert();
           
         Nar nar = new Nar();

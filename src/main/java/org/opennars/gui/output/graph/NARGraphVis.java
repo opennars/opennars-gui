@@ -218,7 +218,7 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         super(null, new GraphDisplays());
         this.nar = n;
         this.displays = (GraphDisplays)getDisplay();
-        NARGraphDisplay grap = new NARGraphDisplay();
+        NARGraphDisplay grap = new NARGraphDisplay(n);
         update(grap, new FastOrganicLayout());
     }
     

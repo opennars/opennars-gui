@@ -29,6 +29,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -38,11 +40,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.xml.parsers.ParserConfigurationException;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
 import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
-import org.opennars.main.Parameters;
+import org.opennars.main.MiscFlags;
 import org.opennars.gui.input.TextInputPanel;
 import org.opennars.gui.output.PluginPanel;
 import org.opennars.gui.output.SentenceTablePanel;
@@ -53,6 +56,7 @@ import org.opennars.io.events.OutputHandler;
 import org.opennars.io.events.TextOutputHandler;
 import org.opennars.main.Nar.PortableInteger;
 import org.opennars.io.events.Events.CyclesEnd;
+import org.xml.sax.SAXException;
 
 public class NARControls extends JPanel implements ActionListener, EventObserver {
 
@@ -101,6 +105,8 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
     private boolean allowFullSpeed = true;
     public final InferenceLogger logger;
+    
+    private NSlider threadSlider;
 
     int chartHistoryLength = 128;
     
@@ -507,7 +513,21 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                         Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    } catch (IllegalAccessException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParserConfigurationException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SAXException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NoSuchMethodException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InvocationTargetException ex) {
+                    Logger.getLogger(NARControls.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     break;
                 } 
                 case "Load Experience":
@@ -584,6 +604,43 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         return s;
     }
 
+    private NSlider newThreadsSlider() {
+        final NSlider s = this.threadSlider = new NSlider(1f, 1f, 16f) {
+
+            @Override
+            public String getText() {
+                if (value == null) {
+                    return "";
+                }
+
+                float v = value();
+                String s = "Threads:" + super.getText();
+                return s;
+            }
+
+            @Override
+            public void setValue(float v) {
+                super.setValue(Math.round(v));
+                repaint(); //needed to update when called from outside, as the 'focus' button does
+            }
+
+            @Override
+            public void onChange(float v) {
+                int level = (int) v;
+                long speed = nar.getMinCyclePeriodMS();
+                boolean wasRunning = nar.isRunning();
+                nar.stop();
+                (nar.param).threadsAmount.set(level);
+                if(wasRunning) {
+                    nar.start(speed);
+                }
+            }
+
+        };
+
+        return s;
+    }
+    
     private NSlider newVolumeSlider() {
         final NSlider s = this.volumeSlider = new NSlider(100f, 0, 100f) {
 
@@ -701,6 +758,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
             public void actionPerformed(ActionEvent e) {
                 setSpeed(1.0f);
                 volumeSlider.setValue(0.0f);
+                volumeSlider.repaint();
             }
 
         });
@@ -736,12 +794,15 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         ss.setFont(vs.getFont());
         p.add(ss, c);
 
+        NSlider vs2 = newThreadsSlider();
+        vs.setFont(vs.getFont());
+        p.add(vs2, c);
 
         c.ipady = 4;
 
         // FIXME< we need to have a slider which uses the float value >
         //p.add(new NSlider(nar.narParameters.DECISION_THRESHOLD, "Decision Threshold", 0.0f, 1.0f), c);
-        p.add(new NSlider(Parameters.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
+        p.add(new NSlider(memory.param.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
         p.add(new NSlider(memory.param.taskLinkForgetDurations, "Task Duration", 0.0f, 20), c);
         p.add(new NSlider(memory.param.termLinkForgetDurations, "Belief Duration", 0.0f, 20), c);
         p.add(new NSlider(memory.param.conceptForgetDurations, "Concept Duration", 0.0f, 20), c);

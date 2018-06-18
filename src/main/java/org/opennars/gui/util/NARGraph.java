@@ -325,28 +325,29 @@ public class NARGraph extends DirectedMultigraph {
         graphize.onTime(this, n.time());
 
         //TODO support AbstractBag
-        for (Concept c : n.memory) {
+        synchronized(n.memory.concepts) {
+            for (Concept c : n.memory) {
 
-            //TODO use more efficient iterator so that the entire list does not need to be traversed when excluding ranges
-            float p = c.getPriority();
+                //TODO use more efficient iterator so that the entire list does not need to be traversed when excluding ranges
+                float p = c.getPriority();
 
-            if (!filter.includePriority(p)) {
-                continue;
+                if (!filter.includePriority(p)) {
+                    continue;
+                }
+
+                //graphize.preLevel(this, p);
+                if (!filter.includeConcept(c)) {
+                    continue;
+                }
+
+                graphize.onConcept(this, c);
+
+                //graphize.postLevel(this, level);
             }
 
-            //graphize.preLevel(this, p);
-            if (!filter.includeConcept(c)) {
-                continue;
-            }
-
-            graphize.onConcept(this, c);
-
-            //graphize.postLevel(this, level);
+            graphize.onFinish(this);
+            return this;
         }
-
-        graphize.onFinish(this);
-        return this;
-
     }
 
     public boolean addEdge(Object sourceVertex, Object targetVertex, NAREdge e) {

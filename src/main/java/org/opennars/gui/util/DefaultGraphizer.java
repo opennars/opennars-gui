@@ -19,8 +19,8 @@ import java.util.Map;
 import javax.swing.JTextField;
 
 import org.opennars.main.Nar;
-import org.opennars.main.NarParameters;
 import org.opennars.main.Parameters;
+import org.opennars.main.MiscFlags;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
@@ -44,7 +44,7 @@ public class DefaultGraphizer implements NARGraph.Graphize {
     public final Map<Sentence, Concept> sentenceTerms = new HashMap();
     private final boolean includeTermContent;
     private final boolean includeDerivations;
-    private final NarParameters narParameters;
+    private final Parameters narParameters;
 
     @Deprecated protected int includeSyntax; //how many recursive levels to decompose per Term
 
@@ -73,7 +73,7 @@ public class DefaultGraphizer implements NARGraph.Graphize {
     PortableDouble nConcepts;
     public DefaultGraphizer(boolean includeBeliefs, boolean includeDerivations, boolean includeQuestions, boolean includeTermContent, 
             int includeSyntax, boolean includeTermLinks, boolean includeTaskLinks, JTextField filterBox,
-             PortableDouble conceptPriorityThreshold, PortableDouble taskPriorityThreshold, PortableDouble nConcepts, NarParameters narParameters) {
+             PortableDouble conceptPriorityThreshold, PortableDouble taskPriorityThreshold, PortableDouble nConcepts, Parameters narParameters) {
         this.includeBeliefs = includeBeliefs;
         this.includeQuestions = includeQuestions;
         this.includeTermContent = includeTermContent;

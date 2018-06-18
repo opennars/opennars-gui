@@ -52,6 +52,8 @@ import org.opennars.entity.Task;
 import org.opennars.entity.TaskLink;
 import org.opennars.gui.WrapLayout;
 import org.opennars.inference.TruthFunctions;
+import org.opennars.main.Parameters;
+import org.opennars.storage.Memory;
 
 /**
  * Views one or more Concepts
@@ -162,11 +164,11 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             details.setOpaque(false);
 
             details.add(new JLabel("Beliefs"));
-            details.add(this.beliefChart = new TruthChart(chartWidth, chartHeight));
+            details.add(this.beliefChart = new TruthChart(c.memory, chartWidth, chartHeight));
             details.add(new JLabel("Questions"));
             details.add(this.questionChart = new PriorityColumn((int)Math.ceil(Math.sqrt(chartWidth)), chartHeight));
             details.add(new JLabel("Desires"));
-            details.add(this.desireChart = new TruthChart(chartWidth, chartHeight));
+            details.add(this.desireChart = new TruthChart(c.memory, chartWidth, chartHeight));
             //details.add(this.questChart = new PriorityColumn((int)Math.ceil(Math.sqrt(chartWidth)), chartHeight)));
             
 
@@ -215,9 +217,9 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             timepanels.setOpaque(false);
             timepanels.setPreferredSize(new Dimension(250,100));
             timepanels.add(new JLabel("belief-events:"));
-            timepanels.add(this.beliefTime = new BeliefTimeline(chartWidth*6, chartHeight/3));
+            timepanels.add(this.beliefTime = new BeliefTimeline(c.memory, chartWidth*6, chartHeight/3));
             timepanels.add(new JLabel("desire-events:"));
-            timepanels.add(this.desireTime = new BeliefTimeline(chartWidth*6, chartHeight/3));
+            timepanels.add(this.desireTime = new BeliefTimeline(c.memory, chartWidth*6, chartHeight/3));
             
             overlay.add(timepanels, SOUTH);
             
@@ -422,9 +424,10 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
 
         float minTime, maxTime;
         private float timeFactor;
-        
-        public BeliefTimeline(int width, int height) {
+        private Memory mem;
+        public BeliefTimeline(Memory mem, int width, int height) {
             super(width, height);
+            this.mem = mem;
         }
 
         public int getX(long when) {
@@ -470,7 +473,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
                 int y = (int)((1.0f - freq) * (this.h - thick));
                         
                 
-                g.setColor(getColor(freq, conf, 1.0f));
+                g.setColor(getColor(freq, conf, 1.0f, mem.narParameters));
                 
                 g.fillRect(x, y, thick, thick);
 
@@ -485,21 +488,23 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
         }
     }
     
-    public static Color getColor(float freq, float conf, float factor) {
+    public static Color getColor(float freq, float conf, float factor, Parameters narParameters) {
         float ii = 0.25f + (factor * conf) * 0.75f;
        // float green = freq > 0.5f ? (freq/2f) : 0f;
         //float red = freq <= 0.5f ? ((1.0f-freq)/2f) : 0;
         
-        float evidence = TruthFunctions.c2w(conf);
-        float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq);
-        float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq));        
+        float evidence = TruthFunctions.c2w(conf, narParameters);
+        float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, narParameters);
+        float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), narParameters);        
         return new Color(positive_evidence_in_0_1,0.0f, negative_evidence_in_0_1, ii);
     }
     
     public static class TruthChart extends ImagePanel {
 
-        public TruthChart(int width, int height) {
+        private final Memory mem;
+        public TruthChart(Memory mem, int width, int height) {
             super(width, height);
+            this.mem = mem;
         }
 
         public void update(long now, Iterable<Sentence> i) {
@@ -520,7 +525,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
                         factor = 1.0f / (1f + Math.abs(ss.getOccurenceTime() - now)  );                        
                     }
                 }
-                g.setColor(getColor(freq, conf, factor));
+                g.setColor(getColor(freq, conf, factor, mem.narParameters));
 
                 int w = 8;
                 int h = 8;

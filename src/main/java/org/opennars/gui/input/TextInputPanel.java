@@ -48,7 +48,7 @@ import org.opennars.gui.FileTreeModel;
 
 import static org.opennars.gui.output.SwingLogPanel.setConsoleFont;
 import org.opennars.io.events.OutputHandler.OUT;
-import org.opennars.main.Parameters;
+import org.opennars.main.MiscFlags;
 
 
 public class TextInputPanel extends NPanel /*implements ActionListener*/ {
@@ -279,7 +279,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
                 nar.addInput(input);
             }
             catch(Exception ex) {
-                if(Parameters.DEBUG) {
+                if(MiscFlags.DEBUG) {
                     throw new IllegalStateException("error parsing:" + input, ex);
                 }
 
