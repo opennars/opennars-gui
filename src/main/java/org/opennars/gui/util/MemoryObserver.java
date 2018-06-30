@@ -22,18 +22,16 @@ import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Task;
+import org.opennars.interfaces.pub.Reasoner;
 import org.opennars.io.events.OutputHandler;
 
 public abstract class MemoryObserver extends EventHandler {
 
     private final Memory memory;
+    private final Reasoner reasoner;
 
-    public MemoryObserver(Nar n, boolean active) {
-        this(n.memory, active);
-    }
-
-    public MemoryObserver(Memory m, boolean active) {
-        super(m.event, active,
+    public MemoryObserver(Reasoner n, boolean active) {
+        super(((Nar)n).memory.event, active,
                 Events.CycleStart.class,
                 Events.CycleEnd.class,
                 Events.ConceptNew.class,
@@ -59,7 +57,8 @@ public abstract class MemoryObserver extends EventHandler {
                 //Output.OUT.class, 
 
                 Events.ResetEnd.class);
-        this.memory = m;
+        this.memory = ((Nar)n).memory;
+        this.reasoner = n;
     }
 
     @Override
@@ -71,9 +70,9 @@ public abstract class MemoryObserver extends EventHandler {
         } else if (event == Events.ResetEnd.class) {
             output(event);        
         } else if (event == CycleStart.class) {
-            onCycleStart(memory.time());
+            onCycleStart(this.reasoner.time());
         } else if (event == CycleEnd.class) {
-            onCycleEnd(memory.time());
+            onCycleEnd(this.reasoner.time());
         } else {
             output(event, arguments);
         }

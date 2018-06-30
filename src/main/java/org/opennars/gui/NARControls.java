@@ -580,7 +580,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                 
                 if (sb.length() > 0) sb.setLength(0);
 
-                sb.append(memory.time());      
+                sb.append(nar.time());      
                 
 
                 if (currentSpeed == 0) {
