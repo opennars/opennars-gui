@@ -802,11 +802,11 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
         // FIXME< we need to have a slider which uses the float value >
         //p.add(new NSlider(nar.narParameters.DECISION_THRESHOLD, "Decision Threshold", 0.0f, 1.0f), c);
-        p.add(new NSlider(memory.param.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
-        p.add(new NSlider(memory.param.taskLinkForgetDurations, "Task Duration", 0.0f, 20), c);
-        p.add(new NSlider(memory.param.termLinkForgetDurations, "Belief Duration", 0.0f, 20), c);
-        p.add(new NSlider(memory.param.conceptForgetDurations, "Concept Duration", 0.0f, 20), c);
-        p.add(new NSlider(memory.param.eventForgetDurations, "Event Duration", 0.0f, 20), c);
+        //p.add(new NSlider(memory.param.projectionDecay, "Projection Decay", 0.0f, 1.0f), c);
+        //p.add(new NSlider(memory.param.taskLinkForgetDurations, "Task Duration", 0.0f, 20), c);
+        //p.add(new NSlider(memory.param.termLinkForgetDurations, "Belief Duration", 0.0f, 20), c);
+        //p.add(new NSlider(memory.param.conceptForgetDurations, "Concept Duration", 0.0f, 20), c);
+        //p.add(new NSlider(memory.param.eventForgetDurations, "Event Duration", 0.0f, 20), c);
 
         
 //
