@@ -85,13 +85,6 @@ public class RuntimeNarSettings implements Plugin {
         n.narParameters.CURIOSITY_DESIRE_DURABILITY_MUL=(float) val;
     }
     
-    public double getCuriosityBusinessThreshold() {
-        return n.narParameters.CURIOSITY_BUSINESS_THRESHOLD;
-    }
-    public void setCuriosityBusinessThreshold(final double val) {
-        n.narParameters.CURIOSITY_BUSINESS_THRESHOLD=(float) val;
-    }
-    
     public boolean isCuriosityForOperatorOnly() {
         return n.narParameters.CURIOSITY_FOR_OPERATOR_ONLY;
     }
@@ -101,38 +94,55 @@ public class RuntimeNarSettings implements Plugin {
     
     
     public double getHappyEventHigherThreshold() {
-        return n.narParameters.HAPPY_EVENT_HIGHER_THRESHOLD;
+        if(n.memory.emotion == null) {
+            return 0;
+        }
+        return n.memory.emotion.HAPPY_EVENT_HIGHER_THRESHOLD;
     }
     public void setHappyEventHigherThreshold(final double val) {
-        n.narParameters.HAPPY_EVENT_HIGHER_THRESHOLD=(float) val;
+        if(n.memory.emotion == null) {
+            return;
+        }
+        n.memory.emotion.HAPPY_EVENT_HIGHER_THRESHOLD=(float) val;
     }
     
     public double getHappyEventLowerThreshold() {
-        return n.narParameters.HAPPY_EVENT_LOWER_THRESHOLD;
+        if(n.memory.emotion == null) {
+            return 0;
+        }
+        return n.memory.emotion.HAPPY_EVENT_LOWER_THRESHOLD;
     }
     public void setHappyEventLowerThreshold(final double val) {
-        n.narParameters.HAPPY_EVENT_LOWER_THRESHOLD=(float) val;
+        if(n.memory.emotion == null) {
+            return;
+        }
+        n.memory.emotion.HAPPY_EVENT_LOWER_THRESHOLD=(float) val;
     }
     
     public double getBusyEventHigherThreshold() {
-        return n.narParameters.BUSY_EVENT_HIGHER_THRESHOLD;
+        if(n.memory.emotion == null) {
+            return 0;
+        }
+        return n.memory.emotion.BUSY_EVENT_HIGHER_THRESHOLD;
     }
     public void setBusyEventHigherThreshold(final double val) {
-        n.narParameters.BUSY_EVENT_HIGHER_THRESHOLD=(float) val;
+        if(n.memory.emotion == null) {
+            return;
+        }
+        n.memory.emotion.BUSY_EVENT_HIGHER_THRESHOLD=(float) val;
     }
     
    public double getBusyEventLowerThreshold() {
-        return n.narParameters.BUSY_EVENT_LOWER_THRESHOLD;
+        if(n.memory.emotion == null) {
+            return 0;
+        }
+        return n.memory.emotion.BUSY_EVENT_LOWER_THRESHOLD;
     }
     public void setBusyEventLowerThreshold(final double val) {
-        n.narParameters.BUSY_EVENT_LOWER_THRESHOLD=(float) val;
-    }
-    
-    public boolean isUsingConsiderRemind() {
-        return n.narParameters.CONSIDER_REMIND;
-    }
-    public void setUsingConsiderRemind(final boolean val) {
-        n.narParameters.CONSIDER_REMIND=val;
+        if(n.memory.emotion == null) {
+            return;
+        }
+        n.memory.emotion.BUSY_EVENT_LOWER_THRESHOLD=(float) val;
     }
     
     public boolean isQuestionGenerationOnDecisionMaking() {
@@ -154,27 +164,6 @@ public class RuntimeNarSettings implements Plugin {
     }
     public void setHowQuestionGenerationOnDecisionMaking(final boolean val) {
         n.narParameters.HOW_QUESTION_GENERATION_ON_DECISION_MAKING=val;
-    }
-    
-    public boolean isCuriosityAlsoOnLowConfidentHighPriorityBelief() {
-        return n.narParameters.CURIOSITY_ALSO_ON_LOW_CONFIDENT_HIGH_PRIORITY_BELIEF;
-    }
-    public void setCuriosityAlsoOnLowConfidentHighPriorityBelief(final boolean val) {
-        n.narParameters.CURIOSITY_ALSO_ON_LOW_CONFIDENT_HIGH_PRIORITY_BELIEF=val;
-    }
-    
-    public double getCuriosityPriorityThreshold() {
-        return n.narParameters.CURIOSITY_PRIORITY_THRESHOLD;
-    }
-    public void setCuriosityPriorityThreshold(final double val) {
-        n.narParameters.CURIOSITY_PRIORITY_THRESHOLD=(float) val;
-    }
-    
-    public double getCuriosityConfidenceThreshold() {
-        return n.narParameters.CURIOSITY_CONFIDENCE_THRESHOLD;
-    }
-    public void setCuriosityConfidenceThreshold(final double val) {
-        n.narParameters.CURIOSITY_CONFIDENCE_THRESHOLD=(float) val;
     }
     
     public double getAnticipationConfidence() {

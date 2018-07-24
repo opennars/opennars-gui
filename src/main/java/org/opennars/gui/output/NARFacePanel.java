@@ -43,8 +43,11 @@ public class NARFacePanel extends HumanoidFacePanel  {
 
     @Override
     public void update(double t) {
-        happy = nar.memory.emotion.happy() > this.nar.narParameters.HAPPY_EVENT_HIGHER_THRESHOLD;
-        unhappy = nar.memory.emotion.happy() < this.nar.narParameters.HAPPY_EVENT_LOWER_THRESHOLD;
+        if(nar.memory.emotion == null) {
+            return;
+        }
+        happy = nar.memory.emotion.happy() > nar.memory.emotion.HAPPY_EVENT_HIGHER_THRESHOLD;
+        unhappy = nar.memory.emotion.happy() < nar.memory.emotion.HAPPY_EVENT_LOWER_THRESHOLD;
         float conceptPriority = 0.5f; //((Number)nar.memory.logic.get("concept.priority.mean")).floatValue();
         float taskNewPriority = 0.5f; //((Number)nar.memory.logic.get("task.new.priority.mean")).floatValue();        
         
