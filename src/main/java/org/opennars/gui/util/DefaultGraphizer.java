@@ -18,16 +18,14 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTextField;
 
-import org.opennars.main.Nar;
 import org.opennars.main.Parameters;
-import org.opennars.main.MiscFlags;
 import org.opennars.entity.Concept;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
 import org.opennars.entity.TaskLink;
 import org.opennars.entity.TermLink;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.Nar.PortableDouble;
+import org.opennars.LockedValueTypes.PortableDouble;
 import org.opennars.language.Term;
 
 

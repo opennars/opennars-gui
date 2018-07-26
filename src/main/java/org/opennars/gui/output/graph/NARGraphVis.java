@@ -48,7 +48,7 @@ import org.opennars.gui.util.NARGraph;
 import org.opennars.gui.graph.InheritanceGraph;
 import org.opennars.gui.graph.ImplicationGraph;
 import org.opennars.gui.output.graph.layout.SpiralLayout;
-import org.opennars.main.Nar.PortableDouble;
+import org.opennars.LockedValueTypes.PortableDouble;
 import org.jgrapht.Graph;
 
 /**

@@ -23,7 +23,7 @@ import java.awt.event.MouseMotionListener;
 import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
-import org.opennars.main.Nar.PortableDouble;
+import org.opennars.LockedValueTypes.PortableDouble;
 
 
 /**
