@@ -41,11 +41,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.xml.parsers.ParserConfigurationException;
+import org.opennars.LockedValueTypes.PortableInteger;
 import org.opennars.io.events.EventEmitter.EventObserver;
 import org.opennars.io.events.Events;
 import org.opennars.main.Nar;
 import org.opennars.storage.Memory;
-import org.opennars.main.MiscFlags;
 import org.opennars.gui.input.TextInputPanel;
 import org.opennars.gui.output.PluginPanel;
 import org.opennars.gui.output.SentenceTablePanel;
@@ -54,7 +54,6 @@ import org.opennars.gui.output.TaskTree;
 import org.opennars.gui.output.graph.NARGraphPanel;
 import org.opennars.io.events.OutputHandler;
 import org.opennars.io.events.TextOutputHandler;
-import org.opennars.main.Nar.PortableInteger;
 import org.opennars.io.events.Events.CyclesEnd;
 import org.xml.sax.SAXException;
 
@@ -364,7 +363,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         
         
         init();
-        volumeSlider.setValue(nar.param.noiseLevel.get());
+        volumeSlider.setValue(nar.narParameters.VOLUME);
         
     }
 
@@ -630,7 +629,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                 long speed = nar.getMinCyclePeriodMS();
                 boolean wasRunning = nar.isRunning();
                 nar.stop();
-                (nar.param).threadsAmount.set(level);
+                (nar.narParameters).THREADS_AMOUNT = level;
                 if(wasRunning) {
                     nar.start(speed);
                 }
@@ -676,7 +675,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
             @Override
             public void onChange(float v) {
                 int level = (int) v;
-                (nar.param).noiseLevel.set(level);
+                (nar.narParameters).VOLUME = level;
             }
 
         };

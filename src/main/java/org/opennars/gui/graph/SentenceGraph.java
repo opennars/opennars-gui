@@ -28,7 +28,7 @@ import org.opennars.entity.Item;
 import org.opennars.entity.Sentence;
 import org.opennars.entity.Task;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.Nar.PortableDouble;
+import org.opennars.LockedValueTypes.PortableDouble;
 import org.opennars.language.Statement;
 import org.opennars.language.Term;
 import org.jgrapht.EdgeFactory;

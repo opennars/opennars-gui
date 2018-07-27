@@ -19,9 +19,9 @@ import org.opennars.entity.Item;
 import org.opennars.entity.Sentence;
 import org.opennars.io.Symbols;
 import org.opennars.language.CompoundTerm;
-import org.opennars.main.Nar.PortableDouble;
 import org.opennars.language.Statement;
 import org.opennars.language.Term;
+import org.opennars.LockedValueTypes.PortableDouble;
 
 /** Maintains a directed grpah of Inheritance and Similiarty statements */
 public class ImplicationGraph extends SentenceGraph {
