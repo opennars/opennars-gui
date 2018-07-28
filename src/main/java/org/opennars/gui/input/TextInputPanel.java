@@ -25,9 +25,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JMenuBar;
@@ -47,6 +50,7 @@ import org.opennars.main.Nar;
 import org.opennars.gui.FileTreeModel;
 
 import static org.opennars.gui.output.SwingLogPanel.setConsoleFont;
+import org.opennars.io.ConfigReader;
 import org.opennars.io.events.OutputHandler.OUT;
 import org.opennars.main.MiscFlags;
 
@@ -126,8 +130,14 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
             }
 
             @Override public String run() {
-                
-                TreeModel model = new FileTreeModel(new File("./nal"));
+                ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+                File file = null;
+                try {
+                    file = new File(classloader.getResource("./nal/").toURI());
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(ConfigReader.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                TreeModel model = new FileTreeModel(file);
                 /*if (fileTree==null)*/ {
                     fileTree = new JTree(model);
                     fileTree.addMouseListener(new MouseAdapter() {
