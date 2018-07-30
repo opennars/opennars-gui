@@ -34,149 +34,382 @@ public class RuntimeNarSettings implements Plugin {
         this.n=n;
         return true;
     }
-
-    public boolean isImmediateEternalization() {
-        return n.narParameters.IMMEDIATE_ETERNALIZATION;
-    }
-    public void setImmediateEternalization(final boolean val) {
-        n.narParameters.IMMEDIATE_ETERNALIZATION=val;
-    }
     
-    public double getDerivationPriorityLeak() {
-        return n.narParameters.DERIVATION_PRIORITY_LEAK;
-    }
-    public void setDerivationPriorityLeak(final double val) {
-        n.narParameters.DERIVATION_PRIORITY_LEAK=(float) val;
-    }
+    //Generate the following getters and setters with
+    //https://gist.github.com/patham9/bddfeff299ee8c74978fbfc7b06e0ea2
+    //note: it generates only volatile ones that are meant to be changed directly, 
+    //ss the other params may demand a more complex setter (like re-creating a bag),
+    //future versions might also allow to change bag sizes etc. from the GUI
     
-    public double getDerivationDurabilityLeak() {
-        return n.narParameters.DERIVATION_DURABILITY_LEAK;
+    public double getNOVELTY_HORIZON() {
+        return (double) n.narParameters.NOVELTY_HORIZON;
     }
-    public void setDerivationDurabilityLeak(final double val) {
-        n.narParameters.DERIVATION_DURABILITY_LEAK=(float) val;
+    public void setNOVELTY_HORIZON(final double val) {
+        n.narParameters.NOVELTY_HORIZON = (int) val;
     }
 
-    
-    public double getEvidentalHorizon() {
-        return n.narParameters.HORIZON;
+    public double getDECISION_THRESHOLD() {
+        return (double) n.narParameters.DECISION_THRESHOLD;
     }
-    public void setEvidentalHorizon(final double val) {
-        n.narParameters.HORIZON=(float) val;
+    public void setDECISION_THRESHOLD(final double val) {
+        n.narParameters.DECISION_THRESHOLD = (float) val;
     }
-    
-    public double getCuriosityDesireConfidenceMul() {
-        return n.narParameters.CURIOSITY_DESIRE_CONFIDENCE_MUL;
+
+    public double getDURATION() {
+        return (double) n.narParameters.DURATION;
     }
-    public void setCuriosityDesireConfidenceMul(final double val) {
-        n.narParameters.CURIOSITY_DESIRE_CONFIDENCE_MUL=(float) val;
+    public void setDURATION(final double val) {
+        n.narParameters.DURATION = (int) val;
     }
-    
-    public double getCuriosityDesirePriorityMul() {
-        return n.narParameters.CURIOSITY_DESIRE_PRIORITY_MUL;
+
+    public double getBUDGET_THRESHOLD() {
+        return (double) n.narParameters.BUDGET_THRESHOLD;
     }
-    public void setCuriosityDesirePriorityMul(final double val) {
-        n.narParameters.CURIOSITY_DESIRE_PRIORITY_MUL=(float)val;
+    public void setBUDGET_THRESHOLD(final double val) {
+        n.narParameters.BUDGET_THRESHOLD = (float) val;
     }
-    
-    public double getCuriosityDesireDurabilityMul() {
-        return n.narParameters.CURIOSITY_DESIRE_DURABILITY_MUL;
+
+    public double getDEFAULT_CONFIRMATION_EXPECTATION() {
+        return (double) n.narParameters.DEFAULT_CONFIRMATION_EXPECTATION;
     }
-    public void setCuriosityDesireDurabilityMul(final double val) {
-        n.narParameters.CURIOSITY_DESIRE_DURABILITY_MUL=(float) val;
+    public void setDEFAULT_CONFIRMATION_EXPECTATION(final double val) {
+        n.narParameters.DEFAULT_CONFIRMATION_EXPECTATION = (float) val;
     }
-    
-    public boolean isCuriosityForOperatorOnly() {
-        return n.narParameters.CURIOSITY_FOR_OPERATOR_ONLY;
+
+    public boolean isALWAYS_CREATE_CONCEPT() {
+        return  n.narParameters.ALWAYS_CREATE_CONCEPT;
     }
-    public void setCuriosityForOperatorOnly(final boolean val) {
-        n.narParameters.CURIOSITY_FOR_OPERATOR_ONLY=val;
+    public void setALWAYS_CREATE_CONCEPT(final boolean val) {
+        n.narParameters.ALWAYS_CREATE_CONCEPT =  val;
     }
-    
-    
-    public double getHappyEventHigherThreshold() {
-        if(n.memory.emotion == null) {
-            return 0;
-        }
-        return n.memory.emotion.HAPPY_EVENT_HIGHER_THRESHOLD;
+
+    public double getDEFAULT_CREATION_EXPECTATION() {
+        return (double) n.narParameters.DEFAULT_CREATION_EXPECTATION;
     }
-    public void setHappyEventHigherThreshold(final double val) {
-        if(n.memory.emotion == null) {
-            return;
-        }
-        n.memory.emotion.HAPPY_EVENT_HIGHER_THRESHOLD=(float) val;
+    public void setDEFAULT_CREATION_EXPECTATION(final double val) {
+        n.narParameters.DEFAULT_CREATION_EXPECTATION = (float) val;
     }
-    
-    public double getHappyEventLowerThreshold() {
-        if(n.memory.emotion == null) {
-            return 0;
-        }
-        return n.memory.emotion.HAPPY_EVENT_LOWER_THRESHOLD;
+
+    public double getDEFAULT_CREATION_EXPECTATION_GOAL() {
+        return (double) n.narParameters.DEFAULT_CREATION_EXPECTATION_GOAL;
     }
-    public void setHappyEventLowerThreshold(final double val) {
-        if(n.memory.emotion == null) {
-            return;
-        }
-        n.memory.emotion.HAPPY_EVENT_LOWER_THRESHOLD=(float) val;
+    public void setDEFAULT_CREATION_EXPECTATION_GOAL(final double val) {
+        n.narParameters.DEFAULT_CREATION_EXPECTATION_GOAL = (float) val;
     }
-    
-    public double getBusyEventHigherThreshold() {
-        if(n.memory.emotion == null) {
-            return 0;
-        }
-        return n.memory.emotion.BUSY_EVENT_HIGHER_THRESHOLD;
+
+    public double getDEFAULT_JUDGMENT_CONFIDENCE() {
+        return (double) n.narParameters.DEFAULT_JUDGMENT_CONFIDENCE;
     }
-    public void setBusyEventHigherThreshold(final double val) {
-        if(n.memory.emotion == null) {
-            return;
-        }
-        n.memory.emotion.BUSY_EVENT_HIGHER_THRESHOLD=(float) val;
+    public void setDEFAULT_JUDGMENT_CONFIDENCE(final double val) {
+        n.narParameters.DEFAULT_JUDGMENT_CONFIDENCE = (float) val;
     }
-    
-   public double getBusyEventLowerThreshold() {
-        if(n.memory.emotion == null) {
-            return 0;
-        }
-        return n.memory.emotion.BUSY_EVENT_LOWER_THRESHOLD;
+
+    public double getDEFAULT_JUDGMENT_PRIORITY() {
+        return (double) n.narParameters.DEFAULT_JUDGMENT_PRIORITY;
     }
-    public void setBusyEventLowerThreshold(final double val) {
-        if(n.memory.emotion == null) {
-            return;
-        }
-        n.memory.emotion.BUSY_EVENT_LOWER_THRESHOLD=(float) val;
+    public void setDEFAULT_JUDGMENT_PRIORITY(final double val) {
+        n.narParameters.DEFAULT_JUDGMENT_PRIORITY = (float) val;
     }
-    
-    public boolean isQuestionGenerationOnDecisionMaking() {
-        return n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING;
+
+    public double getDEFAULT_JUDGMENT_DURABILITY() {
+        return (double) n.narParameters.DEFAULT_JUDGMENT_DURABILITY;
     }
-    public void setQuestionGenerationOnDecisionMaking(final boolean val) {
-        n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING=val;
+    public void setDEFAULT_JUDGMENT_DURABILITY(final double val) {
+        n.narParameters.DEFAULT_JUDGMENT_DURABILITY = (float) val;
     }
-    
-    public boolean isDecisionQuestionGen() {
-        return n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING;
+
+    public double getDEFAULT_QUESTION_PRIORITY() {
+        return (double) n.narParameters.DEFAULT_QUESTION_PRIORITY;
     }
-    public void setDecisionQuestionGen(final boolean val) {
-        n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING=val;
+    public void setDEFAULT_QUESTION_PRIORITY(final double val) {
+        n.narParameters.DEFAULT_QUESTION_PRIORITY = (float) val;
     }
-    
-    public boolean isHowQuestionGenerationOnDecisionMaking() {
-        return n.narParameters.HOW_QUESTION_GENERATION_ON_DECISION_MAKING;
+
+    public double getDEFAULT_QUESTION_DURABILITY() {
+        return (double) n.narParameters.DEFAULT_QUESTION_DURABILITY;
     }
-    public void setHowQuestionGenerationOnDecisionMaking(final boolean val) {
-        n.narParameters.HOW_QUESTION_GENERATION_ON_DECISION_MAKING=val;
+    public void setDEFAULT_QUESTION_DURABILITY(final double val) {
+        n.narParameters.DEFAULT_QUESTION_DURABILITY = (float) val;
     }
-    
-    public double getAnticipationConfidence() {
-        return n.narParameters.ANTICIPATION_CONFIDENCE;
+
+    public double getDEFAULT_GOAL_CONFIDENCE() {
+        return (double) n.narParameters.DEFAULT_GOAL_CONFIDENCE;
     }
-    public void setAnticipationConfidence(final double val) {
-        n.narParameters.ANTICIPATION_CONFIDENCE=(float) val;
+    public void setDEFAULT_GOAL_CONFIDENCE(final double val) {
+        n.narParameters.DEFAULT_GOAL_CONFIDENCE = (float) val;
     }
-    
-    public double getSatisfactionThreshold() {
-        return n.narParameters.SATISFACTION_TRESHOLD;
+
+    public double getDEFAULT_GOAL_PRIORITY() {
+        return (double) n.narParameters.DEFAULT_GOAL_PRIORITY;
     }
-    public void setSatisfactionThreshold(final double val) {
-        n.narParameters.SATISFACTION_TRESHOLD=(float) val;
+    public void setDEFAULT_GOAL_PRIORITY(final double val) {
+        n.narParameters.DEFAULT_GOAL_PRIORITY = (float) val;
     }
+
+    public double getDEFAULT_GOAL_DURABILITY() {
+        return (double) n.narParameters.DEFAULT_GOAL_DURABILITY;
+    }
+    public void setDEFAULT_GOAL_DURABILITY(final double val) {
+        n.narParameters.DEFAULT_GOAL_DURABILITY = (float) val;
+    }
+
+    public double getDEFAULT_QUEST_PRIORITY() {
+        return (double) n.narParameters.DEFAULT_QUEST_PRIORITY;
+    }
+    public void setDEFAULT_QUEST_PRIORITY(final double val) {
+        n.narParameters.DEFAULT_QUEST_PRIORITY = (float) val;
+    }
+
+    public double getDEFAULT_QUEST_DURABILITY() {
+        return (double) n.narParameters.DEFAULT_QUEST_DURABILITY;
+    }
+    public void setDEFAULT_QUEST_DURABILITY(final double val) {
+        n.narParameters.DEFAULT_QUEST_DURABILITY = (float) val;
+    }
+
+    public double getQUALITY_RESCALED() {
+        return (double) n.narParameters.QUALITY_RESCALED;
+    }
+    public void setQUALITY_RESCALED(final double val) {
+        n.narParameters.QUALITY_RESCALED = (float) val;
+    }
+
+    public double getREVISION_MAX_OCCURRENCE_DISTANCE() {
+        return (double) n.narParameters.REVISION_MAX_OCCURRENCE_DISTANCE;
+    }
+    public void setREVISION_MAX_OCCURRENCE_DISTANCE(final double val) {
+        n.narParameters.REVISION_MAX_OCCURRENCE_DISTANCE = (int) val;
+    }
+
+    public double getTERM_LINK_MAX_MATCHED() {
+        return (double) n.narParameters.TERM_LINK_MAX_MATCHED;
+    }
+    public void setTERM_LINK_MAX_MATCHED(final double val) {
+        n.narParameters.TERM_LINK_MAX_MATCHED = (int) val;
+    }
+
+    public double getOPERATION_SAMPLES() {
+        return (double) n.narParameters.OPERATION_SAMPLES;
+    }
+    public void setOPERATION_SAMPLES(final double val) {
+        n.narParameters.OPERATION_SAMPLES = (int) val;
+    }
+
+    public double getPROJECTION_DECAY() {
+        return  n.narParameters.PROJECTION_DECAY;
+    }
+    public void setPROJECTION_DECAY(final double val) {
+        n.narParameters.PROJECTION_DECAY =  val;
+    }
+
+    public double getTERMLINK_MAX_REASONED() {
+        return (double) n.narParameters.TERMLINK_MAX_REASONED;
+    }
+    public void setTERMLINK_MAX_REASONED(final double val) {
+        n.narParameters.TERMLINK_MAX_REASONED = (int) val;
+    }
+
+    public double getreliance() {
+        return (double) n.narParameters.reliance;
+    }
+    public void setreliance(final double val) {
+        n.narParameters.reliance = (float) val;
+    }
+
+    public double getDISCOUNT_RATE() {
+        return (double) n.narParameters.DISCOUNT_RATE;
+    }
+    public void setDISCOUNT_RATE(final double val) {
+        n.narParameters.DISCOUNT_RATE = (float) val;
+    }
+
+    public boolean isIMMEDIATE_ETERNALIZATION() {
+        return  n.narParameters.IMMEDIATE_ETERNALIZATION;
+    }
+    public void setIMMEDIATE_ETERNALIZATION(final boolean val) {
+        n.narParameters.IMMEDIATE_ETERNALIZATION =  val;
+    }
+
+    public double getSEQUENCE_BAG_ATTEMPTS() {
+        return (double) n.narParameters.SEQUENCE_BAG_ATTEMPTS;
+    }
+    public void setSEQUENCE_BAG_ATTEMPTS(final double val) {
+        n.narParameters.SEQUENCE_BAG_ATTEMPTS = (int) val;
+    }
+
+    public double getCONDITION_BAG_ATTEMPTS() {
+        return (double) n.narParameters.CONDITION_BAG_ATTEMPTS;
+    }
+    public void setCONDITION_BAG_ATTEMPTS(final double val) {
+        n.narParameters.CONDITION_BAG_ATTEMPTS = (int) val;
+    }
+
+    public double getDERIVATION_PRIORITY_LEAK() {
+        return (double) n.narParameters.DERIVATION_PRIORITY_LEAK;
+    }
+    public void setDERIVATION_PRIORITY_LEAK(final double val) {
+        n.narParameters.DERIVATION_PRIORITY_LEAK = (float) val;
+    }
+
+    public double getDERIVATION_DURABILITY_LEAK() {
+        return (double) n.narParameters.DERIVATION_DURABILITY_LEAK;
+    }
+    public void setDERIVATION_DURABILITY_LEAK(final double val) {
+        n.narParameters.DERIVATION_DURABILITY_LEAK = (float) val;
+    }
+
+    public double getCURIOSITY_DESIRE_CONFIDENCE_MUL() {
+        return (double) n.narParameters.CURIOSITY_DESIRE_CONFIDENCE_MUL;
+    }
+    public void setCURIOSITY_DESIRE_CONFIDENCE_MUL(final double val) {
+        n.narParameters.CURIOSITY_DESIRE_CONFIDENCE_MUL = (float) val;
+    }
+
+    public double getCURIOSITY_DESIRE_PRIORITY_MUL() {
+        return (double) n.narParameters.CURIOSITY_DESIRE_PRIORITY_MUL;
+    }
+    public void setCURIOSITY_DESIRE_PRIORITY_MUL(final double val) {
+        n.narParameters.CURIOSITY_DESIRE_PRIORITY_MUL = (float) val;
+    }
+
+    public double getCURIOSITY_DESIRE_DURABILITY_MUL() {
+        return (double) n.narParameters.CURIOSITY_DESIRE_DURABILITY_MUL;
+    }
+    public void setCURIOSITY_DESIRE_DURABILITY_MUL(final double val) {
+        n.narParameters.CURIOSITY_DESIRE_DURABILITY_MUL = (float) val;
+    }
+
+    public boolean isCURIOSITY_FOR_OPERATOR_ONLY() {
+        return  n.narParameters.CURIOSITY_FOR_OPERATOR_ONLY;
+    }
+    public void setCURIOSITY_FOR_OPERATOR_ONLY(final boolean val) {
+        n.narParameters.CURIOSITY_FOR_OPERATOR_ONLY =  val;
+    }
+
+    public boolean isBREAK_NAL_HOL_BOUNDARY() {
+        return  n.narParameters.BREAK_NAL_HOL_BOUNDARY;
+    }
+    public void setBREAK_NAL_HOL_BOUNDARY(final boolean val) {
+        n.narParameters.BREAK_NAL_HOL_BOUNDARY =  val;
+    }
+
+    public boolean isQUESTION_GENERATION_ON_DECISION_MAKING() {
+        return  n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING;
+    }
+    public void setQUESTION_GENERATION_ON_DECISION_MAKING(final boolean val) {
+        n.narParameters.QUESTION_GENERATION_ON_DECISION_MAKING =  val;
+    }
+
+    public boolean isHOW_QUESTION_GENERATION_ON_DECISION_MAKING() {
+        return  n.narParameters.HOW_QUESTION_GENERATION_ON_DECISION_MAKING;
+    }
+    public void setHOW_QUESTION_GENERATION_ON_DECISION_MAKING(final boolean val) {
+        n.narParameters.HOW_QUESTION_GENERATION_ON_DECISION_MAKING =  val;
+    }
+
+    public double getANTICIPATION_CONFIDENCE() {
+        return (double) n.narParameters.ANTICIPATION_CONFIDENCE;
+    }
+    public void setANTICIPATION_CONFIDENCE(final double val) {
+        n.narParameters.ANTICIPATION_CONFIDENCE = (float) val;
+    }
+
+    public double getANTICIPATION_TOLERANCE() {
+        return (double) n.narParameters.ANTICIPATION_TOLERANCE;
+    }
+    public void setANTICIPATION_TOLERANCE(final double val) {
+        n.narParameters.ANTICIPATION_TOLERANCE = (float) val;
+    }
+
+    public double getSATISFACTION_TRESHOLD() {
+        return (double) n.narParameters.SATISFACTION_TRESHOLD;
+    }
+    public void setSATISFACTION_TRESHOLD(final double val) {
+        n.narParameters.SATISFACTION_TRESHOLD = (float) val;
+    }
+
+    public double getCOMPLEXITY_UNIT() {
+        return (double) n.narParameters.COMPLEXITY_UNIT;
+    }
+    public void setCOMPLEXITY_UNIT(final double val) {
+        n.narParameters.COMPLEXITY_UNIT = (float) val;
+    }
+
+    public double getINTERVAL_ADAPT_SPEED() {
+        return (double) n.narParameters.INTERVAL_ADAPT_SPEED;
+    }
+    public void setINTERVAL_ADAPT_SPEED(final double val) {
+        n.narParameters.INTERVAL_ADAPT_SPEED = (float) val;
+    }
+
+    public double getDEFAULT_FEEDBACK_PRIORITY() {
+        return (double) n.narParameters.DEFAULT_FEEDBACK_PRIORITY;
+    }
+    public void setDEFAULT_FEEDBACK_PRIORITY(final double val) {
+        n.narParameters.DEFAULT_FEEDBACK_PRIORITY = (float) val;
+    }
+
+    public double getDEFAULT_FEEDBACK_DURABILITY() {
+        return (double) n.narParameters.DEFAULT_FEEDBACK_DURABILITY;
+    }
+    public void setDEFAULT_FEEDBACK_DURABILITY(final double val) {
+        n.narParameters.DEFAULT_FEEDBACK_DURABILITY = (float) val;
+    }
+
+    public double getCONCEPT_FORGET_DURATIONS() {
+        return (double) n.narParameters.CONCEPT_FORGET_DURATIONS;
+    }
+    public void setCONCEPT_FORGET_DURATIONS(final double val) {
+        n.narParameters.CONCEPT_FORGET_DURATIONS = (float) val;
+    }
+
+    public double getTERMLINK_FORGET_DURATIONS() {
+        return (double) n.narParameters.TERMLINK_FORGET_DURATIONS;
+    }
+    public void setTERMLINK_FORGET_DURATIONS(final double val) {
+        n.narParameters.TERMLINK_FORGET_DURATIONS = (float) val;
+    }
+
+    public double getTASKLINK_FORGET_DURATIONS() {
+        return (double) n.narParameters.TASKLINK_FORGET_DURATIONS;
+    }
+    public void setTASKLINK_FORGET_DURATIONS(final double val) {
+        n.narParameters.TASKLINK_FORGET_DURATIONS = (float) val;
+    }
+
+    public double getEVENT_FORGET_DURATIONS() {
+        return (double) n.narParameters.EVENT_FORGET_DURATIONS;
+    }
+    public void setEVENT_FORGET_DURATIONS(final double val) {
+        n.narParameters.EVENT_FORGET_DURATIONS = (float) val;
+    }
+
+    public double getTHREADS_AMOUNT() {
+        return (double) n.narParameters.THREADS_AMOUNT;
+    }
+    public void setTHREADS_AMOUNT(final double val) {
+        n.narParameters.THREADS_AMOUNT = (int) val;
+    }
+
+    public double getVOLUME() {
+        return (double) n.narParameters.VOLUME;
+    }
+    public void setVOLUME(final double val) {
+        n.narParameters.VOLUME = (int) val;
+    }
+
+    public double getMILLISECONDS_PER_STEP() {
+        return (double) n.narParameters.MILLISECONDS_PER_STEP;
+    }
+    public void setMILLISECONDS_PER_STEP(final double val) {
+        n.narParameters.MILLISECONDS_PER_STEP = (int) val;
+    }
+
+    public boolean isSTEPS_CLOCK() {
+        return  n.narParameters.STEPS_CLOCK;
+    }
+    public void setSTEPS_CLOCK(final boolean val) {
+        n.narParameters.STEPS_CLOCK =  val;
+    }
+
 }
