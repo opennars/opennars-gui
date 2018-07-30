@@ -364,6 +364,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         
         init();
         volumeSlider.setValue(nar.narParameters.VOLUME);
+        threadSlider.setValue(nar.narParameters.THREADS_AMOUNT);
         
     }
 
@@ -796,7 +797,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         NSlider vs2 = newThreadsSlider();
         vs.setFont(vs.getFont());
         p.add(vs2, c);
-
+        
         c.ipady = 4;
 
         // FIXME< we need to have a slider which uses the float value >
