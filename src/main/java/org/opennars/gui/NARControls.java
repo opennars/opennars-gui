@@ -101,6 +101,8 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
     private final int GUIUpdatePeriodMS = 75;
     private NSlider volumeSlider;
+    
+    private NSlider decisionThresholdSlider;
 
     private boolean allowFullSpeed = true;
     public final InferenceLogger logger;
@@ -364,6 +366,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         
         init();
         volumeSlider.setValue(nar.narParameters.VOLUME);
+        decisionThresholdSlider.setValue(nar.narParameters.DECISION_THRESHOLD);
         threadSlider.setValue(nar.narParameters.THREADS_AMOUNT);
         
     }
@@ -641,6 +644,35 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         return s;
     }
     
+    private NSlider newDecisionThresholdSlider() {
+        final NSlider s = this.decisionThresholdSlider = new NSlider(0, 0.0f, 1.0f) {
+
+            @Override
+            public String getText() {
+                if (value == null) {
+                    return "";
+                }
+
+                float v = value();
+                String s = "Decision Thrs." + super.getText();
+                return s;
+            }
+
+            @Override
+            public void setValue(float v) {
+                super.setValue(v);
+                repaint(); //needed to update when called from outside, as the 'focus' button does
+            }
+
+            @Override
+            public void onChange(float v) {
+                (nar.narParameters).DECISION_THRESHOLD = v;
+            }
+        };
+
+        return s;
+    }
+    
     private NSlider newVolumeSlider() {
         final NSlider s = this.volumeSlider = new NSlider(100f, 0, 100f) {
 
@@ -795,8 +827,12 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         p.add(ss, c);
 
         NSlider vs2 = newThreadsSlider();
-        vs.setFont(vs.getFont());
+        vs2.setFont(vs.getFont());
         p.add(vs2, c);
+        
+        NSlider vs3 = newDecisionThresholdSlider();
+        vs3.setFont(vs.getFont());
+        p.add(vs3, c);
         
         c.ipady = 4;
 
