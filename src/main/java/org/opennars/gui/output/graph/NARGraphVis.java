@@ -18,11 +18,6 @@
  */
 package org.opennars.gui.output.graph;
 
-/**
- *
- * @author me
- */
-
 import automenta.vivisect.dimensionalize.FastOrganicLayout;
 import automenta.vivisect.dimensionalize.HyperassociativeLayout;
 import automenta.vivisect.graph.AnimatingGraphVis;
@@ -53,6 +48,7 @@ import org.jgrapht.Graph;
 
 /**
  *
+ * @author me
  */
 public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements EventObserver {
         
@@ -80,21 +76,9 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         public JPanel newControlPanel() {
             JPanel j = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-            /*NSlider maxLevels = new NSlider(1, 0, 1) {
-                @Override
-                public void onChange(float v) {
-                    minPriority = (float) (1.0 - v);
-                    setUpdateNext();
-                }
-            };
-            maxLevels.setPrefix("Min Level: ");
-            maxLevels.setPreferredSize(new Dimension(80, 25));*/
-            //j.add(conceptPriSlider);  
             j.add(conceptPriSlider);
             return j;
         }
-        
-        
     }
     
     public final PortableDouble conceptPriorityThreshold = new PortableDouble(0.0);
@@ -294,9 +278,6 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         layoutSelect.addItem("Circle");       
         layoutSelect.addItem("Circle (Half)");
         layoutSelect.addItem("Spiral");
-        //layoutSelect.addItem("GridSort");
-        //layoutSelect.addItem("Circle Anim");
-        //layoutSelect.addItem("Grid");
         
         //modeSelect.setSelectedIndex(cg.mode);
         layoutSelect.addActionListener(new ActionListener() {
@@ -377,9 +358,4 @@ public class NARGraphVis extends AnimatingGraphVis<Object,Object> implements Eve
         j.add(style.getControls());
         return j;
     }
-
-    
-    
-    
-    
 }

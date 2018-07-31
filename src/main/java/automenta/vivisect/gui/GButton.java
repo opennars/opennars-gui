@@ -181,7 +181,7 @@ public class GButton extends GTextIconAlignBase {
 
                     break;
                 case MouseEvent.CLICK:
-                            // No need to test for isOver() since if the component has focus
+                    // No need to test for isOver() since if the component has focus
                     // and the mouse has not moved since MOUSE_PRESSED otherwise we 
                     // would not get the Java MouseEvent.MOUSE_CLICKED event
                     if (focusIsWith == this) {
@@ -193,7 +193,7 @@ public class GButton extends GTextIconAlignBase {
                     }
                     break;
                 case MouseEvent.RELEASE:
-                            // if the mouse has moved then release focus otherwise
+                    // if the mouse has moved then release focus otherwise
                     // MOUSE_CLICKED will handle it
                     if (focusIsWith == this && dragging) {
                         if (reportAllButtonEvents) {

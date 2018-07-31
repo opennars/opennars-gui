@@ -15,13 +15,10 @@
 package automenta.vivisect.swing.property.model;
 
 /**
- * HasId.<br>
+ * HasId
  *
  */
 public interface HasId {
-	
 	void setId(Object id);
-  
 	Object getId();
-
 }

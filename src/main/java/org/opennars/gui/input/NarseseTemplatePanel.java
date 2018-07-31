@@ -36,10 +36,6 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
-<<<<<<< HEAD
-=======
-/**
->>>>>>> origin/graphplan1
  *
  * @author me
  */

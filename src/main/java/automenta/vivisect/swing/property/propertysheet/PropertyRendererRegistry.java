@@ -37,7 +37,7 @@ import automenta.vivisect.swing.property.swing.renderer.DefaultCellRenderer;
 
 
 /**
- * Mapping between Properties, Property Types and Renderers.
+ * Mapping between Properties, Property Types and Renderers
  */
 public class PropertyRendererRegistry implements PropertyRendererFactory {
 
@@ -277,5 +277,4 @@ public class PropertyRendererRegistry implements PropertyRendererFactory {
 		registerRenderer(Point.class, new PointRenderer());
 		registerRenderer(Dimension.class, new DimensionRenderer());
 	}
-
 }

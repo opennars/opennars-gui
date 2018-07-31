@@ -70,14 +70,10 @@ public class NARGraphPanel extends NPanel {
         
         add(canvas, BorderLayout.CENTER);
         add(menu, BorderLayout.NORTH);
-        
     }
 
-    
     @Override  protected void onShowing(boolean showing) {
-        
     }
-    
     
     protected JPanel newCanvasPanel() {
         JPanel m = new JPanel(new FlowLayout(FlowLayout.LEFT));

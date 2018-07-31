@@ -37,19 +37,4 @@ public interface GraphDisplay<V,E> {
     }
     
     enum Shape { Rectangle, Ellipse }
-
-//    
-//    public Shape getVertexShape(V v);
-//    public String getVertexLabel(final V v);
-//    
-//    /** return 0 to hide vertex */
-//    public float getVertexSize(final V v);
-//    
-//    public int getVertexColor(V o);
-//    public float getEdgeThickness(E edge, VertexVis source, VertexVis target);
-//    public int getEdgeColor(E e);
-//    public int getTextColor(V v);
-//
-//    public int getVertexStrokeColor(V v);
-//    public float getVertexStroke(V v);
 }

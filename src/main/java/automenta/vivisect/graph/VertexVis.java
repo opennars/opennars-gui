@@ -90,7 +90,7 @@ public class VertexVis<V, E> {
         
         boolean needsUpdate = update(c);
         //System.out.println(radius + " " + color + " " + label + " " + x + " " + y);
-        
+
         float r = radius * scale;
         if (r == 0) {
             return needsUpdate;
@@ -100,7 +100,7 @@ public class VertexVis<V, E> {
             p.stroke(strokeColor);
             p.strokeWeight(stroke * scale);
         }
-        p.fill(color); //, alpha * 255 / 2);
+        p.fill(color);
         if (shape == null) shape = Ellipse;
         switch (shape) {
             case Rectangle:
@@ -113,13 +113,13 @@ public class VertexVis<V, E> {
         }
         
         if ((label != null) && (textScale > 0)) {
-            p.fill(textColor); //, alpha * 255 * 0.75f);
+            p.fill(textColor);
             p.textSize(r / 2f * textScale);
             p.text(label, x * scale, y * scale);
         }
         
         if (stroke > 0) {
-            //reset stroke
+            // reset stroke
             p.noStroke();
         }
         
@@ -156,17 +156,6 @@ public class VertexVis<V, E> {
     public V getVertex() {
         return vertex;
     }
-
-//    void update(final V o) {
-//        GraphDisplay<V, E> d = canvas.display;
-//        this.edges = null;
-//        this.textColor = d.getTextColor(o);
-//        this.radius = d.getVertexSize(o);
-//        this.color = d.getVertexColor(o);
-//        this.label = d.getVertexLabel(o);
-//        this.stroke = d.getVertexStroke(o);
-//        this.strokeColor = d.getVertexStrokeColor(o);
-//    }
 
     public void setPosition(final float x, final float y) {
         this.tx = x;

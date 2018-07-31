@@ -38,8 +38,6 @@
 package automenta.vivisect.gui;
 
 import java.awt.Font;
-//import java.awt.GraphicsEnvironment;
-//import java.util.Arrays;
 
 /**
  * 
@@ -55,24 +53,6 @@ import java.awt.Font;
  */
 public class FontManager {
 
-	
-//	private static String[] ffnames;
-	
-//	static {
-//		ffnames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-//		Arrays.sort(ffnames); // Should have been sorted but just in case
-//		// listFontFamilyNames();
-//	}
-//	
-//	public static void listFontFamilyNames(){
-//		System.out.println("\n----------- FontManagerFonts   ------------------------");
-//		for (String f : ffnames) 
-//			System.out.println(f);
-//		System.out.println("\n## Number of family names = " + ffnames.length);
-//		System.out.println("----------------------------------------------------------\n");
-//		
-//	}
-	
 	/** Default list of font family names in priority order */
 	private static String[] pfnames = {"Arial", "Trebuchet MS", "Tahoma", "Helvetica", "Verdana" };
 	

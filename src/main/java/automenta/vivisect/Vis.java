@@ -33,7 +33,4 @@ public interface Vis {
     default void init(PCanvas p) {
         
     }
-    
-    
-    
 }

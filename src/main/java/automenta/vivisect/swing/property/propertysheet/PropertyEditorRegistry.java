@@ -49,7 +49,7 @@ import automenta.vivisect.swing.property.sheet.editor.NumberEditor.ShortEditor;
 
 
 /**
- * Mapping between Properties, Property Types and Property Editors.
+ * Mapping between Properties, Property Types and Property Editors
  */
 public class PropertyEditorRegistry implements PropertyEditorFactory {
 
@@ -57,8 +57,8 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 	private Map<Property, Object> propertyToEditor;
 
 	public PropertyEditorRegistry() {
-		typeToEditor = new HashMap<Class<?>, Object>();
-		propertyToEditor = new HashMap<Property, Object>();
+		typeToEditor = new HashMap<>();
+		propertyToEditor = new HashMap<>();
 		registerDefaults();
 	}
 
@@ -117,15 +117,15 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 	}
 
 	/**
-	 * Load PropertyEditor from clazz through reflection.
+	 * Load PropertyEditor from class_ through reflection.
 	 * 
-	 * @param clazz Class to load from.
+	 * @param class_ Class to load from
 	 * @return Loaded propertyEditor
 	 */
-	private PropertyEditor loadPropertyEditor(Class<?> clazz) {
+	private PropertyEditor loadPropertyEditor(Class<?> class_) {
 		PropertyEditor editor = null;
 		try {
-			editor = (PropertyEditor) clazz.newInstance();
+			editor = (PropertyEditor) class_.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,8 +142,7 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 	 * <li>
 	 * <li>it returns null.</li>
 	 * </ul>
-	 * 
-	 * @param clazz
+	 *
 	 * @return an editor suitable for the Property type or null if none found
 	 */
 	public synchronized PropertyEditor createEditor(Property property) {
@@ -261,6 +260,5 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 		} catch (Exception e) {
 			// FontPropertyEditor might not be there when using the split jars
 		}
-
 	}
 }

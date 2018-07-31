@@ -19,8 +19,8 @@ import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 
 /**
- * AbstractProperty. <br>
- *  
+ * AbstractProperty
+ *
  */
 public abstract class AbstractProperty implements Property {
 

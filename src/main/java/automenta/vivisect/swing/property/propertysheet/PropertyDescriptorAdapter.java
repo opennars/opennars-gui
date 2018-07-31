@@ -23,7 +23,7 @@ import automenta.vivisect.swing.property.beans.ExtendedPropertyDescriptor;
 
 
 /**
- * PropertyDescriptorAdapter.<br>
+ * PropertyDescriptorAdapter
  * 
  */
 class PropertyDescriptorAdapter extends AbstractProperty {

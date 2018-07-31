@@ -19,7 +19,6 @@ package automenta.vivisect.swing.property.model;
  *
  */
 public interface ObjectRenderer {
-
 	String getText(Object object);
 	
 }

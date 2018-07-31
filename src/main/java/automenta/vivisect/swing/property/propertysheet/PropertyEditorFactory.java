@@ -17,11 +17,9 @@ package automenta.vivisect.swing.property.propertysheet;
 import java.beans.PropertyEditor;
 
 /**
- * Creates editors for Property object.<br>
+ * Creates editors for Property object
  *
  */
 public interface PropertyEditorFactory {
-
-  PropertyEditor createPropertyEditor(Property property);
-  
+    PropertyEditor createPropertyEditor(Property property);
 }

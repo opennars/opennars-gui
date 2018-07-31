@@ -45,7 +45,5 @@ package automenta.vivisect.gui;
  *
  */
 public interface Focusable {
-
 	void setTabManager(GTabManager tm);
-
 }

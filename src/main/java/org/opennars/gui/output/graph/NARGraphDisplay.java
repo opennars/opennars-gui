@@ -83,8 +83,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
                 float confidence = kb.truth.getConfidence();            
                 alpha = 0.5f + 0.5f * confidence;
             }
-            //Term t = ((Sentence) o).content;
-            //rad = (float) (Math.log(1 + 2 + confidence));
         } else if (o instanceof Task) {
             Task ta = (Task) o;
             rad = 2.0f + ta.getPriority() * 2.0f;
@@ -92,7 +90,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
             v.shape = Shape.Rectangle;
         } else if (o instanceof Concept) {
             Concept co = (Concept) o;
-            //Term t = co.term;
 
             rad = (2 + 6 * co.budget.summary());
             
@@ -101,11 +98,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
                 float confidence = co.beliefs.get(0).sentence.truth.getConfidence();
                 alpha = 0.5f + 0.5f * confidence;
             }
-            
-            //v.stroke = 5;
-        } else if (o instanceof Term) {
-            Term t = (Term) o;
-            //rad = (float) (Math.log(1 + 2 + t.getComplexity()));
         }
         
         Object x = o;
@@ -113,14 +105,14 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
             
             if(!(x instanceof Task)) {
                 if (x instanceof Concept) x = ((Concept)o).getTerm();
-                float hue = 0.0f; //Video.hashFloat(x.hashCode());
+                float hue = 0.0f;
                 if (x instanceof Task)
                     hue = 0.4f;
 
 
                 float brightness = 0.33f+0.66f*rad/9.0f;
                 float saturation = 0.33f+0.66f*rad/9.0f;
-               // brightness*=brightness;
+                // brightness*=brightness;
                 //saturation*=saturation;
                  v.color =  Video.colorHSB( hue, saturation, brightness, 0.25f+(0.75f*alpha) );
             } 
@@ -219,16 +211,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
         e.thickness = thickness;
     }
 
-    
-
-//
-//    @Override
-//    public int getTextColor(V v) {
-//        return defaultTextColor;
-//
-//    }
-//
-
     public JPanel getControls() {
         JPanel menu = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
@@ -236,7 +218,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
             @Override
             public void onChange(float v) {
                 NARGraphDisplay.this.nodeSize = v;
-                //app.drawn = false;
             }
         };
         nodeSize.setPrefix("Node Size: ");
@@ -246,7 +227,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
         NSlider edgeWidth = new NSlider(this.lineWidth, 0f, maxNodeSize/4f) {
             @Override public void onChange(float v) {
                 lineWidth = v;
-                //app.drawn = false;
             }
         };
         edgeWidth.setPrefix("Line Thick: ");
@@ -259,7 +239,6 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
             @Override
             public void onChange(float v) {
                 NARGraphDisplay.this.nodeSpeed = v;
-                //app.drawn = false;
             }
         };
         nodeSpeed.setPrefix("Speed: ");
@@ -276,9 +255,7 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
         fontSize.setPrefix("Font: ");
         fontSize.setPreferredSize(new Dimension(70, 25));
         menu.add(fontSize);
-        
 
-        
         return menu;
     }
 
@@ -291,8 +268,4 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
     public boolean postUpdate(AbstractGraphVis<V, E> g) {
         return true;
     }
-    
-    
 }
-    
-

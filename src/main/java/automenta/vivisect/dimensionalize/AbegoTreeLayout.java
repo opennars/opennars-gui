@@ -74,15 +74,13 @@ public class AbegoTreeLayout<V,E> implements GraphDisplay<V,E> {
 
         KruskalMinimumSpanningTree<V,E> st = new KruskalMinimumSpanningTree<V,E>(graph);
 
-        //Set<V> processed = new HashSet();
-
         for (V r : roots) {
 
             DefaultTreeForTreeLayout<VertexVis<V,E>> tree = new DefaultTreeForTreeLayout(g.getVertexDisplay(r));
 
             DirectedMultigraph<V,E> subgraph = new DirectedMultigraph(DefaultEdge.class);
             subgraph.addVertex(r);
-            //add all other vertices which are not roots
+            // add all other vertices which are not roots
             for (V v: graph.vertexSet()) {
                 if (!roots.contains(v))
                     subgraph.addVertex(v);
@@ -90,12 +88,10 @@ public class AbegoTreeLayout<V,E> implements GraphDisplay<V,E> {
             for (E e : st.getSpanningTree().getEdges()) {
                 V from = graph.getEdgeSource(e);
                 V to = graph.getEdgeTarget(e);
-                //if (processed.contains(from) || processed.contains(to))
-                //  continue;
+
                 if (!subgraph.containsVertex(from) || !subgraph.containsVertex(to))
                     continue;
-                //processed.add(from);
-                //processed.add(to);
+
                 subgraph.addEdge(from, to, e);
             }
 
