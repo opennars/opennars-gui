@@ -67,7 +67,7 @@ public class EdgeVis<V, E> {
         float scale = elem1.scale;
         assert(elem2.scale == scale);
         
-        //TODO create EdgeDisplay class to cacahe these properties
+        // TODO create EdgeDisplay class to cacahe these properties
         g.stroke(color);
         g.strokeWeight(thickness);
 
@@ -77,13 +77,5 @@ public class EdgeVis<V, E> {
         float y2 = elem2.y*scale;
 
         c.drawArrow(g, x1, y1, x2, y2, elem2.radius/2f);
-
-        //float cx = (x1 + x2) / 2.0f;
-        //float cy = (y1 + y2) / 2.0f;
-        //text(edge.toString(), cx, cy);
-
     }
-    
-    
-    
 }

@@ -23,7 +23,7 @@ import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
- * BlueishButtonUI. <br>
+ * BlueishButtonUI
  *  
  */
 public class BlueishButtonUI

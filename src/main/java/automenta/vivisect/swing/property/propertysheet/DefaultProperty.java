@@ -25,7 +25,7 @@ import automenta.vivisect.swing.property.beans.BeanUtils;
 
 
 /**
- * DefaultProperty. <br>
+ * DefaultProperty
  * 
  */
 public class DefaultProperty extends AbstractProperty {

@@ -43,15 +43,15 @@ import org.jgrapht.Graph;
  * @author Jeffrey Phillips Freeman
  * @param <G> The graph type
  * @param <N> The node type
- * 
- * 
+ *
+ */
+/*
  * TODO:
  *   parameter for distance function that takes arguments for max
  *      if distance exceeds max it will return POSITIVE_INFINITY
  *   parameter for max repulsion distance (cutoff)
  *      for use with above
  *   parameter for min attraction distance (cutoff)
- *   
  */
 public class HyperassociativeMap<N, E> {
 
@@ -207,38 +207,11 @@ public class HyperassociativeMap<N, E> {
         return true;
     }
 
-    /*
-    //Should use the node-dependent equilibriumDistance that considers additional radius
-    
-    public boolean isAligned() {
-        return isAlignable()
-                && (maxMovement < (EQUILIBRIUM_ALIGNMENT_FACTOR * equilibriumDistance))
-                && (maxMovement > DEFAULT_MAX_MOVEMENT);
-    }
-    */
-
     private double getAverageMovement() {
         return totalMovement / graph.vertexSet().size();
-
-        //Topography.getOrder((Graph<N, ?>) graph);
     }
 
     public void align() {
-        // refresh all nodes
-        /*
-        if (!coordinates.keySet().equals(graph.vertexSet())) {
-            final Map<N, ArrayRealVector> newCoordinates = new HashMap<N, ArrayRealVector>();
-            for (final N node : graph.vertexSet()) {
-                if (coordinates.containsKey(node)) {
-                    newCoordinates.put(node, coordinates.get(node));
-                } else {
-                    newCoordinates.put(node, randomCoordinates(dimensions));
-                }
-            }
-            coordinates = Collections.synchronizedMap(newCoordinates);
-        }
-        */
-
         totalMovement = DEFAULT_TOTAL_MOVEMENT;
         maxMovement = DEFAULT_MAX_MOVEMENT;
         ArrayRealVector center;
@@ -680,6 +653,4 @@ public class HyperassociativeMap<N, E> {
     public String toString() {
         return coordinates.toString();
     }
-    
-    
 }

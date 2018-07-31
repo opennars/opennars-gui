@@ -21,8 +21,6 @@ import processing.core.PGraphics;
  *
  * @author me
  */
-
-
 public class AnimatingGraphVis<V,E> extends AbstractGraphVis<V,E> {
     Graph<V, E> graph;    
 
@@ -51,14 +49,9 @@ public class AnimatingGraphVis<V,E> extends AbstractGraphVis<V,E> {
         updateGraph();
         return super.draw(g);
     }
-    
 
-    
     @Override
     protected boolean hasUpdate() {
         return false;
     }
-
-    
-    
 }

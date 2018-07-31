@@ -28,7 +28,9 @@ import org.opennars.entity.Concept;
 import org.opennars.language.Term;
 
 /** represents either a Term or its Concept (if exists).
-if a concept is involved, there may be additional data to display.     */
+ *
+ * if a concept is involved, there may be additional data to display.
+ */
 public class ConceptButton extends JButton implements ActionListener {
 
     private Concept concept;

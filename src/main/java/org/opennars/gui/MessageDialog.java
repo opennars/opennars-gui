@@ -35,7 +35,6 @@ public class MessageDialog extends JDialog implements ActionListener, WindowList
 
     /**
      * Constructor
-     * @param parent The parent Frame
      * @param message The text to be displayed
      */
     public MessageDialog(String message) {

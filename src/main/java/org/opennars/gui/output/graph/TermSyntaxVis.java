@@ -48,7 +48,6 @@ public class TermSyntaxVis extends AnimatingGraphVis {
             syntaxGraph = new NARGraph();
         return syntaxGraph;
     }
-        
     
     public static Term addSyntax(NARGraph g, Term t) {
         if (t instanceof CompoundTerm) {
@@ -68,8 +67,6 @@ public class TermSyntaxVis extends AnimatingGraphVis {
         }
     }
 
-
-    
     protected void update(Term... t) {
         
         NARGraph g = new NARGraph();
@@ -79,8 +76,5 @@ public class TermSyntaxVis extends AnimatingGraphVis {
         }
         
         this.syntaxGraph = g;
-
     }
-    
-    
 }

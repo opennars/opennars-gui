@@ -288,8 +288,7 @@ public abstract class BaseClass extends JPanel implements Runnable, KeyListener,
                     
                     db = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
                     buffer = db.getGraphics();   
-                    /*((Graphics2D)buffer).setRenderingHint(RenderingHints.KEY_ANTIALIASING, // Anti-alias!
-        RenderingHints.VALUE_ANTIALIAS_ON);*/
+
                     r = bounds();   
                     resizing = true;   
                     damage(0, 0, width, height);   
@@ -300,9 +299,7 @@ public abstract class BaseClass extends JPanel implements Runnable, KeyListener,
                     buffer.fillRect(loX, loY, hiX - loX, hiY - loY);   
                     buffer.setColor(fgcolor);   
                 }   
-                render(buffer);   
-                //mouseDown = mouseDrag = mouseUp = mouseMove = resizing = false;   
-
+                render(buffer);
 
   
                 repaint();   

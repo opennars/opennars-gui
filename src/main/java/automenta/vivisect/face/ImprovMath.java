@@ -30,40 +30,7 @@ public final class ImprovMath
     private ImprovMath()   
     {   
     }   
-   
-    public static double angleBetween(double d, double d1, double d2, double d3,    
-            double d4, double d5)   
-    {   
-        double d6 = d2 - d;   
-        double d7 = d3 - d1;   
-        double d8 = d4 - d;   
-        double d9 = d5 - d1;   
-        return (Math.acos(dot(d6, d7, d8, d9) / (magnitude(d6, d7) * magnitude(d8, d9))) / 3.1415926535897931D) * 180D;   
-    }   
-   
-    public static double bias(double d, double d1)   
-    {   
-        if(d < 0.001D)   
-            return 0.0D;   
-        if(d > 0.999D)   
-            return 1.0D;   
-        if(d1 < 0.001D)   
-            return 0.0D;   
-        if(d1 > 0.999D)   
-            return 1.0D;   
-        else   
-            return Math.pow(d, Math.log(d1) / LOG_HALF);   
-    }   
-   
-    public static double[] cross(double ad[], double ad1[])   
-    {   
-        double ad2[] = new double[3];   
-        ad2[0] = ad[1] * ad1[2] - ad[2] * ad1[1];   
-        ad2[1] = ad[2] * ad1[0] - ad[0] * ad1[2];   
-        ad2[2] = ad[0] * ad1[1] - ad[1] * ad1[0];   
-        return ad2;   
-    }   
-   
+
     public static double dot(double d, double d1)   
     {   
         return d * d1;   
@@ -92,56 +59,8 @@ public final class ImprovMath
             d += ad[j] * ad1[j];   
    
         return d;   
-    }   
-   
-    public static String doubleToString(double d, int i)   
-    {   
-        double d1 = d - (double)(long)d;   
-        if(d1 == 0.0D)   
-            return String.valueOf((long)d);   
-        boolean flag = false;   
-        if(d < 0.0D)   
-        {   
-            flag = true;   
-            d = -d;   
-        }   
-        double d2 = Math.pow(10D, i);   
-        d *= d2;   
-        if(d - (double)(long)d >= 0.49998999999999999D)   
-            d++;   
-        d /= d2;   
-        String s = String.valueOf(d);   
-        int j = s.indexOf('.');   
-        if(j != -1)   
-        {   
-            int k = j + i + 1;   
-            if(k < s.length())   
-                s = s.substring(0, k);   
-        }   
-        int l = s.length() - 1;   
-        boolean flag1 = false;   
-        for(; l > 0 && s.charAt(l) == '0' && s.charAt(l - 1) != '.'; l--)   
-            flag1 = true;   
-   
-        if(flag1)   
-            s = s.substring(0, l);   
-        return (flag ? "-" : "") + s;   
-    }   
-   
-    public static double gain(double d, double d1)   
-    {   
-        if(d < 0.001D)   
-            return 0.0D;   
-        if(d > 0.999D)   
-            return 1.0D;   
-        d1 = d1 >= 0.001D ? d1 <= 0.999D ? d1 : 0.999D : 0.0001D;   
-        double d2 = Math.log(1.0D - d1) / LOG_HALF;   
-        if(d < 0.5D)   
-            return Math.pow(2D * d, d2) / 2D;   
-        else   
-            return 1.0D - Math.pow(2D * (1.0D - d), d2) / 2D;   
-    }   
-   
+    }
+
     public static double[] getEulers(double ad[], int i)   
     {   
         double ad1[] = new double[3];   

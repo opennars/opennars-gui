@@ -117,7 +117,6 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
     public void event(Class event, Object[] args) {
 
         if (event == CyclesEnd.class) {
-            //SwingUtilities.invokeLater(this);
             run();
         }
     }
@@ -222,31 +221,14 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             timepanels.add(this.desireTime = new BeliefTimeline(c.memory, chartWidth*6, chartHeight/3));
             
             overlay.add(timepanels, SOUTH);
-            
-            
-            
-           /* TermSyntaxVis tt = new TermSyntaxVis(c.term);
-            syntaxPanel = new PCanvas(tt);
-            syntaxPanel.setZoom(10f);
-            
-            syntaxPanel.noLoop();
-            syntaxPanel.redraw();
 
-            
-                        
-
-            add(syntaxPanel);*/
-            add(overlay, NORTH);  
-            //setComponentZOrder(overlay, 1);
-            //syntaxPanel.setBounds(0,0,400,400);
-            
-            
+            add(overlay, NORTH);
         }
 
         public void update(long time) {
 
-             StringBuilder conceptstr = new StringBuilder(); //concept.toStringLong().replaceAll("\n", "<br/>");
-                
+             StringBuilder conceptstr = new StringBuilder();
+
             /*if(concept.beliefs.size()>0) {
                 conceptstr.append("\nBeliefs:\n");
                 for(Task tl : concept.beliefs) {
@@ -490,8 +472,6 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
     
     public static Color getColor(float freq, float conf, float factor, Parameters narParameters) {
         float ii = 0.25f + (factor * conf) * 0.75f;
-       // float green = freq > 0.5f ? (freq/2f) : 0f;
-        //float red = freq <= 0.5f ? ((1.0f-freq)/2f) : 0;
         
         float evidence = TruthFunctions.c2w(conf, narParameters);
         float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, narParameters);
@@ -535,9 +515,6 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
 
             }
             g.dispose();
-
         }
     }
-    
-    
 }

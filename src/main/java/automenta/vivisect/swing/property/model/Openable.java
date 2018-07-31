@@ -15,11 +15,9 @@
 package automenta.vivisect.swing.property.model;
 
 /**
- * Openable.<br>
+ * Openable
  *
  */
 public interface Openable {
-
 	void open();
-	
 }

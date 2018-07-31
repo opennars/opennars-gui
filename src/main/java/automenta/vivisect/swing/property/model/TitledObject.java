@@ -15,7 +15,7 @@
 package automenta.vivisect.swing.property.model;
 
 /**
- * TitledObject.<br>
+ * TitledObject
  *
  */
 public interface TitledObject {

@@ -656,18 +656,6 @@ public abstract class GEditableTextControl extends GTextBase implements Focusabl
 		// Cursor at end of paragraph graphic
 		calculateCaretPos(endTLHI);
 
-//			// Is do we have to move cursor to start of next line
-//			if(newline) {
-//				if(pos >= stext.length()){
-//					stext.insertCharacters(pos, " ");
-//					stext.getLines(buffer.g2);
-//				}
-//				moveCaretRight(endTLHI);
-//				calculateCaretPos(endTLHI);
-//			}
-//			// Finish off by ensuring no selection, invalidate buffer etc.
-//			startTLHI.copyFrom(endTLHI);
-//		}
 		bufferInvalid = true;
 		return true;
 	}
@@ -765,5 +753,4 @@ public abstract class GEditableTextControl extends GTextBase implements Focusabl
 		bufferInvalid = true;
 		return true;
 	}
-
 }

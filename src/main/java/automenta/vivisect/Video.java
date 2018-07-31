@@ -127,16 +127,6 @@ public class Video {
     public static final int getColor(final String s, float sat, float bright, float alpha) {
         return colorHSB( hashFloat(s.hashCode()), sat, bright, alpha);
     }
-    //    //NOT WORKING YET
-    //    public static Color getColor(final String s, float saturation, float brightness, float alpha) {
-    //        float hue = (((float)s.hashCode()) / Integer.MAX_VALUE);
-    //        int a = (int)(255.0*alpha);
-    //
-    //        int c = Color.HSBtoRGB(hue, saturation, brightness);
-    //        c |= (a << 24);
-    //
-    //        return new Color(c, true);
-    //    }
 
     public static int colorHSB(float hue, float saturation, float brightness, float alpha) {
         return Color.HSBtoRGB(hue, saturation, brightness) & 0x00ffffff | ((int)(255f*alpha) << 24);

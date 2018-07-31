@@ -17,7 +17,7 @@ package automenta.vivisect.swing.property.swing.plaf.metal;
 import automenta.vivisect.swing.property.swing.plaf.basic.BasicLookAndFeelAddons;
 
 /**
- * MetalLookAndFeelAddons.<br>
+ * MetalLookAndFeelAddons
  *
  */
 public class MetalLookAndFeelAddons extends BasicLookAndFeelAddons {

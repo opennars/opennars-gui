@@ -103,5 +103,4 @@ public class HyperassociativeLayout implements GraphDisplay {
     @Override
     public void edge(AbstractGraphVis g, EdgeVis e) {
     }
-    
 }

@@ -307,13 +307,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
      * Input area
      */
     private JTextArea inputText;
-    
-//    /**
-//     * Whether the window is ready to accept new addInput (in fact whether the
-//     * Reasoner will read the content of {@link #inputText} )
-//     */
-//    private boolean ready;
-    
+
     private final JPanel centerPanel;
     private final JComponent textInput;
     
@@ -324,7 +318,6 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
      * Constructor
      *
      * @param nar The reasoner
-     * @param title The title of the window
      */
     public TextInputPanel(final Nar nar) {
         super(new BorderLayout());
@@ -353,22 +346,13 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
     }
 
     public class ReactionPanel extends JPanel {
-       // private SwingText comments;
-        
 
         /**
          * List with buttons (instant invoke) and checkboxes with 'All' at the top when two or more are selected
          */
-        //private final JPanel list;
         Date date = new Date();
         public ReactionPanel() {
             super(new BorderLayout());
-
-            //list = new JPanel(new GridBagLayout());
-            //add(new JScrollPane(list), BorderLayout.CENTER);
-            //comments = new SwingText();
-            //comments.setEditable(false);
-            //setConsoleFont(comments, 12);
         }
 
         public void update() {
@@ -388,20 +372,9 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
                 
                 t.getActions(actions);                
             }
-            
-            /*
-            GridBagConstraints gc = new GridBagConstraints();
-            gc.weightx = 1.0;
-            gc.weighty = 0.0;
-            gc.fill = GridBagConstraints.HORIZONTAL;
-            gc.gridx = 1;
-            gc.gridy = 1;
-            */
-            
-            
+
             menu.removeAll();
 
-            
             defaultButton = null;
             double maxStrength = 0;
             for (InputAction a : actions) {
@@ -412,7 +385,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
                     defaultButton = b;
                     maxStrength = strength;
                 }
-               // b.setFont(b.getFont().deriveFont((float)(b.getFont().getSize() * (0.5f + 0.5f * strength))));
+                // b.setFont(b.getFont().deriveFont((float)(b.getFont().getSize() * (0.5f + 0.5f * strength))));
                 b.setForeground(Color.WHITE); 
                 b.setBackground(Color.DARK_GRAY);
                 b.addActionListener(new ActionListener() {
@@ -442,7 +415,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
 
     }
 
-    //TODO move this to its own class
+    // TODO move this to its own class
     public JComponent newTextInput() {
         mainSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);        
         
@@ -465,20 +438,6 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
             }
 
             private void updated(DocumentEvent documentEvent) {
-                String t = inputText.getText();
-                
-                boolean valid = true, show;
-//                if (t.length() > 0) {
-//                    infoPane.update(t);
-//                    show = true; //!valid;
-//                    
-//                }
-//                else {
-//                    show = false;
-//                }
-                //show = true;
-                
-                
                 updateContext();
             }
         };
@@ -539,5 +498,4 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
     private void close() {
         setVisible(false);
     }
-
 }

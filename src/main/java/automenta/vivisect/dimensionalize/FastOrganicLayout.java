@@ -172,8 +172,6 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
      */
     public boolean isVertexIgnored(V vertex) {
         return false;
-		//return super.isVertexIgnored(vertex)
-        //	graph.getConnections(vertex).length == 0;
     }
 
     /**
@@ -324,9 +322,8 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             vertexArray.add(vd);
         }
         
-        mxRectangle initialBounds = null; //new mxRectangle(-100, -50, 100, 50);
-                //? graph.getBoundsForCells(vertexArray, false, false, true) : null;
-        
+        mxRectangle initialBounds = null;
+
         int n = vertexArray.size();
 
         
@@ -355,22 +352,12 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
         
         for (int i = 0; i < n; i++) {
             VertexVis<V,E> vd = vertexArray.get(i);
-            
-            //TODO is this necessary?
-            /*if (!graph.containsVertex(vd.getVertex()))
-                continue;*/
-            
-            /*if (vd == null) {
-                vd = new VertexVis(vertex);
-                displayed.put(vertex, vd);
-            }*/
-            
+
             if (cellLocation[i]==null)
                 cellLocation[i] = new double[2];
 
             // Set up the mapping from array indices to cells
             indices.put(vd.vertex, i);
-            //mxRectangle bounds = getVertexBounds(vertex);
 
 			// Set the X,Y value of the internal version of the cell to
             // the center point of the vertex for better positioning
@@ -381,8 +368,8 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             //TODO re-use existing location
             double x, y;
             if (vd==null) {
-                x = 0;//Math.random() * 100.0;//Math.random() * 100; //bounds.getX();
-                y = 0;//Math.random() * 100.0;
+                x = 0;
+                y = 0;
             }
             else {
                 x = vd.getX(); 
@@ -411,7 +398,7 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             //ProcessingGraphCanvas.VertexVis vd = displayed.get(v);
 
             
-            //TODO why does a vertex disappear from the graph... make this unnecessary
+            // TODO why does a vertex disappear from the graph... make this unnecessary
             
             
             V v = vd.getVertex();
@@ -419,14 +406,6 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             if (edges!=null) {
                 List<V> cells = new ArrayList(edges.size());
                 for (E e : edges) {
-                    if (isResetEdges()) {
-                        //graph.resetEdge(edge[k]);
-                    }
-
-                    if (isDisableEdgeStyle()) {
-                        //setEdgeStyleEnabled(edge[k], false);
-                    }
-
                     V source = graph.getEdgeSource(e);
                     V target = graph.getEdgeTarget(e);
                     if (source!=v)  cells.add(source);
@@ -438,7 +417,7 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
                 for (int j = 0; j < cells.size(); j++) {
                     Integer index = indices.get(cells.get(j));
 
-                                        // Check the connected cell in part of the vertex list to be
+                    // Check the connected cell in part of the vertex list to be
                     // acted on by this layout
                     if (index != null) {
                         neighbors[i][j] = index.intValue();
@@ -485,9 +464,6 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             VertexVis vd = vertexArray.get(i);                
 
             if (vd != null) {
-                //cellLocation[i][0] -= 1/2.0; //geo.getWidth() / 2.0;
-                //cellLocation[i][1] -= 1/2.0; //geo.getHeight() / 2.0;
-
                 float r = vd.getRadius();
                 double x = /*graph.snap*/(cellLocation[i][0] - r);
                 double y = /*graph.snap*/(cellLocation[i][1] - r);                    
@@ -506,7 +482,7 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
             }
         }
 
-                    // Modifies the cloned geometries in-place. Not needed
+        // Modifies the cloned geometries in-place. Not needed
         // to clone the geometries again as we're in the same
         // undoable change.
         double dx = -(maxx+minx)/2f;
@@ -560,8 +536,7 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
     }
 
     /**
-     * Calculates the attractive forces between all laid out nodes linked by
- edge
+     * Calculates the attractive forces between all laid out nodes linked by edge
      */
     protected void calcAttraction() {
 		// Check the neighbours of each vertex and calculate the attractive
@@ -680,8 +655,4 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
     @Override
     public void edge(AbstractGraphVis<V, E> g, EdgeVis<V, E> e) {
     }
-
-    
-
-
 }

@@ -17,7 +17,7 @@ package automenta.vivisect.swing.property.propertysheet;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * Factory for Property renderers.<br>
+ * Factory for Property renderers
  */
 public interface PropertyRendererFactory {
 

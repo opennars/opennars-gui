@@ -207,34 +207,6 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
 
     int registeredMethods = 0;
 
-    /*
-     * Specify the PImage that contains the image{s} to be used for the button's state. <br>
-     * This image may be a composite of 1 to 3 images tiled horizontally. 
-     * @param img
-     * @param nbrImages in the range 1 - 3
-     */
-	//	static PImage[] loadImages(PImage img, int nbrImages){
-    //		if(img == null || nbrImages <= 0 || nbrImages > 3)
-    //			return null;
-    //		PImage[] bimage = new PImage[3];
-    //		int iw = img.width / nbrImages;
-    //		for(int i = 0; i < nbrImages;  i++){
-    //			bimage[i] = new PImage(iw, img.height, ARGB);
-    //			bimage[i].copy(img, 
-    //					i * iw, 0, iw, img.height,
-    //					0, 0, iw, img.height);
-    //		}
-    //		// If less than 3 images reuse last image in set
-    //		for(int i = nbrImages; i < 3; i++)
-    //			bimage[i] = bimage[nbrImages - 1];
-    //		return bimage;
-    //	}
-	//	public static String getFocusName(){
-    //		if(focusIsWith == null)
-    //			return "null";
-    //		else
-    //			return focusIsWith.toString();
-    //	}
     /**
      * Base constructor for ALL control ctors that do not have a visible UI but
      * require access to a PApplet object. <br>
@@ -1214,7 +1186,6 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
      * It is used where components have childen e.g. GCombo and GPaneln It is
      * used when a child component is added.
      *
-     * @param component
      * @param parentZ
      */
     protected void setZ(int parentZ) {

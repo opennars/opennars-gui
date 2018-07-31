@@ -37,7 +37,6 @@ public class GraphDisplays<V,E> implements GraphDisplay<V,E> {
 
     @Override
     public boolean preUpdate(final AbstractGraphVis<V, E> g) {
-        int n = sequence.size();
         boolean allTrue = true;
         for (GraphDisplay<V, E> aSequence : sequence) {
             GraphDisplay s = aSequence;
@@ -48,7 +47,6 @@ public class GraphDisplays<V,E> implements GraphDisplay<V,E> {
 
     @Override
     public void vertex(final AbstractGraphVis<V, E> g, final VertexVis<V, E> v) {
-        int n = sequence.size();
         for (GraphDisplay<V, E> aSequence : sequence) {
             aSequence.vertex(g, v);
         }        
@@ -56,7 +54,6 @@ public class GraphDisplays<V,E> implements GraphDisplay<V,E> {
 
     @Override
     public void edge(final AbstractGraphVis<V, E> g, final EdgeVis<V, E> e) {
-        int n = sequence.size();
         for (GraphDisplay<V, E> aSequence : sequence) {
             aSequence.edge(g, e);
         }
@@ -64,13 +61,10 @@ public class GraphDisplays<V,E> implements GraphDisplay<V,E> {
 
     @Override
     public boolean postUpdate(final AbstractGraphVis<V, E> g) {
-        int n = sequence.size();
         boolean allTrue = true;
         for (GraphDisplay<V, E> aSequence : sequence) {
             allTrue &= aSequence.postUpdate(g);
         }
         return allTrue;
     }
-    
-    
 }
