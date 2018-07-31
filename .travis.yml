@@ -15,7 +15,6 @@ before_install:
 script: "mvn cobertura:cobertura"
 
 after_success:
-  - cat codecov.yml | curl --data-binary @- https://codecov.io/validate
   - bash <(curl -s https://codecov.io/bash)
   - mvn site
   - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/site/jacoco/jacoco.xml
