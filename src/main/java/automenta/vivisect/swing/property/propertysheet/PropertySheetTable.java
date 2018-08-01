@@ -417,8 +417,8 @@ public class PropertySheetTable extends JTable {
 
     /**
      * Overriden
-     * <li>to prevent the cell focus rect to be painted
-     * <li>to disable ({@link Component#setEnabled(boolean)} the renderer if the
+     * to prevent the cell focus rect to be painted,
+     * to disable Component#setEnabled(boolean) the renderer if the
      * Property is not editable
      */
     public Component prepareRenderer(TableCellRenderer renderer, int row,

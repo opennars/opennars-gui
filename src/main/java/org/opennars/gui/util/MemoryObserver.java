@@ -86,7 +86,8 @@ public abstract class MemoryObserver extends EventHandler {
     /**
      * Add new text to display
      *
-     * @param s The line to be displayed
+     * @param channel
+     * @param args the arguments
      */
     abstract public void output(Class channel, Object... args);
 

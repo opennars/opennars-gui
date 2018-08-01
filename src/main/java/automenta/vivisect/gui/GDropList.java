@@ -256,8 +256,8 @@ public class GDropList extends GTextBase {
 	
 	/**
 	 * Insert an item at the specified position in the list. <br>
-	 * If idx is <0 then the list is unchanged. <br> 
-	 * If idx is >= the number of items in the list, it is added to the end. <br> 
+	 * If idx is &lt;0 then the list is unchanged. <br>
+	 * If idx is &gt;= the number of items in the list, it is added to the end. <br>
 	 * If idx points to the selected item or an item below it then the 
 	 * selected index value is incremented by 1 but the selected text remains  
 	 * the same. <br>

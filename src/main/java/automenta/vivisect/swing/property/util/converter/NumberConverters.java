@@ -16,24 +16,12 @@ package automenta.vivisect.swing.property.util.converter;
 
 import java.text.NumberFormat;
 
+
 /**
- * Convert to and from numbers. <br>
- * 
- * The following convertions are supported:
- * 
- * <table>
- * <tr>
- * <th>From</th>
- * <th>To</th>
- * <th>Reverse</th>
- * </tr>
- * <tr>
- * <td>Number (and subclasses)</td>
- * <td>Number (and subclasses)</td>
- * <td>Yes</td>
- * </tr>
- * </table>
+ * Convert to and from numbers.
+ *
  */
+// Robert Wünsche: I removed all of the buggy documentation because it breaks javadocs
 public class NumberConverters implements Converter {
 
   private static NumberFormat defaultFormat;

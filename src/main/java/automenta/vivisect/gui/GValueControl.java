@@ -222,7 +222,7 @@ public abstract class GValueControl extends GControl {
 	/**
 	 * For DECIMAL values this sets the number of decimal places to 
 	 * be displayed.
-	 * @param nd must be >= 1 otherwise will use 1
+	 * @param nd must be &gt;= 1 otherwise will use 1
 	 */
 	public void setPrecision(int nd){
 		nd = PApplet.constrain(nd, 1, 5);
@@ -264,10 +264,10 @@ public abstract class GValueControl extends GControl {
 	/**
 	 * Set the numberFormat, precision and units in one go. <br>
 	 * Valid number formats are INTEGER, DECIMAL, EXPONENT <br>
-	 * Precision must be >= 1 and is ignored for INTEGER.
+	 * Precision must be &gt;= 1 and is ignored for INTEGER.
 	 * 
 	 * @param numberFormat INTEGER, DECIMAL or EXPONENT
-	 * @param precision must be >= 1
+	 * @param precision must be &gt;= 1
 	 * @param unit for example  kg, m, ($), fps
 	 */
 	public void setNumberFormat(int numberFormat, int precision, String unit){
@@ -278,10 +278,10 @@ public abstract class GValueControl extends GControl {
 	/**
 	 * Set the numberFormat and precision in one go. <br>
 	 * Valid number formats are INTEGER, DECIMAL, EXPONENT <br>
-	 * Precision must be >= 1 and is ignored for INTEGER.
+	 * Precision must be &gt;= 1 and is ignored for INTEGER.
 	 * 
 	 * @param numberFormat G4P.INTEGER, G4P.DECIMAL orG4P. EXPONENT
-	 * @param precision must be >= 1
+	 * @param precision must be &gt;= 1
 	 */
 	public void setNumberFormat(int numberFormat, int precision){
 		switch(numberFormat){
@@ -300,7 +300,7 @@ public abstract class GValueControl extends GControl {
 	/**
 	 * Set the numberFormat and precision in one go. <br>
 	 * Valid number formats are INTEGER, DECIMAL, EXPONENT <br>
-	 * Precision must be >= 1 and is ignored for INTEGER.
+	 * Precision must be &gt;= 1 and is ignored for INTEGER.
 	 * 
 	 * @param numberFormat G4P.INTEGER, G4P.DECIMAL or G4P.EXPONENT
 	 */
@@ -351,7 +351,7 @@ public abstract class GValueControl extends GControl {
 
 	/**
 	 * Set the amount of easing to be used when a value is changing. The default value
-	 * is 1 (no easing) values > 1 will cause the value to rush from its starting value
+	 * is 1 (no easing) values &gt; 1 will cause the value to rush from its starting value
 	 * and decelerate towards its final values. In other words it smoothes the movement
 	 * of the slider thumb or knob rotation.
 	 * 
@@ -370,7 +370,7 @@ public abstract class GValueControl extends GControl {
 	}
 
 	/**
-	 * The number of ticks must be >= 2 since 2 are required for the slider limits.
+	 * The number of ticks must be &gt;= 2 since 2 are required for the slider limits.
 	 * 
 	 * @param noOfTicks the nbrTicks to set
 	 */

@@ -237,7 +237,7 @@ public class GImageToggleButton extends GControl {
 	 * <pre>btnName.fireAllEvents(true); </pre><br>
 	 * <pre>
 	 * void handleButtonEvents(void handleToggleButtonEvents(GImageToggleButton button, GEvent event) {
-	 *	  if(button == btnName && event == GEvent.CLICKED){
+	 *	  if(button == btnName &amp;&amp; event == GEvent.CLICKED){
 	 *        int buttonState = btnName.stateValue();
 	 *    }
 	 * </pre> <br>

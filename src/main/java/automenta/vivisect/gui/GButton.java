@@ -142,7 +142,7 @@ public class GButton extends GTextIconAlignBase {
      *
      * <pre>
      * void handleButtonEvents(void handleButtonEvents(GButton button, GEvent event) {
-     *	  if(button == btnName && event == GEvent.CLICKED){
+     *	  if(button == btnName &amp;&amp; event == GEvent.CLICKED){
      *        // code for button click event
      *    }
      * </pre> <br>

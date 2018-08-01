@@ -232,7 +232,7 @@ public final class GPassword extends GControl implements Focusable{
 	 * Sets the max length of the password. This method is ignored if the control
 	 * already holds some user input. <br>
 	 * The default value is 10.
-	 * @param ml the new max length (must be >= 1)
+	 * @param ml the new max length (must be &gt;= 1)
 	 */
 	public void setMaxWordLength(int ml){
 		if(wordLength == 0 && ml >= 1)

@@ -58,9 +58,6 @@ import org.opennars.io.events.Events.CyclesEnd;
 import org.xml.sax.SAXException;
 
 public class NARControls extends JPanel implements ActionListener, EventObserver {
-
-    final int TICKS_PER_TIMER_LABEL_UPDATE = 4 * 1024; //set to zero for max speed, or a large number to reduce GUI updates
-
     /**
      * Reference to the reasoner
      */
@@ -87,13 +84,6 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
      */
     private boolean savingExp = false;
 
-
-
-    /**
-     * To process the next chunk of output data
-     *
-     * @param lines The text lines to be displayed
-     */
     private NSlider speedSlider;
     private float currentSpeed = 0f;
     private float lastSpeed = 0f;
@@ -110,14 +100,15 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
     private NSlider threadSlider;
 
     int chartHistoryLength = 128;
-    
+
+    public NARSwing parent;
+
     /**
      * Constructor
      *
-     * @param nar
-     * @param title
+     * @param nar reasoner instance for the controls
+     * @param parent parent window in which the object resides in
      */
-    public NARSwing parent;
     public NARControls(final Nar nar, NARSwing parent) {
         super(new BorderLayout());
         
@@ -140,11 +131,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
         addJMenuItem(m, "Save Memory");     
         addJMenuItem(m, "Load Memory");
-        
-        /*internalExperienceItem = addJMenuItem(m, "Enable Internal Experience (NAL9)");
-        fullInternalExp = addJMenuItem(m, "Enable Full Internal Experience");
-        narsPlusItem = addJMenuItem(m, "Enable NARS+ Ideas");*/
-        
+
         m.addActionListener(this);
         menuBar.add(m);
 
@@ -152,177 +139,64 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         {
             
             JMenuItem mv3 = new JMenuItem("+ Input");
-            mv3.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    TextInputPanel inputPanel = new TextInputPanel(nar);
-                    NWindow inputWindow = new NWindow("Input", inputPanel);                    
-                    inputWindow.setSize(800, 200);
-                    inputWindow.setVisible(true);        
-                }
+            mv3.addActionListener(e -> {
+                TextInputPanel inputPanel = new TextInputPanel(nar);
+                NWindow inputWindow = new NWindow("Input", inputPanel);
+                inputWindow.setSize(800, 200);
+                inputWindow.setVisible(true);
             });
             m.add(mv3);
                        
             JMenuItem ml = new JMenuItem("+ Output");
-            ml.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {                    
-                    new NWindow("Output", new SwingLogPanel(NARControls.this)).show(500, 300);
-                }
-            });
+            ml.addActionListener(e -> new NWindow("Output", new SwingLogPanel(NARControls.this)).show(500, 300));
             m.add(ml);
             
             m.addSeparator();
 
 
             JMenuItem mv = new JMenuItem("+ Concept Network");
-            mv.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new NWindow("graphvis", new NARGraphPanel( nar) ).show(800, 800, false);
-                }
-            });
+            mv.addActionListener(e -> new NWindow("graphvis", new NARGraphPanel( nar) ).show(800, 800, false));
             m.add(mv);
             
             m.addSeparator();
                         
             JMenuItem tt = new JMenuItem("+ Task Tree");
-            tt.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {                    
-                    new NWindow("Task Tree", new TaskTree(nar)).show(300, 650, false);
-                }
-            });
+            tt.addActionListener(e -> new NWindow("Task Tree", new TaskTree(nar)).show(300, 650, false));
             m.add(tt);
             
           //  m.addSeparator();
             
             JMenuItem st = new JMenuItem("+ Sentence Table");
-            st.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    SentenceTablePanel p = new SentenceTablePanel(nar);
-                    NWindow w = new NWindow("Sentence Table", p);
-                    w.setSize(500, 300);
-                    w.setVisible(true);                    
-                }
+            st.addActionListener(e -> {
+                SentenceTablePanel p = new SentenceTablePanel(nar);
+                NWindow w = new NWindow("Sentence Table", p);
+                w.setSize(500, 300);
+                w.setVisible(true);
             });
             m.add(st);
             
             m.addSeparator();
             
             JMenuItem gml = new JMenuItem("+ Concept Forgetting Log");
-            gml.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {                    
-                    new NWindow("Forgot", new SwingLogPanel(NARControls.this, 
-                            Events.ConceptForget.class
-                            //, Events.TaskRemove.class, Events.TermLinkRemove.class, Events.TaskLinkRemove.class)
-                    ))
-                    .show(500, 300);
-                }
-            });
+            gml.addActionListener(e -> new NWindow("Forgot", new SwingLogPanel(NARControls.this,
+                    Events.ConceptForget.class
+                    //, Events.TaskRemove.class, Events.TermLinkRemove.class, Events.TaskLinkRemove.class)
+            ))
+            .show(500, 300));
             m.add(gml);
             
             JMenuItem gml2 = new JMenuItem("+ Task Forgetting Log");
-            gml2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {                    
-                    new NWindow("Forgot", new SwingLogPanel(NARControls.this, 
-                            Events.TaskRemove.class
-                            //, Events.TaskRemove.class, Events.TermLinkRemove.class, Events.TaskLinkRemove.class)
-                    ))
-                    .show(500, 300);
-                }
-            });
+            gml2.addActionListener(e -> new NWindow("Forgot", new SwingLogPanel(NARControls.this,
+                    Events.TaskRemove.class
+                    //, Events.TaskRemove.class, Events.TermLinkRemove.class, Events.TaskLinkRemove.class)
+            ))
+            .show(500, 300));
             m.add(gml2);
 
-         /* not working yet anyway   JMenuItem fc = new JMenuItem("+ Freq. vs Confidence");
-            fc.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    BubbleChart bc = new BubbleChart(nar);
-                    NWindow wbc = new NWindow("Freq vs. Conf", bc);
-                    wbc.setSize(250,250);
-                    wbc.setVisible(true);
-                }
-            });
-            m.add(fc); */
-            
-            /*JMenuItem hf = new JMenuItem("+ Humanoid Face");
-            hf.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    NARFacePanel f = new NARFacePanel(nar);
-                    NWindow w = new NWindow("Face", f);
-                    w.setSize(250,400);
-                    w.setVisible(true);
-                }
-            });
-            m.add(hf);*/
-            
-            
-            /*JMenuItem ct = new JMenuItem("+ Concepts");
-            ct.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // see design for Bag and {@link BagWindow} in {@link Bag#startPlay(String)} 
-                    memory.conceptsStartPlay(new BagWindow<Concept>(), "Active Concepts");                    
-                }
-            });
-            m.add(ct);
-            
-            JMenuItem bt = new JMenuItem("+ Buffered Tasks");
-            bt.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    memory.taskBuffersStartPlay(new BagWindow<Task>(), "Buffered Tasks");
-                }
-            });
-            m.add(bt);*/
-            
-            /*JMenuItem cct = new JMenuItem("+ Concept Content");
-            cct.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    conceptWin.setVisible(true);                
-                }                
-            });
-            m.add(cct);*/
-            
-            
-            
-            
-            /*
-            JMenuItem it = new JMenuItem("+ Inference Log");
-            it.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    record.show();
-                    record.play();
-                }                
-            });
-            m.add(it);            
-            */
         }
         menuBar.add(m);
-        
-//        m = new JMenu("Demos");
-//        {
-//            JMenuItem cct2 = new JMenuItem("+ Test Chamber");
-//            cct2.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    
-//                    chamber.create(nar);
-//                }                
-//            });
-//            m.add(cct2);
-//        }
-//        menuBar.add(m);
 
         m = new JMenu("Help");
-        //addJMenuItem(m, "Related Information");
         addJMenuItem(m, "About NARS");
         m.addActionListener(this);
         menuBar.add(m);
@@ -335,33 +209,9 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
 
         JComponent jp = newParameterPanel();
         top.add(jp, BorderLayout.CENTER);
-        
-        
-        /*CompoundMeter senses = new CompoundMeter(memory.logic, memory.resource) {
-            @Override
-            public Chart newDefaultChart(String id, TreeMLData data) {                
-                switch (id) {
-                    case "concept.pri.histo":
-                        return new StackedPercentageChart(data).height(2);
-                    case "concept.pri.mean":
-                    case "task.pri.mean":
-                        return new LineChart(data).range(0, 1f);
-                    case "plan.graph":
-                    case "plan.graph.add":
-                    case "plan.task":                    
-                    case "concept.belief.mean":
-                    case "task.process":                        
-                        return new LineChart(data);
-                        
-                }
-                return new BarChart(data);
-            }          
-        };
-        senses.setActive(true);
-        senses.update(memory);   */     
-        
+
+
         add(top, NORTH);
-        //add(new MeterVis(nar, senses, 128).newPanel(), CENTER);
         
         
         init();
@@ -556,11 +406,9 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                     nar.reset();
                     break;
                 case "Related Information":
-//                MessageDialog web =
                     new MessageDialog(Nar.WEBSITE);
                     break;
                 case "About NARS":
-//                MessageDialog info =
                     new MessageDialog(Nar.VERSION+"\n\n"+ Nar.WEBSITE);
                     break;
             }
@@ -893,8 +741,4 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
     public void setAllowFullSpeed(boolean allowFullSpeed) {
         this.allowFullSpeed = allowFullSpeed;
     }
-
-    
-
-
 }

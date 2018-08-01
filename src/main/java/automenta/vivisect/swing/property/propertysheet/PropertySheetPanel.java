@@ -49,9 +49,9 @@ import automenta.vivisect.swing.property.swing.plaf.blue.BlueishButtonUI;
  * <p>
  * Default sorting is by name (case-insensitive). Custom sorting can be
  * implemented through
- * {@link com.l2fprod.common.propertysheet.PropertySheetTableModel#setCategorySortingComparator(Comparator)}
+ * com.l2fprod.common.propertysheet.PropertySheetTableModel#setCategorySortingComparator(Comparator)
  * and
- * {@link com.l2fprod.common.propertysheet.PropertySheetTableModel#setPropertySortingComparator(Comparator)}
+ * com.l2fprod.common.propertysheet.PropertySheetTableModel#setPropertySortingComparator(Comparator)
  */
 public class PropertySheetPanel extends JPanel implements PropertySheet, PropertyChangeListener {
 

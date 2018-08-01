@@ -532,10 +532,10 @@ public final class StyledString implements GConstantsInternal, Serializable {
 	}
 
 	/**
-	 * Insert some text into the position indicated. <br>
+	 * Insert some text into the position indicated.
 	 * 
 	 * @param lineNo a valid line number
-	 * @param charStart the position in the line >= 0
+	 * @param charStart the position in the line &gt;= 0
 	 * @param chars the characters to insert
 	 * @param startNewLine prefix the chars with a EOL
 	 * @param endNewLine postfix the chars with a EOL
@@ -553,7 +553,8 @@ public final class StyledString implements GConstantsInternal, Serializable {
 	/**
 	 * Insert 1 or more characters into the string. The inserted text will first be made
 	 * safe by removing any inappropriate EOL characters. <br>
-	 * Do not use this method to insert EOL characters, use the <pre>insertEOL(int)</pre>
+	 * Do not use this method to insert EOL characters, use the
+     * <pre>insertEOL(int)</pre>
 	 * method instead.
 	 * 
 	 * @param insertPos position in string to insert characters

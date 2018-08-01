@@ -31,12 +31,6 @@ import org.opennars.io.events.TextOutputHandler;
  * Creates default Swing GUI windows to operate a Nar.
  */
 public class NARSwing  {
-
-    
-    /*static {
-        System.setProperty("sun.java2d.opengl","True");        
-    }*/
-
     public static void themeInvert() {
         //http://alvinalexander.com/java/java-swing-uimanager-defaults
         //UIManager.put("ScrollBar.foreground", Color.WHITE);
@@ -118,8 +112,6 @@ public class NARSwing  {
         UIManager.put("ToggleButton.foreground", Color.WHITE);
         UIManager.put("ToggleButton.background", Color.DARK_GRAY);
         UIManager.put("ToggleButton.select", Color.GRAY);
-        //UIManager.put("ToggleButton.border", Color.BLUE);
-        //UIManager.put("ToggleButton.light", Color.DARK_GRAY);
         UIManager.put("Button.select", Color.GRAY);
         UIManager.put("Button.opaque", false);
         UIManager.put("Panel.opaque", false);
@@ -156,31 +148,21 @@ public class NARSwing  {
         mainWindow.getContentPane().add(controls, BorderLayout.WEST);
         mainWindow.getContentPane().add(new ConsolePanel(controls), BorderLayout.CENTER);
          mainWindow.setVisible(true);
-        
-        //TEMPORARY
-        //new Window("Plugins", new PluginPanel(nar)).show(300, 400);
-        
-        
+
         if (logPanel) {
-            //NWindow nw = new NWindow("I/O", new ConsolePanel(controls));
-            //nw.setBounds(mainWindow.getX() + mainWindow.getWidth(), mainWindow.getY(), 800, 650);
-           // nw.setVisible(true);
         }
         else {
             new TextOutputHandler(nar, System.out);
-            //new Log4JOutput(nar, false);            
         }
-        
     }
 
-    
     /**
      * The entry point of the standalone application.
      * <p>
      * Create an instance of the class
      *
-     * @param args optional argument used : one addInput file, possibly followed by
- --silence <integer>
+     * @param args optional argument used : one addInput file, possibly followed by --silence &lt;integer&gt;
+     * @throws Exception
      */
     public static void main(String args[]) throws Exception {
         themeInvert();
@@ -198,9 +180,9 @@ public class NARSwing  {
         }
         
         
-        if (args.length > 1)
+        if (args.length > 1) {
             swing.nar.start(0);
-                
+        }
     }
 
     /**
@@ -235,5 +217,4 @@ public class NARSwing  {
     public static final String UNAVAILABLE = "\n Not implemented in this version.";
     public static final String ON_LABEL = "On";
     public static final String OFF_LABEL = "Off";
-
 }

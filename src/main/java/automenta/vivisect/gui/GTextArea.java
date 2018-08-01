@@ -523,7 +523,7 @@ public class GTextArea extends GEditableTextControl {
 	 * 
 	 * @param lineNo the text area line number we want
 	 * @param ignoreEOL if true do not include trailing end=of-line characters
-	 * @return the length of the line, or <) if the line number is invalid
+	 * @return the length of the line, or &lt;) if the line number is invalid
 	 */
 	public int getTextLength(int lineNo, boolean ignoreEOL){
 		Graphics2D g2d = buffer.g2;
