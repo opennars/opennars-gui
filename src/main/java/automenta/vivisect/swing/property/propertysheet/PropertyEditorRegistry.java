@@ -77,7 +77,7 @@ public class PropertyEditorRegistry implements PropertyEditorFactory {
 	 * <li>if an editor class was registered with
 	 * {@link #registerEditor(Property, Class)}, it is returned, else
 	 * <li>
-	 * <li>look for editor for the property type using {@link #getEditor(Class)}
+	 * <li>look for editor for the property type using getEditor(Class)
 	 * .it is returned, else</li>
 	 * <li>look for editor using PropertyEditorManager.findEditor(Class);</li>
 	 * </ul>

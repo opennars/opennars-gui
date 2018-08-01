@@ -134,7 +134,7 @@ public class GTimer implements GConstantsInternal {
 	 * See if 'obj' has a method called 'methodName' that has a single parameter of type
 	 * GTimer and  if so keep a reference to it.
 	 * 
-	 * @param obj
+	 * @param handlerObj
 	 * @param methodName
 	 */
 	protected void createEventHandler(Object handlerObj, String methodName){
@@ -180,7 +180,7 @@ public class GTimer implements GConstantsInternal {
 	/**
 	 * Start the timer and call the method for the number of
 	 * times indicated by nrepeats
-	 * If nrepeats is <=0 then repeat forever
+	 * If nrepeats is &lt;=0 then repeat forever
 	 * 
 	 * @param nrepeats
 	 */

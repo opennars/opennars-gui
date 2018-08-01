@@ -309,7 +309,7 @@ public class GImageButton extends GControl {
 	 * 
 	 * <pre>
 	 * void handleButtonEvents(void handleButtonEvents(GImageButton button, GEvent event) {
-	 *	  if(button == btnName && event == GEvent.CLICKED){
+	 *	  if(button == btnName &amp;&amp; event == GEvent.CLICKED){
 	 *        // code for button click event
 	 *    }
 	 * </pre> <br>

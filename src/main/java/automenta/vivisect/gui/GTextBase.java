@@ -167,7 +167,7 @@ public abstract class GTextBase extends GControl {
 	
 	/**
 	 * Make the selected characters bold. <br>
-	 * Characters affected are >= start and < end
+	 * Characters affected are &gt;= start and &lt; end
 	 * 
 	 * @param start the first character to style
 	 * @param end the first character not to style
@@ -185,7 +185,7 @@ public abstract class GTextBase extends GControl {
 
 	/**
 	 * Make the selected characters italic. <br>
-	 * Characters affected are >= start and < end
+	 * Characters affected are &gt;= start and &lt; end
 	 * 
 	 * @param start the first character to style
 	 * @param end the first character not to style

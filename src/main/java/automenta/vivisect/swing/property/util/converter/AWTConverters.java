@@ -31,42 +31,9 @@ import javax.swing.plaf.InsetsUIResource;
  * AWTConverters. <br>
  * Converter commonly used AWT classes like Point, Dimension, Rectangle, Insets
  * to/from Strings and between each others when possible.
- * 
- * The following convertions are supported:
- * 
- * <table>
- * <tr>
- * <th>From</th>
- * <th>To</th>
- * <th>Reverse</th>
- * </tr>
- * <tr>
- * <td>Dimension</td>
- * <td>String</td>
- * <td>yes</td>
- * </tr>
- * <tr>
- * <td>Font</td>
- * <td>String</td>
- * <td>no</td>
- * </tr>
- * <tr>
- * <td>Insets</td>
- * <td>String</td>
- * <td>yes</td>
- * </tr>
- * <tr>
- * <td>Point</td>
- * <td>String</td>
- * <td>yes</td>
- * </tr>
- * <tr>
- * <td>Rectangle</td>
- * <td>String</td>
- * <td>yes</td>
- * </tr>
- * </table>
+ *
  */
+// Robert Wünsche: I removed all of the buggy documentation because it breaks javadocs
 public class AWTConverters implements Converter {
 
 	public AWTConverters() {

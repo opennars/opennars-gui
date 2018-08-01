@@ -753,6 +753,7 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
      * top-left corner of the panel otherwise it is relative to the sketch
      * window display. <br>
      *
+     * @return
      */
     public float getX() {
         if (parent != null) {
@@ -768,6 +769,7 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
      * top-left corner of the panel otherwise it is relative to the sketch
      * window display. <br>
      *
+     * @return
      */
     public float getY() {
         if (parent != null) {
@@ -781,7 +783,9 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
      * Get the centre x position of the control. <br>
      * If the control is on a panel then the value returned is relative to the
      * top-left corner of the panel otherwise it is relative to the sketch
-     * window display. <br>
+     * window display.
+     *
+     * @return
      */
     public float getCX() {
         if (parent != null) {
@@ -797,6 +801,7 @@ public abstract class GControl extends Widget implements PConstants, GConstants,
      * top-left corner of the panel otherwise it is relative to the sketch
      * window display. <br>
      *
+     * @return
      */
     public float getCY() {
         if (parent != null) {

@@ -62,12 +62,13 @@ import processing.core.PImage;
  * <li>red_yellow18px</li>
  * <li>blue18px</li>
  * <li>purple18px</li>
- * </ul
+ * </ul>
  * <p>
  * A skin requires 5 image files for different parts of the slider which must be stored in their own 
  * folder (the folder name is also used as the skin name) and this folder should be place inside the 
  * sketch's data folder.</p>
- * <p>The image files have specific names. 
+ *
+ * The image files have specific names.
  * <ul>
  * <li>Left end cap of the slider(<b>end_left.???</b>)</li>
  * <li>Right end cap of the slider(<b>end_right.???</b>)</li>
@@ -75,7 +76,8 @@ import processing.core.PImage;
  * <li>Draggable thumb (<b>handle.???</b> and <b>handle_mouseover.???</b>)</li>
  * </ul>
  * Where ??? is the image type file extension. The image type can be any that Processing can handle, the
- * most common types will be png, jpg or gif but tga is also permitted</p>
+ * most common types will be png, jpg or gif but tga is also permitted
+ * 
  * 
  * <p>There are very few restrictions about the images you use but when designing the images you should consider
  * the following facts:</p>

@@ -164,7 +164,7 @@ public class FastOrganicLayout<V, E> implements GraphDisplay<V,E> {
     }
 
     /**
-     * Returns a boolean indicating if the given <mxCell> should be ignored as a
+     * Returns a boolean indicating if the given &lt;mxCell&gt; should be ignored as a
      * vertex. This returns true if the cell has no connections.
      *
      * @param vertex Object that represents the vertex to be tested.

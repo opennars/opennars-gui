@@ -62,7 +62,7 @@ package automenta.vivisect.gui;
  *	VALUE_STEADY		Value has reached a steady state <br>
  *	DRAGGING			The mouse is being dragged over a component <br>
  *
- * 	GCheckbox & GOption events <br>
+ * 	GCheckbox &amp; GOption events <br>
  *	SELECTED			( "Option selected <br>
  *	DESELECTED			( "Option de-selected <br>
  *

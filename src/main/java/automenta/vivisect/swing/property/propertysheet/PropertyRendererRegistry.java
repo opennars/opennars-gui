@@ -76,7 +76,7 @@ public class PropertyRendererRegistry implements PropertyRendererFactory {
 	 * {@link #registerRenderer(Property, Class)}, it is returned, else
 	 * <li>
 	 * <li>look for renderer for the property type using
-	 * {@link #getRenderer(Class)}.</li>
+	 * getRenderer(Class).</li>
 	 * </ul>
 	 * 
 	 * @param property

@@ -48,7 +48,7 @@ import processing.event.MouseEvent;
  *  
  * If no limits are set then the control will return a value in the range 
  * 0.0 to 1.0 for both the x and the y axis. The setXlimits and setYlimits
- * can be used to set a different range for each axis independently. <b>
+ * can be used to set a different range for each axis independently. <br>
  * 
  * The minimum size for this control is 40x40 pixels and this is enforced 
  * when the control is created. If necessary the width and/or height the 
@@ -126,7 +126,7 @@ public class GSlider2D extends GValueControl2D {
 	
 	/**
 	 * Set the amount of easing to be used when a value is changing. The default value
-	 * is 1 (no easing) values > 1 will cause the value to rush from its starting value
+	 * is 1 (no easing) values &gt; 1 will cause the value to rush from its starting value
 	 * and decelerate towards its final values. In other words it smoothes the movement
 	 * of the slider thumb or knob rotation.
 	 * 
@@ -395,7 +395,7 @@ public class GSlider2D extends GValueControl2D {
 	/**
 	 * For DECIMAL values this sets the number of decimal places to 
 	 * be displayed.
-	 * @param nd must be >= 1 otherwise will use 1
+	 * @param nd must be &gt;= 1 otherwise will use 1
 	 */
 	public void setPrecision(int nd){
 		nd = PApplet.constrain(nd, 1, 5);
@@ -411,10 +411,10 @@ public class GSlider2D extends GValueControl2D {
 	/**
 	 * Set the numberFormat and precision in one go. <br>
 	 * Valid number formats are INTEGER, DECIMAL, EXPONENT <br>
-	 * Precision must be >= 1 and is ignored for INTEGER.
+	 * Precision must be &gt;= 1 and is ignored for INTEGER.
 	 * 
 	 * @param numberFormat GUI.INTEGER, GUI.DECIMAL orG4P. EXPONENT
-	 * @param precision must be >= 1
+	 * @param precision must be &gt;= 1
 	 */
 	public void setNumberFormat(int numberFormat, int precision){
 		switch(numberFormat){
@@ -433,7 +433,7 @@ public class GSlider2D extends GValueControl2D {
 	/**
 	 * Set the numberFormat and precision in one go. <br>
 	 * Valid number formats are INTEGER, DECIMAL, EXPONENT <br>
-	 * Precision must be >= 1 and is ignored for INTEGER.
+	 * Precision must be &gt;= 1 and is ignored for INTEGER.
 	 * 
 	 * @param numberFormat GUI.INTEGER, GUI.DECIMAL or GUI.EXPONENT
 	 */

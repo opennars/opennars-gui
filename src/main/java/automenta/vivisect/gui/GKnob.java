@@ -102,7 +102,7 @@ public class GKnob extends GValueControl {
 	 * the values passed as parameters. <br>
 	 * The knob has two zones the outer bezel and the inner gripper. The radius of 
 	 * the outer bezel is calculated from <br>
-	 * <pre>bezel radius = min(width, height)/2 - 2<pre><br>
+	 * <pre>bezel radius = min(width, height)/2 - 2</pre><br>
 	 * The radius of the inner griper radius is calculated from the bezel radius 
 	 * and the last parameter. <br>
 	 * <pre>grip radius = bezel radiius * gripAmount </pre><br>
@@ -114,7 +114,7 @@ public class GKnob extends GValueControl {
 	 * @param p1
 	 * @param p2
 	 * @param p3
-	 * @param gripAmount must be >=0.0 and <=1.0
+	 * @param gripAmount must be &gt;=0.0 and &lt;=1.0
 	 */
 	public GKnob(PApplet theApplet, float p0, float p1, float p2, float p3, float gripAmount) {
 		super(theApplet, p0, p1, p2, p3);
@@ -148,7 +148,7 @@ public class GKnob extends GValueControl {
 	 * The gripAmount should be in te range 0.0 to 1.0 inclusive. The actual value 
 	 * will be constrained to that range. <br>
 	 * 
-	 * @param gripAmount must be >=0.0 and <=1.0
+	 * @param gripAmount must be &gt;=0.0 and &lt;=1.0
 	 */
 	public void setGripAmount(float gripAmount){
 		gripAmount = PApplet.constrain(gripAmount, 0.0f, 1.0f);

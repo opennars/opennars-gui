@@ -86,16 +86,16 @@ import javax.swing.Timer;
  * calculating its layout (example {@link automenta.vivisect.swing.property.swing.PercentLayout},
  * {@link java.awt.BorderLayout}). 
  * 
- * @javabean.attribute
+ * javabean.attribute
  *          name="isContainer"
  *          value="Boolean.TRUE"
  *          rtexpr="true"
  * 
- * @javabean.attribute
+ * javabean.attribute
  *          name="containerDelegate"
  *          value="getContentPane"
  *          
- * @javabean.class
+ * javabean.class
  *          name="JCollapsiblePane"
  *          shortDescription="A pane which hides its content with an animation."
  *          stopClass="java.awt.Component"
@@ -201,8 +201,7 @@ public class JCollapsiblePane extends JPanel {
    * to this content pane, not to the JCollapsiblePane.
    * 
    * @param contentPanel
-   * @throws IllegalArgumentException
-   *           if contentPanel is null
+   * @throws IllegalArgumentException if contentPanel is null
    */
   public void setContentPane(Container contentPanel) {
     if (contentPanel == null) {
@@ -277,7 +276,6 @@ public class JCollapsiblePane extends JPanel {
    * (collapsing) or show (expanding) its content area.
    * 
    * @param animated
-   * @javabean.property bound="true" preferred="true"
    */
   public void setAnimated(boolean animated) {
     if (animated != useAnimation) {
@@ -318,9 +316,6 @@ public class JCollapsiblePane extends JPanel {
    * 
    * @see #isAnimated()
    * @see #setAnimated(boolean)
-   * @javabean.property
-   *          bound="true"
-   *          preferred="true"
    */
   public void setCollapsed(boolean val) {
     if (collapsed != val) {

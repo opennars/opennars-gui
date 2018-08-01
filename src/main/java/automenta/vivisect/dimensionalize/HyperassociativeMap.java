@@ -41,7 +41,6 @@ import org.jgrapht.Graph;
  * Hyperassociative-Map dANN Wiki page</a>.
  *
  * @author Jeffrey Phillips Freeman
- * @param <G> The graph type
  * @param <N> The node type
  *
  */
@@ -289,7 +288,7 @@ public class HyperassociativeMap<N, E> {
         return 0;
     }
     
-    /** speed scaling factor for a node; should be <= 1.0 */
+    /** speed scaling factor for a node; should be &lt;= 1.0 */
     public double getSpeedFactor(N n) {
         return 1.0;
     }

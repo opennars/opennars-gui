@@ -232,13 +232,13 @@ public class GWindow extends Frame implements GConstants, GConstantsInternal {
 	 * Attempt to create the on-close-window event handler for this GWindow. 
 	 * The default event handler is a method that returns void and has a single
 	 * parameter of type GWindow (this will be a reference to the window that is
-	 * closing) <br/>
+	 * closing) <br>
 	 * 
-	 * The handler will <b>not be called</> if the setActionOnClose flag is set 
-	 * to EXIT_APP <br/>
+	 * The handler will <b>not be called</b> if the setActionOnClose flag is set
+	 * to EXIT_APP <br>
 	 * If the flag is set to CLOSE_WINDOW then the handler is called when the window
 	 * is closed by clicking on the window-close-icon or using either the close or 
-	 * forceClose methods. <br/>
+	 * forceClose methods. <br>
 	 * If the flag is set to KEEP_OPEN the window can only be closed using the
 	 * forceClose method. In this case the handler will be called.
 	 * 
