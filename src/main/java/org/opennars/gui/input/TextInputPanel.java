@@ -132,11 +132,7 @@ public class TextInputPanel extends NPanel /*implements ActionListener*/ {
             @Override public String run() {
                 ClassLoader classloader = Thread.currentThread().getContextClassLoader();
                 File file = null;
-                try {
-                    file = new File(classloader.getResource("./nal/").toURI());
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(ConfigReader.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                file = new File("./nal/");
                 TreeModel model = new FileTreeModel(file);
                 /*if (fileTree==null)*/ {
                     fileTree = new JTree(model);
