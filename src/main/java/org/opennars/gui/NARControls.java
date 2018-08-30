@@ -243,7 +243,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         String filePath = directoryName + fileName;
 
         try {
-            System.out.println("TODO load file");
+            nar.addInputFile(filePath);
             //nar.addInput(new TextInput(new File(filePath)));
         } catch (Exception ex) {
             ex.printStackTrace();
