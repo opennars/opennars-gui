@@ -38,6 +38,7 @@ import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.xml.parsers.ParserConfigurationException;
@@ -232,6 +233,11 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         return menuItem;
     }
 
+    public void showExperienceFileThreadingInfo() {
+        if(nar.narParameters.THREADS_AMOUNT > 1) { 
+            JOptionPane.showMessageDialog(null, "Using experience files in multi-threaded mode doesn't lead to reproducible outputs, as determinism is lost by the thread scheduling, making them effectively input files!", "Note: ", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     /**
      * Open an addInput experience file with a FileDialog
      */
@@ -241,7 +247,8 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
         String directoryName = dialog.getDirectory();
         String fileName = dialog.getFile();
         String filePath = directoryName + fileName;
-
+        showExperienceFileThreadingInfo();
+        
         try {
             nar.addInputFile(filePath);
             //nar.addInput(new TextInput(new File(filePath)));
@@ -390,6 +397,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                     if (savingExp) {
                         experienceWriter.closeSaveFile();
                     } else {
+                        showExperienceFileThreadingInfo();
                         FileDialog dialog = new FileDialog((Dialog) null, "Save experience", FileDialog.SAVE);
                         dialog.setVisible(true);
                         String directoryName = dialog.getDirectory();
