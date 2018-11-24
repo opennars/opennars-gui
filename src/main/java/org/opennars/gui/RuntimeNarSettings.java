@@ -412,4 +412,17 @@ public class RuntimeNarSettings implements Plugin {
         n.narParameters.STEPS_CLOCK =  val;
     }
 
+    public double getVARIABLE_INTRODUCTION_COMBINATIONS_MAX() {
+        return (double) n.narParameters.VARIABLE_INTRODUCTION_COMBINATIONS_MAX;
+    }
+    public void setVARIABLE_INTRODUCTION_COMBINATIONS_MAX(final double val) {
+        n.narParameters.VARIABLE_INTRODUCTION_COMBINATIONS_MAX = (int) val;
+    }
+    
+    public double getANTICIPATIONS_PER_CONCEPT_MAX() {
+        return (double) n.narParameters.ANTICIPATIONS_PER_CONCEPT_MAX;
+    }
+    public void setANTICIPATIONS_PER_CONCEPT_MAX(final double val) {
+        n.narParameters.ANTICIPATIONS_PER_CONCEPT_MAX = (int) val;
+    }
 }
