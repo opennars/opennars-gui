@@ -167,11 +167,11 @@ public class RuntimeNarSettings implements Plugin {
         n.narParameters.DEFAULT_QUEST_DURABILITY = (float) val;
     }
 
-    public double getQUALITY_RESCALED() {
-        return (double) n.narParameters.QUALITY_RESCALED;
+    public double getFORGET_QUALITY_RELATIVE() {
+        return (double) n.narParameters.FORGET_QUALITY_RELATIVE;
     }
-    public void setQUALITY_RESCALED(final double val) {
-        n.narParameters.QUALITY_RESCALED = (float) val;
+    public void setFORGET_QUALITY_RELATIVE(final double val) {
+        n.narParameters.FORGET_QUALITY_RELATIVE = (float) val;
     }
 
     public double getREVISION_MAX_OCCURRENCE_DISTANCE() {
