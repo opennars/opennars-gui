@@ -167,11 +167,11 @@ public class RuntimeNarSettings implements Plugin {
         n.narParameters.DEFAULT_QUEST_DURABILITY = (float) val;
     }
 
-    public double getQUALITY_RESCALED() {
-        return (double) n.narParameters.QUALITY_RESCALED;
+    public double getFORGET_QUALITY_RELATIVE() {
+        return (double) n.narParameters.FORGET_QUALITY_RELATIVE;
     }
-    public void setQUALITY_RESCALED(final double val) {
-        n.narParameters.QUALITY_RESCALED = (float) val;
+    public void setFORGET_QUALITY_RELATIVE(final double val) {
+        n.narParameters.FORGET_QUALITY_RELATIVE = (float) val;
     }
 
     public double getREVISION_MAX_OCCURRENCE_DISTANCE() {
@@ -320,6 +320,13 @@ public class RuntimeNarSettings implements Plugin {
     public void setANTICIPATION_TOLERANCE(final double val) {
         n.narParameters.ANTICIPATION_TOLERANCE = (float) val;
     }
+        
+    public boolean isRETROSPECTIVE_ANTICIPATIONS() {
+        return  n.narParameters.RETROSPECTIVE_ANTICIPATIONS;
+    }
+    public void setRETROSPECTIVE_ANTICIPATIONS(final boolean val) {
+        n.narParameters.RETROSPECTIVE_ANTICIPATIONS =  val;
+    }
 
     public double getSATISFACTION_TRESHOLD() {
         return (double) n.narParameters.SATISFACTION_TRESHOLD;
@@ -412,4 +419,24 @@ public class RuntimeNarSettings implements Plugin {
         n.narParameters.STEPS_CLOCK =  val;
     }
 
+    public double getVARIABLE_INTRODUCTION_COMBINATIONS_MAX() {
+        return (double) n.narParameters.VARIABLE_INTRODUCTION_COMBINATIONS_MAX;
+    }
+    public void setVARIABLE_INTRODUCTION_COMBINATIONS_MAX(final double val) {
+        n.narParameters.VARIABLE_INTRODUCTION_COMBINATIONS_MAX = (int) val;
+    }
+    
+    public double getVARIABLE_INTRODUCTION_CONFIDENCE_MUL() {
+        return (double) n.narParameters.VARIABLE_INTRODUCTION_CONFIDENCE_MUL;
+    }
+    public void setVARIABLE_INTRODUCTION_CONFIDENCE_MUL(final double val) {
+        n.narParameters.VARIABLE_INTRODUCTION_CONFIDENCE_MUL = (int) val;
+    }
+    
+    public double getANTICIPATIONS_PER_CONCEPT_MAX() {
+        return (double) n.narParameters.ANTICIPATIONS_PER_CONCEPT_MAX;
+    }
+    public void setANTICIPATIONS_PER_CONCEPT_MAX(final double val) {
+        n.narParameters.ANTICIPATIONS_PER_CONCEPT_MAX = (int) val;
+    }
 }
