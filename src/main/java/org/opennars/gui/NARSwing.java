@@ -140,7 +140,7 @@ public class NARSwing  {
         this.nar.addPlugin(new RuntimeNarSettings());
         controls = new NARControls(nar, this);    
         controls.setPreferredSize(new Dimension(200,10));
-        mainWindow = new NWindow(Nar.VERSION);
+        mainWindow = new NWindow(Nar.NAME + " " + Nar.VERSION);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setBounds(10, 10, 870, 650);
        
