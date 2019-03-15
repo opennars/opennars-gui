@@ -417,7 +417,7 @@ public class NARControls extends JPanel implements ActionListener, EventObserver
                     new MessageDialog(Nar.WEBSITE);
                     break;
                 case "About NARS":
-                    new MessageDialog(Nar.VERSION+"\n\n"+ Nar.WEBSITE);
+                    new MessageDialog(Nar.NAME + " " + Nar.VERSION+"\n\n"+ Nar.WEBSITE);
                     break;
             }
         }
