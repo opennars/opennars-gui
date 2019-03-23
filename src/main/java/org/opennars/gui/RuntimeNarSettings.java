@@ -430,7 +430,7 @@ public class RuntimeNarSettings implements Plugin {
         return (double) n.narParameters.VARIABLE_INTRODUCTION_CONFIDENCE_MUL;
     }
     public void setVARIABLE_INTRODUCTION_CONFIDENCE_MUL(final double val) {
-        n.narParameters.VARIABLE_INTRODUCTION_CONFIDENCE_MUL = (int) val;
+        n.narParameters.VARIABLE_INTRODUCTION_CONFIDENCE_MUL = (float) val;
     }
     
     public double getANTICIPATIONS_PER_CONCEPT_MAX() {
@@ -438,5 +438,12 @@ public class RuntimeNarSettings implements Plugin {
     }
     public void setANTICIPATIONS_PER_CONCEPT_MAX(final double val) {
         n.narParameters.ANTICIPATIONS_PER_CONCEPT_MAX = (int) val;
+    }
+    
+    public double getMOTOR_BABBLING_CONFIDENCE_THRESHOLD() {
+        return (double) n.narParameters.MOTOR_BABBLING_CONFIDENCE_THRESHOLD;
+    }
+    public void setMOTOR_BABBLING_CONFIDENCE_THRESHOLD(final double val) {
+        n.narParameters.MOTOR_BABBLING_CONFIDENCE_THRESHOLD = (float) val;
     }
 }
