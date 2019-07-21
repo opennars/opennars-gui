@@ -212,7 +212,7 @@ public class SentenceTablePanel extends TablePanel {
             TruthValue truth = s.truth;
             if (truth != null) {
                 freq = truth.getFrequency();
-                conf = truth.getConfidence();
+                conf = (float)truth.getConfidence();
             }
 
             Task pt = null; //t.getParentTask();

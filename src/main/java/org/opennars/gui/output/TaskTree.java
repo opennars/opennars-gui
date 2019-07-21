@@ -309,7 +309,7 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
             
             Color iColor;
             if (desire!=null) {
-                float confidence = t.sentence.truth.getConfidence();
+                float confidence = (float)t.sentence.truth.getConfidence();
                 iColor = new Color(0,confidence/1.5f,conPri/1.5f,0.75f + 0.25f * confidence);
             }        
             else {

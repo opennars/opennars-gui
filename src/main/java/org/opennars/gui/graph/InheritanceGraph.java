@@ -38,7 +38,7 @@ public class InheritanceGraph extends SentenceGraph {
     
     @Override
     public boolean allow(final Sentence s) {        
-        float conf = s.truth.getConfidence();
+        double conf = s.truth.getConfidence();
         return conf > minConfidence;
     }
 

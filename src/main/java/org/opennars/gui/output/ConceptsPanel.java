@@ -450,7 +450,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
                 
                 
                 float freq = s.getTruth().getFrequency();
-                float conf = s.getTruth().getConfidence();
+                float conf = (float)s.getTruth().getConfidence();
 
                 int y = (int)((1.0f - freq) * (this.h - thick));
                         
@@ -473,9 +473,9 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
     public static Color getColor(float freq, float conf, float factor, Parameters narParameters) {
         float ii = 0.25f + (factor * conf) * 0.75f;
         
-        float evidence = TruthFunctions.c2w(conf, narParameters);
-        float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, narParameters);
-        float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), narParameters);        
+        float evidence = (float)TruthFunctions.c2w(conf, narParameters);
+        float positive_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*freq, narParameters);
+        float negative_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*(1.0f-freq), narParameters);
         return new Color(positive_evidence_in_0_1,0.0f, negative_evidence_in_0_1, ii);
     }
     
@@ -495,7 +495,7 @@ public class ConceptsPanel extends NPanel implements EventObserver, Runnable {
             g.fillRect(0, 0, getWidth(), getHeight());
             for (Sentence s : i) {
                 float freq = s.getTruth().getFrequency();
-                float conf = s.getTruth().getConfidence();
+                float conf = (float)s.getTruth().getConfidence();
 
                 float factor = 1.0f;
                 if (s instanceof Sentence) {
