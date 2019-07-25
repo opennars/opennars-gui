@@ -206,18 +206,18 @@ public class SwingLogText extends SwingText  {
                 
                     TruthValue tv = s.truth;
                     if (tv!=null) {          
-                        float evidence = TruthFunctions.c2w(tv.getConfidence(), this.nar.narParameters);
-                        float pos_2 = tv.getConfidence()*tv.getFrequency();
-                        float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*tv.getFrequency(), this.nar.narParameters);
-                        float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-tv.getFrequency()), this.nar.narParameters);
+                        float evidence = (float)TruthFunctions.c2w(tv.getConfidence(), this.nar.narParameters);
+                        float pos_2 = (float)tv.getConfidence()*tv.getFrequency();
+                        float positive_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*tv.getFrequency(), this.nar.narParameters);
+                        float negative_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*(1.0f-tv.getFrequency()), this.nar.narParameters);
                         printColorBlock(LogPanel.getPositiveEvidenceColor(positive_evidence_in_0_1), "  ");
                         printColorBlock(LogPanel.getNegativeEvidenceColor(negative_evidence_in_0_1), "  ");                        
                     }
                     else if ( t.getBestSolution()!=null) {
-                        float evidence = TruthFunctions.c2w(t.getBestSolution().truth.getConfidence(), this.nar.narParameters);
-                        float pos_2 = t.getBestSolution().truth.getConfidence()*t.getBestSolution().truth.getFrequency();
-                        float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*t.getBestSolution().truth.getFrequency(), this.nar.narParameters);
-                        float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-t.getBestSolution().truth.getFrequency()), this.nar.narParameters);
+                        float evidence = (float)TruthFunctions.c2w(t.getBestSolution().truth.getConfidence(), this.nar.narParameters);
+                        float pos_2 = (float)t.getBestSolution().truth.getConfidence()*t.getBestSolution().truth.getFrequency();
+                        float positive_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*t.getBestSolution().truth.getFrequency(), this.nar.narParameters);
+                        float negative_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*(1.0f-t.getBestSolution().truth.getFrequency()), this.nar.narParameters);
                         //printColorBlock(LogPanel.getStatementColor('=', priority, t.getBestSolution().truth.get), "    ");
                         printColorBlock(LogPanel.getPositiveEvidenceColor(positive_evidence_in_0_1), "  ");
                         printColorBlock(LogPanel.getNegativeEvidenceColor(negative_evidence_in_0_1), "  ");  

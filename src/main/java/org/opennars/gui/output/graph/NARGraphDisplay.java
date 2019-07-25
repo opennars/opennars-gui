@@ -80,7 +80,7 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
         if (o instanceof Sentence) {
             Sentence kb = (Sentence) o;
             if (kb.truth!=null)  {            
-                float confidence = kb.truth.getConfidence();            
+                float confidence = (float)kb.truth.getConfidence();
                 alpha = 0.5f + 0.5f * confidence;
             }
         } else if (o instanceof Task) {
@@ -95,7 +95,7 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
             
             
             if (!co.beliefs.isEmpty()) {
-                float confidence = co.beliefs.get(0).sentence.truth.getConfidence();
+                float confidence = (float)co.beliefs.get(0).sentence.truth.getConfidence();
                 alpha = 0.5f + 0.5f * confidence;
             }
         }
@@ -122,12 +122,12 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
 
                 Task t = (Task) o;
                 if(t.sentence.truth!=null) {
-                    float conf = t.sentence.truth.getConfidence();
+                    float conf = (float)t.sentence.truth.getConfidence();
                     float freq = t.sentence.truth.getFrequency();
                     aa = 0.25f + conf * 0.75f;
-                    float evidence = TruthFunctions.c2w(conf, this.nar.narParameters);
-                    float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
-                    float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
+                    float evidence = (float)TruthFunctions.c2w(conf, this.nar.narParameters);
+                    float positive_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
+                    float negative_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
                     rr = positive_evidence_in_0_1;
                     bb = negative_evidence_in_0_1;
                     gg = 0.0f;
@@ -146,12 +146,12 @@ public class NARGraphDisplay<V,E> implements GraphDisplay<V,E> {
 
             if(conc.beliefs.size()>0) {
                 Sentence sent = conc.beliefs.get(0).sentence;
-                float conf = sent.truth.getConfidence();
+                float conf = (float)sent.truth.getConfidence();
                 float freq = sent.truth.getFrequency();
                 aa = 0.25f + conf * 0.75f;
-                float evidence = TruthFunctions.c2w(conf, this.nar.narParameters);
-                float positive_evidence_in_0_1 = TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
-                float negative_evidence_in_0_1 = TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
+                float evidence = (float)TruthFunctions.c2w(conf, this.nar.narParameters);
+                float positive_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*freq, this.nar.narParameters);
+                float negative_evidence_in_0_1 = (float)TruthFunctions.w2c(evidence*(1.0f-freq), this.nar.narParameters);
                 rr = positive_evidence_in_0_1;
                 bb = negative_evidence_in_0_1;
                 gg = 0.0f;
