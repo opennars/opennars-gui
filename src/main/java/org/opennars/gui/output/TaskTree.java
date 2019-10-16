@@ -171,7 +171,7 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
     
     /** get all tasks in the system by iterating all newTasks, novelTasks, Concept TaskLinks */
     //not part of Memory.java anymore as this is not something nars_core needs!
-    public Set<Task> getTasks(Memory mem, boolean includeTaskLinks, boolean includeNewTasks, boolean includeNovelTasks) {
+    public Set<Task> getTasks(Memory mem, boolean includeTaskLinks, boolean includeNovelTasks) {
         
         Set<Task> t = new HashSet();
         
@@ -183,8 +183,11 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
             }
         }
         
-        if (includeNewTasks)
-            t.addAll(mem.newTasks);
+        //if (includeNewTasks) {
+            //for(Task tt : mem.newTasks) {
+            //    t.add(tt);
+            //}
+        //}
         
         if (includeNovelTasks)
             for (Task n : mem.novelTasks)
@@ -196,7 +199,7 @@ public class TaskTree extends NPanel implements EventObserver, Runnable {
     public void update() {
         //TODO get existing Tasks at the next frame event by new method: memory.getTasks() which iterates all concepts tasklinks
         if (needsRestart) {
-            Set<Task> tasks = getTasks(nar.memory, true, false, false);
+            Set<Task> tasks = getTasks(nar.memory, true, false);
             for (Task t : tasks)
                 add(t);
         }
