@@ -16,8 +16,6 @@ package org.opennars.gui.output;
 
 import automenta.vivisect.face.HumanoidFacePanel;
 import org.opennars.main.Nar;
-import org.opennars.main.MiscFlags;
-
 
 
 public class NARFacePanel extends HumanoidFacePanel  {
